@@ -41,6 +41,7 @@ npm install --offline
 npm run build
 cd ..
 
+dotnet_version="9.0"
 
 if [ "${FLATPAK_ARCH}" == "x86_64" ]; then
   runtime="linux-x64"
@@ -65,10 +66,10 @@ fi
 cd "${OWD}"
 
 # Copy wwwroot
-mkdir -p Grayjay.Desktop.CEF/bin/Release/net8.0/$runtime/publish/wwwroot
-cp -r Grayjay.Desktop.Web/dist Grayjay.Desktop.CEF/bin/Release/net8.0/$runtime/publish/wwwroot/web
+mkdir -p Grayjay.Desktop.CEF/bin/Release/net$dotnet_version/$runtime/publish/wwwroot
+cp -r Grayjay.Desktop.Web/dist Grayjay.Desktop.CEF/bin/Release/net$dotnet_version/$runtime/publish/wwwroot/web
 
-cd Grayjay.Desktop.CEF/bin/Release/net8.0/$runtime/publish	
+cd Grayjay.Desktop.CEF/bin/Release/net$dotnet_version/$runtime/publish	
 
 chmod u=rwx Grayjay
 chmod u=rwx cef/dotcefnative
