@@ -104,7 +104,7 @@ def main():
 
 	parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
-	parser.add_argument('--upstream-url', help="the url to the upstream repository", default="https://gitlab.futo.org/videostreaming")
+	parser.add_argument('--upstream-url', help="the url to the upstream repository", default="https://gitlab.futo.org/videostreaming/thispartoftheurldoesntmatterbutneedstobehere")
 	parser.add_argument("--quiet", "-q", action="store_true", default=False, help="make output quieter"  )
 	parser.add_argument('--output', default=Path("submodule-sources.json"), help="the path to the file to write the final json to")
 	args = parser.parse_args()
