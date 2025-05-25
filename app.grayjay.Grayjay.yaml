@@ -58,8 +58,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        #branch: flatpak-v5
-        commit: 1eec0c1a7c7b6cc088b1ecdd4e6bf6afaba23f25
+        commit: 532bbc0f8d758e42693e20c4976ea874801bb475
         disable-submodules: true
         # x-checker-data:
         #   type: git
