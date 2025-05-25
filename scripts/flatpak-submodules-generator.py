@@ -63,7 +63,7 @@ def get_sha_for_submodule(submodule, progress=False):
 	response = requests.get(zip_url, stream=True)
 	if progress:
 		chunk_start_time = time.perf_counter()
-		total_length = int(response.headers.get('content-length'))
+		total_length = int(response.headers.get('content-length') or "0")
 		dl_total = 0
 		dl_chunk = 0
 		MEASUREMENT_INTERVAL_BYTES = 5 * 1024 * 1024 # 2 Mi bytes
@@ -99,7 +99,7 @@ def main():
 
 	parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
-	parser.add_argument('--upstream-url', help="the url to the upstream repository")
+	parser.add_argument('--upstream-url', help="the url to the upstream repository", default="https://gitlab.futo.org/videostreaming")
 	parser.add_argument("--quiet", "-q", action="store_true", default=False, help="make output quieter"  )
 	parser.add_argument('--output', default=Path("submodule-sources.json"), help="the path to the file to write the final json to")
 	args = parser.parse_args()
