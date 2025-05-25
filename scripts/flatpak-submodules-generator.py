@@ -78,10 +78,15 @@ def get_sha_for_submodule(submodule, progress=False):
 				if dl_chunk > MEASUREMENT_INTERVAL_BYTES:
 					chunk_elapsed = (time.perf_counter() - chunk_start_time)
 					
-					overall_progress = dl_total/total_length
+					if total_length > 0:
+						overall_fmt = "{:03.2%}"
+						overall_progress = overall_fmt.format(dl_total/total_length)
+					else:
+						overall_progress = "Unknown %"
 					# avg_speed = 
 					chunk_bytes_per_sec = dl_chunk/chunk_elapsed
-					print("\r {:03d} MiB/s ({:03.2%} complete)".format(int(chunk_bytes_per_sec/MEGABYTE), overall_progress), end="")
+					chunk_speed = int(chunk_bytes_per_sec/MEGABYTE)
+					print(f"\r {chunk_speed:03d} MiB/s ({overall_progress} complete)", end="")
 					dl_total += dl_chunk
 					dl_chunk = 0
 					chunk_start_time = time.perf_counter()
