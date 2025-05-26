@@ -47,7 +47,7 @@ def get_git_submodules(repo_path, repo_ref, upstream_url=None):
 		submodules.append({
 			"name": path.replace("/", "-"),
 			"url": url,
-			"commit": commit.lstrip("+-")  # Remove leading `+` or `-`
+			"commit": commit
 		})
 	return submodules
 
