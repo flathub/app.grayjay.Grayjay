@@ -12,17 +12,29 @@ from urllib.parse import urlparse
 import hashlib
 import time
 
+def parse_submodule_target_hashes(root):
+   # https://stackoverflow.com/questions/20655073/how-to-see-which-commit-a-git-submodule-points-at?rq=3
+    result = subprocess.run(["git", "-C", root, "ls-tree", "-r", "HEAD"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    tree = result.stdout.decode("utf-8").strip()
+    tree = tree.split("\n")
+
+    target_hashes = {}
+    for item in tree:
+        info, path = item.split("\t")
+        mode, obj_type, obj_hash = info.split(" ")
+        if obj_type == "commit":
+            target_hashes[path] = obj_hash
+    
+    return target_hashes
+
 def get_git_submodules(repo_path, upstream_url=None):
 	"""Retrieve submodule details from a Git repository."""
 	os.chdir(repo_path)
-	result = subprocess.run(["git", "submodule", "status"], capture_output=True, text=True, check=True)
 	submodules = []
+
+	target_hash_map = parse_submodule_target_hashes(".")
 	
-	for line in result.stdout.strip().split("\n"):
-		parts = line.strip().split()
-		if len(parts) < 2:
-			continue
-		commit, path = parts[:2]
+	for path, commit in target_hash_map.items():
 		url = subprocess.run(["git", "config", f"--file=.gitmodules", f"submodule.{path}.url"],
 							capture_output=True, text=True, check=True).stdout.strip()
 		if url.startswith("..") and upstream_url is not None:
