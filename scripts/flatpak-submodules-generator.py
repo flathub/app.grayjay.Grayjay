@@ -2,6 +2,14 @@
 
 # SPDX-License-Identifier: MIT
 
+# Requirements for use:
+# - a clone of the Grayjay.Desktop repository (no submodule checkout needed)
+
+# Usage: run `python3 ./scripts/flatpak-submodules-generator.py ./path/to/Grayjay.Desktop 6` (where 6 is the git ref to use, in this case the version 6 tag, defaults to HEAD)
+
+# Behavior: This script will calculate the intended target version of each submodule, download that submodule from GitLab as a zip, calculate its hash, and generate the submodule-sources.json file for the flatpak build
+
+
 import os
 import json
 import subprocess
