@@ -61,11 +61,11 @@ modules:
         #branch: flatpak-v5
         commit: 9cf3afc4d74ad52d0e434b07f201431280add789
         disable-submodules: true
-        x-checker-data:
-          type: git
-          url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags
-          tag-pattern: ^([\d]+)$
-          is-main-source: true
+        # x-checker-data:
+        #   type: git
+        #   url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags
+        #   tag-pattern: ^([\d]+)$
+        #   is-main-source: true
       - submodule-sources.json
 
       - type: file
