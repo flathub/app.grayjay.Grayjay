@@ -12,9 +12,9 @@ from urllib.parse import urlparse
 import hashlib
 import time
 
-def parse_submodule_target_hashes(root):
+def parse_submodule_target_hashes(root, ref):
    # https://stackoverflow.com/questions/20655073/how-to-see-which-commit-a-git-submodule-points-at?rq=3
-    result = subprocess.run(["git", "-C", root, "ls-tree", "-r", "HEAD"], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    result = subprocess.run(["git", "-C", root, "ls-tree", "-r", ref], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     tree = result.stdout.decode("utf-8").strip()
     tree = tree.split("\n")
 
@@ -27,12 +27,12 @@ def parse_submodule_target_hashes(root):
     
     return target_hashes
 
-def get_git_submodules(repo_path, upstream_url=None):
+def get_git_submodules(repo_path, repo_ref, upstream_url=None):
 	"""Retrieve submodule details from a Git repository."""
 	os.chdir(repo_path)
 	submodules = []
 
-	target_hash_map = parse_submodule_target_hashes(".")
+	target_hash_map = parse_submodule_target_hashes(repo_path, repo_ref)
 	
 	for path, commit in target_hash_map.items():
 		url = subprocess.run(["git", "config", f"--file=.gitmodules", f"submodule.{path}.url"],
@@ -116,19 +116,23 @@ def main():
 
 	parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
+	parser.add_argument('repopath', help="the path to the repository to extract", default=".")
+
+	parser.add_argument('repoversion', help="the git ref to use when extracting", default="HEAD")
+
 	parser.add_argument('--upstream-url', help="the url to the upstream repository", default="https://gitlab.futo.org/videostreaming/thispartoftheurldoesntmatterbutneedstobehere")
 	parser.add_argument("--quiet", "-q", action="store_true", default=False, help="make output quieter"  )
 	parser.add_argument('--output', default=Path("submodule-sources.json"), help="the path to the file to write the final json to")
 	args = parser.parse_args()
 
-	repo_path = Path().resolve()
+	repo_path = Path(args.repopath).resolve()
 
 	if not (repo_path / ".gitmodules").exists():
 		print("No .gitmodules file found.")
 		generate_flatpak_sources([], Path(args.output))
 		return
 
-	submodules = get_git_submodules(repo_path, args.upstream_url)
+	submodules = get_git_submodules(repo_path, args.repoversion, args.upstream_url)
 
 	for submodule in submodules:
 		sha = get_sha_for_submodule(submodule, progress=not args.quiet)
