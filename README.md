@@ -1,4 +1,4 @@
-# Grayjay Desktop Flatpak (unofficial)
+# Grayjay Desktop Flatpak
 
 This is a flatpak for Grayjay Desktop. Please help test and report any issues you find.
 
