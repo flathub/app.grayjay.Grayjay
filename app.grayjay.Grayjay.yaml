@@ -59,7 +59,7 @@ modules:
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
         #branch: flatpak-v5
-        commit: 3c5a5307184e692fb065d00dcb98d88d6ed33440
+        commit: 1eec0c1a7c7b6cc088b1ecdd4e6bf6afaba23f25
         disable-submodules: true
         # x-checker-data:
         #   type: git
