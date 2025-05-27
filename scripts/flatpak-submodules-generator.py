@@ -2,6 +2,14 @@
 
 # SPDX-License-Identifier: MIT
 
+# Requirements for use:
+# - a clone of the Grayjay.Desktop repository (no submodule checkout needed)
+
+# Usage: run `python3 ./scripts/flatpak-submodules-generator.py ./path/to/Grayjay.Desktop 6` (where 6 is the git ref to use, in this case the version 6 tag, defaults to HEAD)
+
+# Behavior: This script will calculate the intended target version of each submodule, download that submodule from GitLab as a zip, calculate its hash, and generate the submodule-sources.json file for the flatpak build
+
+
 import os
 import json
 import subprocess
@@ -12,17 +20,29 @@ from urllib.parse import urlparse
 import hashlib
 import time
 
-def get_git_submodules(repo_path, upstream_url=None):
+def parse_submodule_target_hashes(root, ref):
+   # https://stackoverflow.com/questions/20655073/how-to-see-which-commit-a-git-submodule-points-at?rq=3
+    result = subprocess.run(["git", "-C", root, "ls-tree", "-r", ref], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
+    tree = result.stdout.decode("utf-8").strip()
+    tree = tree.split("\n")
+
+    target_hashes = {}
+    for item in tree:
+        info, path = item.split("\t")
+        mode, obj_type, obj_hash = info.split(" ")
+        if obj_type == "commit":
+            target_hashes[path] = obj_hash
+    
+    return target_hashes
+
+def get_git_submodules(repo_path, repo_ref, upstream_url=None):
 	"""Retrieve submodule details from a Git repository."""
 	os.chdir(repo_path)
-	result = subprocess.run(["git", "submodule", "status"], capture_output=True, text=True, check=True)
 	submodules = []
+
+	target_hash_map = parse_submodule_target_hashes(repo_path, repo_ref)
 	
-	for line in result.stdout.strip().split("\n"):
-		parts = line.strip().split()
-		if len(parts) < 2:
-			continue
-		commit, path = parts[:2]
+	for path, commit in target_hash_map.items():
 		url = subprocess.run(["git", "config", f"--file=.gitmodules", f"submodule.{path}.url"],
 							capture_output=True, text=True, check=True).stdout.strip()
 		if url.startswith("..") and upstream_url is not None:
@@ -35,7 +55,7 @@ def get_git_submodules(repo_path, upstream_url=None):
 		submodules.append({
 			"name": path.replace("/", "-"),
 			"url": url,
-			"commit": commit.lstrip("+-")  # Remove leading `+` or `-`
+			"commit": commit
 		})
 	return submodules
 
@@ -63,7 +83,7 @@ def get_sha_for_submodule(submodule, progress=False):
 	response = requests.get(zip_url, stream=True)
 	if progress:
 		chunk_start_time = time.perf_counter()
-		total_length = int(response.headers.get('content-length'))
+		total_length = int(response.headers.get('content-length') or "0")
 		dl_total = 0
 		dl_chunk = 0
 		MEASUREMENT_INTERVAL_BYTES = 5 * 1024 * 1024 # 2 Mi bytes
@@ -78,10 +98,15 @@ def get_sha_for_submodule(submodule, progress=False):
 				if dl_chunk > MEASUREMENT_INTERVAL_BYTES:
 					chunk_elapsed = (time.perf_counter() - chunk_start_time)
 					
-					overall_progress = dl_total/total_length
+					if total_length > 0:
+						overall_fmt = "{:03.2%}"
+						overall_progress = overall_fmt.format(dl_total/total_length)
+					else:
+						overall_progress = f"Unknown % {(dl_total/MEGABYTE):5.2d} MiB downloaded"
 					# avg_speed = 
 					chunk_bytes_per_sec = dl_chunk/chunk_elapsed
-					print("\r {:03d} MiB/s ({:03.2%} complete)".format(int(chunk_bytes_per_sec/MEGABYTE), overall_progress), end="")
+					chunk_speed = int(chunk_bytes_per_sec/MEGABYTE)
+					print(f"\r {chunk_speed:03d} MiB/s ({overall_progress} complete)", end="")
 					dl_total += dl_chunk
 					dl_chunk = 0
 					chunk_start_time = time.perf_counter()
@@ -99,19 +124,23 @@ def main():
 
 	parser = argparse.ArgumentParser(fromfile_prefix_chars='@')
 
-	parser.add_argument('--upstream-url', help="the url to the upstream repository")
+	parser.add_argument('repopath', help="the path to the repository to extract", default=".")
+
+	parser.add_argument('repoversion', help="the git ref to use when extracting", default="HEAD")
+
+	parser.add_argument('--upstream-url', help="the url to the upstream repository", default="https://gitlab.futo.org/videostreaming/thispartoftheurldoesntmatterbutneedstobehere")
 	parser.add_argument("--quiet", "-q", action="store_true", default=False, help="make output quieter"  )
 	parser.add_argument('--output', default=Path("submodule-sources.json"), help="the path to the file to write the final json to")
 	args = parser.parse_args()
 
-	repo_path = Path().resolve()
+	repo_path = Path(args.repopath).resolve()
 
 	if not (repo_path / ".gitmodules").exists():
 		print("No .gitmodules file found.")
 		generate_flatpak_sources([], Path(args.output))
 		return
 
-	submodules = get_git_submodules(repo_path, args.upstream_url)
+	submodules = get_git_submodules(repo_path, args.repoversion, args.upstream_url)
 
 	for submodule in submodules:
 		sha = get_sha_for_submodule(submodule, progress=not args.quiet)
