@@ -24,9 +24,11 @@ prep-npm:
 # this expects to be run in a full clone of the grayjay desktop repo tree checked out on the host machine at ../Grayjay.Desktop
 # also, do not set the runtimes here. It creates missing dependencies that need to be looked into (something weird with macos and windows dependencies probably being mislabeled for linux or something)
 prep-nuget:
-	git -C ../Grayjay.Desktop checkout  $(yq -r .modules[1].sources[0].commit app.grayjay.Grayjay.yaml)  && git -C ../Grayjay.Desktop submodule  update
-	python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json ../Grayjay.Desktop/Grayjay.Desktop.CEF/Grayjay.Desktop.CEF.csproj --freedesktop 24.08 --dotnet 8
+	# git -C ../Grayjay.Desktop checkout  $(yq -r .modules[1].sources[0].commit app.grayjay.Grayjay.yaml)  && git -C ../Grayjay.Desktop submodule  update
+	python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 8
 
 lint:
 	flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest ./app.grayjay.Grayjay.yaml
 	flatpak run --command=flatpak-builder-lint org.flatpak.Builder repo repo
+
+release: prep-npm prep-nuget lint build-sandbox
