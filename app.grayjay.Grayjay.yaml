@@ -76,4 +76,3 @@ modules:
       - npm-sources.json
 
       - nuget-sources.json
-      - nuget-sources-syncsever.json
