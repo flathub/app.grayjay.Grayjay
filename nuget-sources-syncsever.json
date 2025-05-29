@@ -1,0 +1,23 @@
+[
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.ilcompiler/9.0.4/microsoft.dotnet.ilcompiler.9.0.4.nupkg",
+        "sha512": "95c5146525e8d8b96d9b0c061a0bb12dbfe76d5e7dde9c4f7cc019bb692150454f0c895a89b1a1a680de737d74991ce650f68007a616e530a2c1754c933bcbdd",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.dotnet.ilcompiler.9.0.4.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.illink.tasks/9.0.4/microsoft.net.illink.tasks.9.0.4.nupkg",
+        "sha512": "338a9a98b8c9898903242812b8cce8e1f4a93a44d53f51973a8ae74636fd85733a810db5929b0238399037828be767499d40d643f89a75e3037d86dc9d147d05",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.net.illink.tasks.9.0.4.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-x64.microsoft.dotnet.ilcompiler/9.0.4/runtime.linux-x64.microsoft.dotnet.ilcompiler.9.0.4.nupkg",
+        "sha512": "44938970c7f87278c27446190e3adb741d66ce8de543910ee69c7f87ffd8c388607c2082e28dcb957663c06b3d4eb8718c22cecaf2c351368bee18a2c07bbdf2",
+        "dest": "nuget-sources",
+        "dest-filename": "runtime.linux-x64.microsoft.dotnet.ilcompiler.9.0.4.nupkg"
+    }
+]

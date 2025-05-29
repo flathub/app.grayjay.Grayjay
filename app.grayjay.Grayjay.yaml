@@ -15,18 +15,18 @@ finish-args:
   - --own-name=org.mpris.MediaPlayer2.chromium.*
   - --talk-name=org.freedesktop.ScreenSaver
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.dotnet8
+  - org.freedesktop.Sdk.Extension.dotnet9
   - org.freedesktop.Sdk.Extension.node22
 build-options:
-  prepend-path: /usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
-  prefix: /usr/lib/sdk/dotnet8
-  append-ld-library-path: /usr/lib/sdk/dotnet8/lib
-  prepend-pkg-config-path: /usr/lib/sdk/dotnet8/lib/pkgconfig
+  prepend-path: /usr/lib/sdk/dotnet9/bin:/usr/lib/sdk/node22/bin
+  prefix: /usr/lib/sdk/dotnet9
+  append-ld-library-path: /usr/lib/sdk/dotnet9/lib
+  prepend-pkg-config-path: /usr/lib/sdk/dotnet9/lib/pkgconfig
 modules:
   - name: dotnet
     buildsystem: simple
     build-commands:
-    - /usr/lib/sdk/dotnet8/bin/install.sh
+    - /usr/lib/sdk/dotnet9/bin/install.sh
   - name: grayjay
     buildsystem: simple
     build-options:
@@ -39,7 +39,7 @@ modules:
         npm_config_cache: ${FLATPAK_BUILDER_BUILDDIR}/flatpak-node/npm-cache
     build-commands:
       - mkdir -p ${FLATPAK_DEST}/grayjay
-      - ./deploy_flatpak.sh 5 "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
+      - ./deploy_flatpak.sh 6 "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
       - dotnet nuget locals all --clear
       - install -Dm 0644 app.grayjay.Grayjay.desktop ${FLATPAK_DEST}/share/applications/app.grayjay.Grayjay.desktop
       - install -Dm 0644 app.grayjay.Grayjay.metainfo.xml  ${FLATPAK_DEST}/share/metainfo/app.grayjay.Grayjay.metainfo.xml
@@ -58,8 +58,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        #branch: flatpak-v5
-        commit: 1eec0c1a7c7b6cc088b1ecdd4e6bf6afaba23f25
+        commit: a08fec17e82af352eb2ffb03b0410103075576cb
         disable-submodules: true
         # x-checker-data:
         #   type: git
@@ -68,9 +67,13 @@ modules:
         #   is-main-source: true
       - submodule-sources.json
 
+      - type: patch
+        path: patches/fix-iconpath.patch
+
       - type: file
         path: deploy_flatpak.sh
 
       - npm-sources.json
 
       - nuget-sources.json
+      - nuget-sources-syncsever.json
