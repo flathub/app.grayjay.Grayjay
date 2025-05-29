@@ -67,6 +67,9 @@ modules:
         #   is-main-source: true
       - submodule-sources.json
 
+      - type: patch
+        path: patches/fix-iconpath.patch
+
       - type: file
         path: deploy_flatpak.sh
 
