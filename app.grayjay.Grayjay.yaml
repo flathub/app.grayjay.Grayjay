@@ -75,5 +75,4 @@ modules:
 
       - npm-sources.json
 
-      - nuget-sources-x86.json
-      - nuget-sources-arm.json
+      - nuget-sources.json
