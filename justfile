@@ -25,7 +25,8 @@ prep-npm:
 # also, do not set the runtimes here. It creates missing dependencies that need to be looked into (something weird with macos and windows dependencies probably being mislabeled for linux or something)
 prep-nuget:
 	# git -C ../Grayjay.Desktop checkout  $(yq -r .modules[1].sources[0].commit app.grayjay.Grayjay.yaml)  && git -C ../Grayjay.Desktop submodule  update
-	python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 9
+	python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-x86.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 9 -r linux-x64
+	python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-arm.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 9 -r linux-arm64
 
 lint:
 	flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest ./app.grayjay.Grayjay.yaml
