@@ -59,7 +59,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: a08fec17e82af352eb2ffb03b0410103075576cb
+        commit: 65f936305f7060353ca0030dbb7c738395e1504a
         disable-submodules: true
         # x-checker-data:
         #   type: git
