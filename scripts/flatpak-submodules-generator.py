@@ -140,17 +140,11 @@ def get_git_submodules(repo_path, repo_ref, upstream_url=None):
 	return submodules
 
 
-def generate_flatpak_sources(submodules, output_file):
+def generate_flatpak_sources(sources, output_file):
 	"""Generate a Flatpak sources JSON file from the submodule list."""
-	sources = []
 	
-	for submodule in submodules:
-
-		sources.append(Source.from_submodule(submodule))
-		
-		
 	with open(output_file, "w") as f:
-		json.dump(sources, f, indent=4)
+		json.dump([s.to_json() for s in sources], f, indent=4)
 	print(f"Flatpak sources JSON saved to {output_file}")
 
 def get_sha_for_submodule(submodule, progress=False):
@@ -212,13 +206,28 @@ def main():
 		generate_flatpak_sources([], Path(args.output))
 		return
 
+	# map of the git commit SHA of each submodule to its Source object
+	# for easy lookups of things that havent changed
+	existing_source_map = {}
+		
+	if Path(args.output).resolve().exists():
+		# read existing ones and skip any
+		for j in json.loads(Path(args.output).read_text(encoding='utf8')):
+			src = Source.from_json(j)
+			sub = src.to_submodule()
+			existing_source_map[sub.commit] = src
+
 	submodules = get_git_submodules(repo_path, args.repoversion, args.upstream_url)
-
+	sources = []
 	for submodule in submodules:
-		sha = get_sha_for_submodule(submodule, progress=not args.quiet)
-		submodule["filesha"] = sha
+		existing_source = existing_source_map.get(submodule.commit)
+		if existing_source is not None:
+			print(f"Hash for {submodule.name} unchanged.")
+			sources.append(existing_source)
+			continue
+		sources.append(Source.from_submodule(submodule))
 
-	generate_flatpak_sources(submodules, Path(args.output))
+	generate_flatpak_sources(sources, Path(args.output))
 
 if __name__ == "__main__":
 	main()
