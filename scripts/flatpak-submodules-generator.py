@@ -118,14 +118,13 @@ def parse_submodule_target_hashes(root, ref):
 
 def get_git_submodules(repo_path, repo_ref, upstream_url=None):
 	"""Retrieve submodule details from a Git repository."""
-	os.chdir(repo_path)
 	submodules = []
 
 	target_hash_map = parse_submodule_target_hashes(repo_path, repo_ref)
 	
 	for path, commit in target_hash_map.items():
 		url = subprocess.run(["git", "config", f"--file=.gitmodules", f"submodule.{path}.url"],
-							capture_output=True, text=True, check=True).stdout.strip()
+							capture_output=True, text=True, check=True, cwd=repo_path).stdout.strip()
 		if url.startswith("..") and upstream_url is not None:
 			urlparsed = urlparse(upstream_url)
 			# this is unconventional, but it works
