@@ -172,7 +172,7 @@ def get_sha_for_submodule(submodule, progress=False):
 						overall_fmt = "{:03.2%}"
 						overall_progress = overall_fmt.format(dl_total/total_length)
 					else:
-						overall_progress = f"Unknown % {(dl_total/MEGABYTE):5.2d} MiB downloaded"
+						overall_progress = f"Unknown % {(dl_total/MEGABYTE):5.2f} MiB downloaded"
 					# avg_speed = 
 					chunk_bytes_per_sec = dl_chunk/chunk_elapsed
 					chunk_speed = int(chunk_bytes_per_sec/MEGABYTE)
