@@ -19,6 +19,87 @@ import argparse
 from urllib.parse import urlparse
 import hashlib
 import time
+from dataclasses import dataclass
+
+@dataclass
+class Submodule:
+	name: str
+	url: str
+	commit: str
+
+	def to_json(self):
+		return {
+			"name": self.name,
+			"url": self.url,
+			"commit": self.commit
+		}
+
+	@classmethod
+	def from_url(cls, zip_url:str):
+		# Remove the .zip suffix and split by '/'
+		parts = []
+
+		if not zip_url.endswith(".zip"):
+			parts = zip_url.split("/")
+		else:
+			parts = zip_url[:-4].split("/")
+
+		# We're expecting: ... /-/archive/<commit>/<name>
+		if len(parts) < 4 or parts[-4] != "-":
+			raise ValueError("Unexpected archive URL format")
+
+		name = parts[-1]
+		commit = parts[-2]
+		base_url = "/".join(parts[:-4])
+
+		original_git_url = f"{base_url}.git"
+		return cls(name, original_git_url, commit)
+
+	@property
+	def zip_url(self):
+		url = self.url
+		if url.endswith("/"):
+			url = url[:-1]
+		if url.endswith(".git"):
+			url = url[:-4]
+		return f"{url}/-/archive/{self.commit}/{self.name}.zip"
+
+@dataclass
+class Source:
+	url: str
+	sha256: str
+	dest: str
+
+	@classmethod
+	def from_submodule(cls, submodule:Submodule, quiet=False):
+		sha = get_sha_for_submodule(submodule, progress=not quiet)
+	
+		return cls(
+			submodule.zip_url,
+			sha,
+			submodule.name,
+		)
+
+	def to_submodule(self):
+		return Submodule.from_url(self.url)
+
+	@classmethod
+	def from_json(cls, data:dict):
+		return cls(
+			data.get("url"),
+			data.get("sha256"),
+			data.get("dest")
+		)
+
+	def to_json(self):
+		return {
+			"type": "archive",
+			"url": self.url,
+			"sha256": self.sha256,
+			"dest": self.dest
+
+		}
+
 
 def parse_submodule_target_hashes(root, ref):
    # https://stackoverflow.com/questions/20655073/how-to-see-which-commit-a-git-submodule-points-at?rq=3
@@ -52,11 +133,11 @@ def get_git_submodules(repo_path, repo_ref, upstream_url=None):
 
 			url = urlparsed._replace(path=str(modified_url_path)).geturl()
 
-		submodules.append({
-			"name": path.replace("/", "-"),
-			"url": url,
-			"commit": commit
-		})
+		submodules.append(Submodule(
+			path.replace("/", "-"),
+			url,
+			commit
+		))
 	return submodules
 
 
@@ -65,20 +146,16 @@ def generate_flatpak_sources(submodules, output_file):
 	sources = []
 	
 	for submodule in submodules:
-		sources.append({
-			"type": "archive",
-			"url": transform_url_for_zip_download(submodule["url"], submodule["commit"], submodule["name"]),
-			"sha256": submodule["filesha"],
-			# "commit": submodule["commit"],
-			"dest": submodule["name"]
-		})
-	
+
+		sources.append(Source.from_submodule(submodule))
+		
+		
 	with open(output_file, "w") as f:
 		json.dump(sources, f, indent=4)
 	print(f"Flatpak sources JSON saved to {output_file}")
 
 def get_sha_for_submodule(submodule, progress=False):
-	zip_url = transform_url_for_zip_download(submodule["url"], submodule["commit"], submodule["name"])
+	zip_url = submodule.zip_url
 	print(f"Downloading and hashing {zip_url}...")
 	response = requests.get(zip_url, stream=True)
 	if progress:
@@ -111,14 +188,10 @@ def get_sha_for_submodule(submodule, progress=False):
 					dl_chunk = 0
 					chunk_start_time = time.perf_counter()
 		
-	return sha256.hexdigest()
+	return sha256.hexdigest()    
 
-def transform_url_for_zip_download(url, commit, name):
-	if url.endswith("/"):
-		url = url[:-1]
-	if url.endswith(".git"):
-		url = url[:-4]
-	return f"{url}/-/archive/{commit}/{name}.zip"
+
+
 
 def main():
 
