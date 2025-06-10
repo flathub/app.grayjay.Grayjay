@@ -12,23 +12,19 @@
 # rather than trying to continue. See: https://stackoverflow.com/a/1379904/
 set -e
 
-if [[ "$1" != "" ]]; then
-   version="$1"
-else
-   echo -n "Version:"
-   read version
-fi
 
-if [[ "$2" != "" ]]; then
-  destination="$2"
+version=$(cat Grayjay.ClientServer/AppVersion.json | jq '.Version')
+
+if [[ "$1" != "" ]]; then
+  destination="$1"
 else
   echo -n "Install Destination:"
   read destination
 fi
 
 packagecache=""
-if [[ "$3" != "" ]]; then
-  packagecache="$3"
+if [[ "$2" != "" ]]; then
+  packagecache="$2"
 fi
 
 echo "$packagecache"
