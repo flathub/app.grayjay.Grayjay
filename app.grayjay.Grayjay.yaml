@@ -3,11 +3,12 @@ runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 
-command: Grayjay
+command: run.sh
 finish-args:
   - --share=network
   - --socket=pulseaudio
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --share=ipc
   - --device=dri
   - --filesystem=xdg-download
@@ -53,6 +54,7 @@ modules:
       - rm ${FLATPAK_DEST}/grayjay/Portable # https://github.com/futo-org/Grayjay.Desktop/issues/14#issuecomment-2692940623
       - rm ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client
       - ln -s "${FLATPAK_DEST}/grayjay/Grayjay" "${FLATPAK_DEST}/bin/Grayjay" 
+      - install run.sh /app/bin/
 
     sources:
       - type: git
@@ -70,6 +72,12 @@ modules:
 
       - type: file
         path: deploy_flatpak.sh
+
+      - type: patch
+        path: patches/disable-use-native.patch
+
+      - type: file
+        path: run.sh
 
       - npm-sources.json
 
