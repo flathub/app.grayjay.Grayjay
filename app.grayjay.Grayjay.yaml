@@ -74,6 +74,9 @@ modules:
       - type: patch
         path: patches/v9.patch
 
+      - type: patch
+        path: patches/disable-use-native.patch
+
       - npm-sources.json
 
       - nuget-sources.json
