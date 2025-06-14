@@ -71,6 +71,9 @@ modules:
       - type: file
         path: deploy_flatpak.sh
 
+      - type: patch
+        path: patches/disable-use-native.patch
+
       - npm-sources.json
 
       - nuget-sources.json
