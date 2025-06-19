@@ -14,6 +14,8 @@ finish-args:
   - --filesystem=xdg-download
   - --own-name=org.mpris.MediaPlayer2.chromium.*
   - --talk-name=org.freedesktop.ScreenSaver
+environment:
+  - XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet9
   - org.freedesktop.Sdk.Extension.node22
