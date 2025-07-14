@@ -1,0 +1,10 @@
+diff --git a/app.grayjay.Grayjay.desktop b/app.grayjay.Grayjay.desktop
+index 6788308..339b966 100644
+--- a/app.grayjay.Grayjay.desktop
++++ b/app.grayjay.Grayjay.desktop
+@@ -8,4 +8,5 @@ Categories=AudioVideo;Player;
+ 
+ Icon=app.grayjay.Grayjay
+ Exec=Grayjay
++StartupWMClass=cef
+ Terminal=false
