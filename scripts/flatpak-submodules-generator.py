@@ -109,6 +109,8 @@ def parse_submodule_target_hashes(root, ref):
 
     target_hashes = {}
     for item in tree:
+        if not '\t' in item:
+            continue
         info, path = item.split("\t")
         mode, obj_type, obj_hash = info.split(" ")
         if obj_type == "commit":
