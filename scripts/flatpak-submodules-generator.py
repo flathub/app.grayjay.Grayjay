@@ -27,7 +27,7 @@ class Submodule:
 	url: str
 	commit: str
 
-	def to_json(self):
+	def to_json(self) -> dict:
 		return {
 			"name": self.name,
 			"url": self.url,
@@ -56,7 +56,7 @@ class Submodule:
 		return cls(name, original_git_url, commit)
 
 	@property
-	def zip_url(self):
+	def zip_url(self) -> str:
 		url = self.url
 		if url.endswith("/"):
 			url = url[:-1]
@@ -80,7 +80,7 @@ class Source:
 			submodule.name,
 		)
 
-	def to_submodule(self):
+	def to_submodule(self) -> Submodule:
 		sub = Submodule.from_url(self.url)
 		if sub.name != self.dest:
 			sub.name = self.dest
@@ -94,7 +94,7 @@ class Source:
 			data.get("dest")
 		)
 
-	def to_json(self):
+	def to_json(self) -> dict:
 		return {
 			"type": "archive",
 			"url": self.url,
@@ -104,7 +104,7 @@ class Source:
 		}
 
 
-def parse_submodule_target_hashes(root, ref):
+def parse_submodule_target_hashes(root, ref) -> dict:
    # https://stackoverflow.com/questions/20655073/how-to-see-which-commit-a-git-submodule-points-at?rq=3
     result = subprocess.run(["git", "-C", root, "ls-tree", "-r", ref], stdout=subprocess.PIPE, stderr=subprocess.DEVNULL)
     tree = result.stdout.decode("utf-8").strip()
@@ -121,7 +121,7 @@ def parse_submodule_target_hashes(root, ref):
     
     return target_hashes
 
-def get_git_submodules(repo_path, repo_ref, upstream_url=None):
+def get_git_submodules(repo_path, repo_ref, upstream_url=None) -> list[Submodule]:
 	"""Retrieve submodule details from a Git repository."""
 	submodules = []
 
@@ -145,7 +145,7 @@ def get_git_submodules(repo_path, repo_ref, upstream_url=None):
 	return submodules
 
 
-def generate_flatpak_sources(sources, output_file, existing_source_map=None):
+def generate_flatpak_sources(sources, output_file, existing_source_map=None) -> None:
 	"""Generate a Flatpak sources JSON file from the submodule list."""
 	if existing_source_map is not None:
 		existing_sources = existing_source_map.values()
@@ -163,7 +163,7 @@ def generate_flatpak_sources(sources, output_file, existing_source_map=None):
 		json.dump([s.to_json() for s in sources], f, indent=4)
 	print(f"Flatpak sources JSON saved to {output_file}")
 
-def get_sha_for_submodule(submodule, progress=False):
+def get_sha_for_submodule(submodule, progress=False) -> str:
 	zip_url = submodule.zip_url
 	print(f"Downloading and hashing {zip_url}...")
 	response = requests.get(zip_url, stream=True)
@@ -197,7 +197,7 @@ def get_sha_for_submodule(submodule, progress=False):
 					dl_chunk = 0
 					chunk_start_time = time.perf_counter()
 		
-	return sha256.hexdigest()    
+	return sha256.hexdigest()
 
 
 def get_all_sources(repo_path, repo_version, upstream_url, existing_source_map) -> list[Source]:
