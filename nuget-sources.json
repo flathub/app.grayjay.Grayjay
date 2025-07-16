@@ -225,13 +225,6 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.clearscript.v8.native.win-x64/7.4.3/microsoft.clearscript.v8.native.win-x64.7.4.3.nupkg",
-        "sha512": "abe64a398d76a31984e170129251805f8878b83945ed7856c3631ac266ded2a44c1a39a9a1f61d6d8e1a7a9a2e296eb66a145a9631fd492da86806674b933be7",
-        "dest": "nuget-sources",
-        "dest-filename": "microsoft.clearscript.v8.native.win-x64.7.4.3.nupkg"
-    },
-    {
-        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/microsoft.clearscript.v8.native.win-x64/7.4.5/microsoft.clearscript.v8.native.win-x64.7.4.5.nupkg",
         "sha512": "98f13d756a1c65d782a74aaab1f7ad1a1ceee5926804ec605dc0d53be4e64a018d72de6dbdb110fa7991bc82618d0ea31aa5b2cfe44984fba5e307d3f85a38cd",
         "dest": "nuget-sources",
