@@ -191,7 +191,7 @@ def get_all_sources(repo_path, repo_version, upstream_url, existing_source_map) 
 	submodules = get_git_submodules(repo_path, repo_version, upstream_url)
 	sources = []
 	for submodule in submodules:
-		existing_source = existing_source_map.get(submodule.commit)
+		existing_source = existing_source_map.get((submodule.commit, submodule.name))
 		if existing_source is not None:
 			print(f"Hash for {submodule.name} unchanged.")
 			sources.append(existing_source)
@@ -231,7 +231,7 @@ def main():
 		for j in json.loads(Path(args.output).read_text(encoding='utf8')):
 			src = Source.from_json(j)
 			sub = src.to_submodule()
-			existing_source_map[sub.commit] = src
+			existing_source_map[(sub.commit, sub.name)] = src
 
 	sources = get_all_sources(repo_path, args.repoversion, args.upstream_url, existing_source_map)
 
