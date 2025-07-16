@@ -81,7 +81,10 @@ class Source:
 		)
 
 	def to_submodule(self):
-		return Submodule.from_url(self.url)
+		sub = Submodule.from_url(self.url)
+		if sub.name != self.dest:
+			sub.name = self.dest
+		return sub
 
 	@classmethod
 	def from_json(cls, data:dict):
