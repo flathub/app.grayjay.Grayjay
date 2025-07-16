@@ -191,7 +191,6 @@ def get_all_sources(repo_path, repo_version, upstream_url, existing_source_map) 
 	submodules = get_git_submodules(repo_path, repo_version, upstream_url)
 	sources = []
 	for submodule in submodules:
-		print(submodule)
 		existing_source = existing_source_map.get(submodule.commit)
 		if existing_source is not None:
 			print(f"Hash for {submodule.name} unchanged.")
