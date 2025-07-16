@@ -17,7 +17,9 @@ When new grayjay tags come out, here are, at a minimum, the things that should h
 Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recommended to set `GIT_LFS_SKIP_SMUDGE=1` in your environment variables or otherwise disable git LFS when doing git operations if you dont want to download 6 GB of prebuilt libcef stuff. Cloning the submodules (or running `git submodule update --init` after cloning) will likely be helpful.
 
 
-1. Verify the metadata has been updated in the main grayjay repo (mostly screenshots, but also release version numbers/dates/changelogs, and any store descriptions that need updating)
+1. Verify the metadata has been updated in the main grayjay repo. This includes:
+   - release version numbers/dates/changelogs have been added for the current version, and any store descriptions or screenshots that need updating for this release have been done
+   - verifying that the `Grayjay.ClientServer/AppVersion.json` file reflects the correct version as this is used for the builds and will show up in the app interface.
 2. Ensure that the `commit` value of the first source under the `grayjay` module in `./app.grayjay.Grayjay.yaml` has been updated to the commit hash corresponding to the git tag (or hotfix commit) you want to release.
 3. Run `python3 ./scripts/flatpak-submodules-generator.py <path to your checked out grayjay source repo> <tag name to build, i.e. 7>` to update `submodule-sources.json`
 4. Start a build, and then stop it about 15-20 seconds after the grayjay module starts building. Then run `flatpak-builder --run build-dir ./app.grayjay.Grayjay.yaml ./scripts/npm-deps.sh npm-sources.json /run/build/grayjay/Grayjay.Desktop.Web/package-lock.json` to update the `npm-sources.json`
