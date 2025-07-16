@@ -145,8 +145,19 @@ def get_git_submodules(repo_path, repo_ref, upstream_url=None):
 	return submodules
 
 
-def generate_flatpak_sources(sources, output_file):
+def generate_flatpak_sources(sources, output_file, existing_source_map=None):
 	"""Generate a Flatpak sources JSON file from the submodule list."""
+	if existing_source_map is not None:
+		existing_sources = existing_source_map.values()
+		smap = {}
+		for s in sources:
+			smap[s.dest] = s
+		
+		for s in existing_sources:
+			if smap.get(s.dest) is None:
+				smap[s.dest] = s
+		
+		sources = smap.values()
 	
 	with open(output_file, "w") as f:
 		json.dump([s.to_json() for s in sources], f, indent=4)
@@ -239,7 +250,7 @@ def main():
 	sources = get_all_sources(repo_path, args.repoversion, args.upstream_url, existing_source_map)
 
 
-	generate_flatpak_sources(sources, Path(args.output))
+	generate_flatpak_sources(sources, Path(args.output), existing_source_map)
 
 if __name__ == "__main__":
 	main()
