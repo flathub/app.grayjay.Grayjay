@@ -184,6 +184,21 @@ def get_sha_for_submodule(submodule, progress=False):
 	return sha256.hexdigest()    
 
 
+def get_all_sources(repo_path, repo_version, upstream_url, existing_source_map) -> list[Source]:
+
+	submodules = get_git_submodules(repo_path, repo_version, upstream_url)
+	sources = []
+	for submodule in submodules:
+		print(submodule)
+		existing_source = existing_source_map.get(submodule.commit)
+		if existing_source is not None:
+			print(f"Hash for {submodule.name} unchanged.")
+			sources.append(existing_source)
+			continue
+		source = Source.from_submodule(submodule)
+		sources.append(source)
+	return sources
+
 
 
 def main():
@@ -217,15 +232,8 @@ def main():
 			sub = src.to_submodule()
 			existing_source_map[sub.commit] = src
 
-	submodules = get_git_submodules(repo_path, args.repoversion, args.upstream_url)
-	sources = []
-	for submodule in submodules:
-		existing_source = existing_source_map.get(submodule.commit)
-		if existing_source is not None:
-			print(f"Hash for {submodule.name} unchanged.")
-			sources.append(existing_source)
-			continue
-		sources.append(Source.from_submodule(submodule))
+	sources = get_all_sources(repo_path, args.repoversion, args.upstream_url, existing_source_map)
+
 
 	generate_flatpak_sources(sources, Path(args.output))
 
