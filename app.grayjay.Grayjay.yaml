@@ -12,6 +12,7 @@ finish-args:
   - --device=dri
   - --filesystem=xdg-download
   - --own-name=org.mpris.MediaPlayer2.chromium.*
+  - --own-name=org.mpris.MediaPlayer2.Grayjay.*
   - --talk-name=org.freedesktop.ScreenSaver
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet9
