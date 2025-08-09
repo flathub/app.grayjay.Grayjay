@@ -3,7 +3,7 @@ runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 
-command: PULSE_PROP_application.icon_name="app.grayjay.Grayjay" Grayjay --enable-wayland-ime
+command: grayjay.sh
 finish-args:
   - --share=network
   - --socket=pulseaudio
@@ -41,6 +41,7 @@ modules:
       - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
       - dotnet nuget locals all --clear
       - install -Dm 0644 app.grayjay.Grayjay.desktop ${FLATPAK_DEST}/share/applications/app.grayjay.Grayjay.desktop
+      - install -Dm 0644 grayjay.sh ${FLATPAK_DEST}/bin/grayjay.sh
       - install -Dm 0644 app.grayjay.Grayjay.metainfo.xml  ${FLATPAK_DEST}/share/metainfo/app.grayjay.Grayjay.metainfo.xml
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps
       - ffmpeg -width 128 -i icon.svg -vf scale=128:-1 ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps/app.grayjay.Grayjay.png
@@ -81,3 +82,8 @@ modules:
 
       - type: file
         path: icon.svg
+
+      - type: script
+        dest-filename: grayjay.sh
+        commands:
+          - PULSE_PROP_application.icon_name="app.grayjay.Grayjay" Grayjay --enable-wayland-ime
