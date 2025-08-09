@@ -3,7 +3,7 @@ runtime: org.freedesktop.Platform
 runtime-version: '24.08'
 sdk: org.freedesktop.Sdk
 
-command: Grayjay
+command: PULSE_PROP_application.icon_name="app.grayjay.Grayjay" Grayjay --enable-wayland-ime
 finish-args:
   - --share=network
   - --socket=pulseaudio
@@ -12,8 +12,6 @@ finish-args:
   - --device=dri
   - --filesystem=xdg-download
   - --own-name=org.mpris.MediaPlayer2.chromium.*
-  - --talk-name=org.gnome.SettingsDaemon.MediaKeys
-  - --talk-name=org.gnome.SessionManager
   - --talk-name=org.freedesktop.ScreenSaver
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet9
