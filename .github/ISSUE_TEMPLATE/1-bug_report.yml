@@ -1,0 +1,150 @@
+name: Bug Report
+description: Let us know about an unexpected error, a crash, or an incorrect behavior.
+labels: ["Bug"]
+title: "Bug: "
+type: bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # Thank you for taking the time to fill out this bug report.
+
+        The [app.grayjay.Grayjay](https://github.com/flathub/app.grayjay.Grayjay) issue tracker is reserved for issues affecting only the Grayjay Desktop Flatpak Application
+
+        **Please Note:** This repository is intended for issues that only affect the flatpak distribution of Grayjay Desktop. If this issue is reproducible on the standalone version of Grayjay, or if you are unsure or unable to test the standalone version, please submit your issue on the [FUTO Grayjay Desktop repository](https://github.com/futo-org/Grayjay.Desktop) and we can investigate.
+
+        For general usage questions, please see: [The Official FUTO Grayjay Zulip Channel](https://chat.futo.org/#narrow/stream/46-Grayjay)
+
+        ## Filing a bug report
+
+        To fix your issues faster, we need clear reproduction cases - ideally allowing us to make it happen locally.
+        * Please include all needed context. For example, OS, Application, your Grayjay Configurations and Plugin versioning info.
+        * if you've found out a particular series of UI interactions can introduce buggy behavior, please label those steps 1-n with markdown
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Reproduction steps
+      description: Please provide us with the steps to reproduce the issue if possible. This step makes a big difference if we are going to be able to fix it so be as precise as possible.
+      placeholder: |
+        0. Play a Youtube video
+        1. Press on Download button
+        2. Select quality 1440p
+        3. Grayjay crashes when attempting to download
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-result
+    attributes:
+      label: Actual result
+      description: What happened?
+      placeholder: Tell us what you saw!
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected-result
+    attributes:
+      label: Expected result
+      description: What was supposed to happen?
+      placeholder: Tell us what you expected to happen!
+    validations:
+      required: true
+
+  - type: textarea
+    id: info
+    attributes:
+      label: Flatpak info
+      description: Run `flatpak info app.grayjay.Grayjay` inside the terminal and paste the output in here.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: plugin
+    attributes:
+      label: What plugins are you seeing the problem on?
+      multiple: true
+      options:
+        - "All"
+        - "Apple Podcasts"
+        - "BiliBili (CN)"
+        - "Bitchute"
+        - "Crunchyroll"
+        - "CuriosityStream"
+        - "Dailymotion"
+        - "Kick"
+        - "Nebula"
+        - "Odysee"
+        - "Patreon"
+        - "PeerTube"
+        - "Rumble"
+        - "SoundCloud"
+        - "Spotify"
+        - "TedTalks"
+        - "Twitch"
+        - "Youtube"
+        - "Other"
+    validations:
+      required: true
+
+  - type: input
+    id: plugin-version
+    attributes:
+      label: Plugin Version
+      description: In the application, select Sources > [the broken plugin], write down the value under "Version".
+      placeholder: "12"
+
+  - type: input
+    id: os-version
+    attributes:
+      label: Which OS version are you using?
+      placeholder: "Ubuntu 22.04"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: login
+    attributes:
+      label: When do you experience the issue?
+      options:
+      - label: While logged in
+      - label: While logged out
+      - label: N/A
+
+  - type: dropdown
+    id: vpn
+    attributes:
+      label: Are you using a VPN?
+      multiple: false
+      options:
+        - "No"
+        - "Yes"
+    validations:
+      required: true
+
+  - type: textarea
+    id: grayjay-references
+    attributes:
+      label: References
+      description: |
+        Are there any other GitHub issues, whether open or closed, that are related to the problem you've described above? If so, please create a list below that mentions each of them. For example:
+        ```
+          - #10
+        ```
+      placeholder:
+      value:
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell
+
+  - type: markdown
+    attributes:
+      value: |
+        **Note:** If the submit button is disabled and you have filled out all required fields, please check that you did not forget a **Title** for the issue.
