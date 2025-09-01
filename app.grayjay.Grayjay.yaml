@@ -76,6 +76,9 @@ modules:
       
       - type: patch
         path: patches/devmode.patch
+    
+      - type: patch
+        path: patches/devmode-lftclick.patch
 
       - npm-sources.json
 

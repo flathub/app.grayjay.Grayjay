@@ -1,0 +1,21 @@
+diff --git a/Grayjay.Desktop.Web/src/components/menus/SideBar/index.tsx b/Grayjay.Desktop.Web/src/components/menus/SideBar/index.tsx
+index 6190209..8fe67e5 100644
+--- a/Grayjay.Desktop.Web/src/components/menus/SideBar/index.tsx
++++ b/Grayjay.Desktop.Web/src/components/menus/SideBar/index.tsx
+@@ -80,6 +80,7 @@ const SideBar: Component<SideBarProps> = (props: SideBarProps) => {
+       selected: boolean,
+       path?: string,
+       action?: () => void,
++      onClick?: () => void
+       onRightClick?: () => void
+     }> = [
+       { icon: home,          name: 'Home',          path: '/web/home',          selected: location.pathname === '/web/home' || location.pathname === '/web/index.html' },
+@@ -122,7 +123,7 @@ const SideBar: Component<SideBarProps> = (props: SideBarProps) => {
+         name: 'Developer',
+         path: '/Developer/Index',
+         selected: location.pathname === '/Developer/Index',
+-        onRightClick: () => LocalBackend.open(`http://${host}/Developer/Index`)
++        onClick: () => LocalBackend.open(`http://${host}/Developer/Index`)
+       });
+     }
+   
