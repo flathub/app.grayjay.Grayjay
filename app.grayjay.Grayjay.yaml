@@ -73,6 +73,9 @@ modules:
 
       - type: patch
         path: patches/v9.patch
+      
+      - type: patch
+        path: patches/devmode.patch
 
       - npm-sources.json
 
