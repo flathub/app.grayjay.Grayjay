@@ -70,9 +70,6 @@ modules:
 
       - type: file
         path: deploy_flatpak.sh
-
-      - type: patch
-        path: patches/v9.patch
       
       - type: patch
         path: patches/devmode.patch
