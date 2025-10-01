@@ -70,9 +70,6 @@ modules:
 
       - type: file
         path: deploy_flatpak.sh
-      
-      - type: patch
-        path: patches/devmode.patch
 
       - npm-sources.json
 
