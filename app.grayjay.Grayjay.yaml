@@ -14,18 +14,18 @@ finish-args:
   - --own-name=org.mpris.MediaPlayer2.chromium.*
   - --talk-name=org.freedesktop.ScreenSaver
 sdk-extensions:
-  - org.freedesktop.Sdk.Extension.dotnet9
+  - org.freedesktop.Sdk.Extension.dotnet8
   - org.freedesktop.Sdk.Extension.node22
 build-options:
-  prepend-path: /usr/lib/sdk/dotnet9/bin:/usr/lib/sdk/node22/bin
-  prefix: /usr/lib/sdk/dotnet9
-  append-ld-library-path: /usr/lib/sdk/dotnet9/lib
-  prepend-pkg-config-path: /usr/lib/sdk/dotnet9/lib/pkgconfig
+  prepend-path: /usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
+  prefix: /usr/lib/sdk/dotnet8
+  append-ld-library-path: /usr/lib/sdk/dotnet8/lib
+  prepend-pkg-config-path: /usr/lib/sdk/dotnet8/lib/pkgconfig
 modules:
   - name: dotnet
     buildsystem: simple
     build-commands:
-    - /usr/lib/sdk/dotnet9/bin/install.sh
+    - /usr/lib/sdk/dotnet8/bin/install.sh
   - name: grayjay
     buildsystem: simple
     build-options:
