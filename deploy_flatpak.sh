@@ -37,7 +37,7 @@ npm install --offline
 npm run build
 cd ..
 
-dotnet_version="9.0"
+dotnet_version="8.0"
 
 if [ "${FLATPAK_ARCH}" == "x86_64" ]; then
   runtime="linux-x64"
