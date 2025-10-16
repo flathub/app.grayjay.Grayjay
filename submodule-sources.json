@@ -19,8 +19,8 @@
     },
     {
         "type": "archive",
-        "url": "https://gitlab.futo.org/videostreaming/syncserver/-/archive/6f81448956d2653330ca869f6564a123821d0af2/SyncServer.zip",
-        "sha256": "3b597b03fe4d0cd219288e97d89f44ed3db0c776fe18fddf9b543e5b9c1b5e26",
+        "url": "https://gitlab.futo.org/videostreaming/syncserver/-/archive/3acdcf2bb687c589f9627bd74e17e1920294c8f3/SyncServer.zip",
+        "sha256": "6b670da47047c1ec61a52aaae69ac5d74bd405b2067b5697f0f984d8032b9b6b",
         "dest": "SyncServer"
     },
     {
