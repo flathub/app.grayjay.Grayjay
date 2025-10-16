@@ -7,20 +7,20 @@
     },
     {
         "type": "archive",
-        "url": "https://gitlab.futo.org/videostreaming/Grayjay.Engine/-/archive/5d1784feda5fe616b413894bdb2a927e0308e69b/Grayjay.Engine.zip",
-        "sha256": "464cb27965ecec5c24a8074826f505751525fdd713ff82ac14326cf707b29b65",
+        "url": "https://gitlab.futo.org/videostreaming/Grayjay.Engine/-/archive/ca6d2e482e17d97fe59d94c1fd9e55b017f74713/Grayjay.Engine.zip",
+        "sha256": "0a9ee65e13b9d4a2e81c363594ab2b48b86a3ddb75cf671a2bf6c4108fc7fc05",
         "dest": "Grayjay.Engine"
     },
     {
         "type": "archive",
-        "url": "https://gitlab.futo.org/videostreaming/JustCef/-/archive/cb5abd1d044b67b3fae33cc3019c0ccb4363be3c/JustCef.zip",
-        "sha256": "256187799091d778508c76f25119d96db9c3f2126634f396ddcca1f60703cab5",
+        "url": "https://gitlab.futo.org/videostreaming/JustCef/-/archive/7f4271984afdf69826c22bc84ae7a8b5a20081a8/JustCef.zip",
+        "sha256": "ed828785d3b04053edb86664cafe9940a42bf8015a0d2d4dce06ee4ee96819b3",
         "dest": "JustCef"
     },
     {
         "type": "archive",
-        "url": "https://gitlab.futo.org/videostreaming/syncserver/-/archive/6f81448956d2653330ca869f6564a123821d0af2/SyncServer.zip",
-        "sha256": "3b597b03fe4d0cd219288e97d89f44ed3db0c776fe18fddf9b543e5b9c1b5e26",
+        "url": "https://gitlab.futo.org/videostreaming/syncserver/-/archive/3acdcf2bb687c589f9627bd74e17e1920294c8f3/SyncServer.zip",
+        "sha256": "6b670da47047c1ec61a52aaae69ac5d74bd405b2067b5697f0f984d8032b9b6b",
         "dest": "SyncServer"
     },
     {

@@ -7,12 +7,14 @@ command: Grayjay
 finish-args:
   - --share=network
   - --socket=pulseaudio
-  - --socket=x11
+  - --socket=wayland
+  - --socket=fallback-x11
   - --share=ipc
   - --device=dri
   - --filesystem=xdg-download
   - --own-name=org.mpris.MediaPlayer2.chromium.*
   - --talk-name=org.freedesktop.ScreenSaver
+  - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet8
   - org.freedesktop.Sdk.Extension.node22
@@ -59,7 +61,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: e49f9f4efee778cb3b2811ec8ece276453f2066e
+        commit: bf547a9ff9198f5c55d27ae8a25ef690ce97fd61
         disable-submodules: true
         # x-checker-data:
         #   type: git
