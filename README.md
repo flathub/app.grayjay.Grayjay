@@ -25,7 +25,8 @@ Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recom
    - release version numbers/dates/changelogs have been added for the current version, and any store descriptions or screenshots that need updating for this release have been done
    - verifying that the `Grayjay.ClientServer/AppVersion.json` file reflects the correct version as this is used for the builds and will show up in the app interface.
 2. Ensure that the `commit` value of the first source under the `grayjay` module in `./app.grayjay.Grayjay.yaml` has been updated to the commit hash corresponding to the git tag (or hotfix commit) you want to release.
-3. Run `python3 ./scripts/flatpak-submodules-generator.py <path to your checked out grayjay source repo> <tag name to build, i.e. 7>` to update `submodule-sources.json`
+3. Ensure that all relevant binary files have been updated. This includes:
+  - the CEF sources (which are custom-built by FUTO) within the `dotcefnative` module
 4. Start a build, and then stop it about 15-20 seconds after the grayjay module starts building. Then run `flatpak-builder --run build-dir ./app.grayjay.Grayjay.yaml ./scripts/npm-deps.sh npm-sources.json /run/build/grayjay/Grayjay.Desktop.Web/package-lock.json` to update the `npm-sources.json`
 5. Run `python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json <path to your checked out grayjay source repo>/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 8` to update `nuget-sources.json`
 6. Check the `patches` folder and ensure any patches that are currently being applied are still necessary (or add some if needed). Make sure to also update the manifest to include or remove any [patch sources](https://docs.flatpak.org/en/latest/module-sources.html#patch-sources) as necessary if you add or remove any patch files.
