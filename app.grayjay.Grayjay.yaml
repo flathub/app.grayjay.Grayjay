@@ -35,7 +35,9 @@ modules:
       - mkdir -p native/build
       - cd native/build; cmake ..
       - cd native/build; cmake --build .
-      # install/copy output?
+      - mkdir -p "${FLATPAK_DEST}/grayjay/cef"
+      - mv native/build/Release/* "${FLATPAK_DEST}/grayjay/cef"
+      - chmod +x "${FLATPAK_DEST}/grayjay/cef/dotcefnative"
     sources:
       - type: archive
         url: https://gitlab.futo.org/videostreaming/JustCef/-/archive/7f4271984afdf69826c22bc84ae7a8b5a20081a8/JustCef.zip
