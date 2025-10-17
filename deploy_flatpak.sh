@@ -31,12 +31,6 @@ echo "$packagecache"
 
 printf "Version to deploy: $version\n"
 
-# Build front-end
-cd Grayjay.Desktop.Web
-npm install --offline
-npm run build
-cd ..
-
 dotnet_version="8.0"
 
 if [ "${FLATPAK_ARCH}" == "x86_64" ]; then

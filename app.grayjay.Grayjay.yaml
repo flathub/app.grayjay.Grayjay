@@ -74,10 +74,13 @@ modules:
         npm_config_cache: ${FLATPAK_BUILDER_BUILDDIR}/flatpak-node/npm-cache
     build-commands:
       - mkdir -p ${FLATPAK_DEST}/grayjay
-      - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
-      # move the web root to its destination
+      # build frontend
+      - cd Grayjay.Desktop.Web; npm install --offline
+      - cd Grayjay.Desktop.Web; npm run build
       - mkdir -p "${FLATPAK_DEST}/grayjay/wwwroot/web"
-      - mv Grayjay.Desktop.Web/dist "${FLATPAK_DEST}/grayjay/wwwroot/web"
+      - mv Grayjay.Desktop.Web/dist/* "${FLATPAK_DEST}/grayjay/wwwroot/web"
+      # build core app
+      - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
       # cleanup
       - dotnet nuget locals all --clear
       # install metadata, icons and other helper files
