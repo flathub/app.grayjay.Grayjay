@@ -71,7 +71,12 @@ modules:
     build-commands:
       - mkdir -p ${FLATPAK_DEST}/grayjay
       - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
+      # move the web root to its destination
+      - mkdir -p "${FLATPAK_DEST}/grayjay/wwwroot/web"
+      - mv Grayjay.Desktop.Web/dist "${FLATPAK_DEST}/grayjay/wwwroot/web"
+      # cleanup
       - dotnet nuget locals all --clear
+      # install metadata, icons and other helper files
       - install -Dm 0644 app.grayjay.Grayjay.desktop ${FLATPAK_DEST}/share/applications/app.grayjay.Grayjay.desktop
       - install -Dm 0644 app.grayjay.Grayjay.metainfo.xml  ${FLATPAK_DEST}/share/metainfo/app.grayjay.Grayjay.metainfo.xml
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps
