@@ -105,6 +105,7 @@ modules:
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
         commit: bf547a9ff9198f5c55d27ae8a25ef690ce97fd61
         disable-submodules: true
+        disable-lfs: true
         # x-checker-data:
         #   type: git
         #   url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags
