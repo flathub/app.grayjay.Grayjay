@@ -32,10 +32,9 @@ modules:
   - name: dotcefnative
     buildsystem: simple
     build-commands:
-      - mkdir -p build
-      - cd build
-      - cmake ..
-      - cmake --build .
+      - mkdir -p native/build
+      - cd native/build; cmake ..
+      - cd native/build; cmake --build .
       # install/copy output?
     sources:
       - type: archive
