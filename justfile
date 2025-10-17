@@ -1,8 +1,8 @@
 build:
-	flatpak-builder --user --install --force-clean build-dir app.grayjay.Grayjay.yaml
+	flatpak run org.flatpak.Builder --user --install --force-clean build-dir app.grayjay.Grayjay.yaml
 
 build-offline:
-	flatpak-builder --user --install --disable-download --force-clean build-dir app.grayjay.Grayjay.yaml
+	flatpak run org.flatpak.Builder --user --install --disable-download --force-clean build-dir app.grayjay.Grayjay.yaml
 
 
 build-sandbox:

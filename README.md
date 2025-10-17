@@ -4,17 +4,21 @@ This is a flatpak for Grayjay Desktop. Please help test and report any issues yo
 
 ## Building Locally
 
-1. install `flatpak-builder` (required) and `just` (optional)
-2. run `just build` or `flatpak-builder --user --install build-dir app.grayjay.Grayjay.yaml` to build the flatpak
+### Prerequisites
+1. at least version 1.4.6 of Flatpak Builder (either from your system package repo or flatpak) 
+2. `just` (optional)
+
+### Building
+1. run `just build` or `<your flatpak-builder> --user --install build-dir app.grayjay.Grayjay.yaml` to build the flatpak
    1. there is also the `clean-build` shortcut which adds the `--force-clean` arg
-3. run `just run` or `flatpak run app.grayjay.Grayjay` or open it from your system menu to run the flatpak.
+2. run `just run` or `flatpak run app.grayjay.Grayjay` or open it from your system menu to run the flatpak.
 
 
 ## Updating for future Grayjay versions
 
 When new grayjay tags come out, here are, at a minimum, the things that should happen to create a new flatpak release:
 
-Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recommended to set `GIT_LFS_SKIP_SMUDGE=1` in your environment variables or otherwise disable git LFS when doing git operations if you dont want to download 6 GB of prebuilt libcef stuff. Cloning the submodules (or running `git submodule update --init` after cloning) will likely be helpful.
+Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recommended to set `GIT_LFS_SKIP_SMUDGE=1` in your environment variables or otherwise disable git LFS when doing git operations if you don't want to download 6 GB of prebuilt libcef stuff. Cloning the submodules (or running `git submodule update --init` after cloning) will likely be helpful.
 
 
 1. Verify the metadata has been updated in the main grayjay repo. This includes:
