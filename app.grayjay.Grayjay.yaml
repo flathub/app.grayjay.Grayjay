@@ -119,5 +119,9 @@ modules:
       - nuget-sources.json
       - nuget-sources-syncsever.json
 
+      # uncomment and adjust the file contents if needed
+      # - type: patch
+      #   path: patches/version.patch
+
       - type: file
         path: icon.svg
