@@ -28,6 +28,19 @@ modules:
     buildsystem: simple
     build-commands:
     - /usr/lib/sdk/dotnet8/bin/install.sh
+  - name: dotcefnative
+    buildsystem: simple
+    build-commands:
+      - mkdir -p build
+      - cd build
+      - cmake ..
+      - cmake --build .
+      # install/copy output?
+    sources:
+      - type: git
+        url: https://gitlab.futo.org/videostreaming/JustCef.git
+        commit: 7f4271984afdf69826c22bc84ae7a8b5a20081a8
+        disable-submodules: true
   - name: grayjay
     buildsystem: simple
     build-options:
