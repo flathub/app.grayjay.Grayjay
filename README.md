@@ -24,7 +24,9 @@ Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recom
 1. Verify the metadata has been updated in the main grayjay repo. This includes:
    - release version numbers/dates/changelogs have been added for the current version, and any store descriptions or screenshots that need updating for this release have been done
    - verifying that the `Grayjay.ClientServer/AppVersion.json` file reflects the correct version as this is used for the builds and will show up in the app interface.
-2. Ensure that the `commit` value of the first source under the `grayjay` module in `./app.grayjay.Grayjay.yaml` has been updated to the commit hash corresponding to the git tag (or hotfix commit) you want to release.
+2. Ensure that the `commit` values of the `git` module sources underneath each module in `./app.grayjay.Grayjay.yaml` has been updated to the commit hash corresponding to the git tag (or hotfix commit) you want to release. This includes:
+  - the `Grayjay.Desktop` commit for the `grayjay` module
+  - the `JustCef` commit for the `dotcefnative` module
 3. Ensure that all relevant binary files have been updated. This includes:
   - the CEF sources (which are custom-built by FUTO) within the `dotcefnative` module
 4. Run `just npm-deps` or `./scripts/npm-deps.sh https://raw.githubusercontent.com/futo-org/Grayjay.Desktop/refs/heads/master/Grayjay.Desktop.Web` to generate an updated `npm-sources.json`.
@@ -33,8 +35,7 @@ Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recom
 6. Check the `patches` folder and the [patch sources](https://docs.flatpak.org/en/latest/module-sources.html#patch-sources) of all the modules (mostly `grayjay` and `dotcefnative`) and enable/disable patches as necessary
    - These patches allow for things to be hotfixed (such as version numbers) before things make it to prod. Ideally they are a last resort that are meant for cases where Grayjay has already shipped or the patch cannot be upstreamed in time.
 
-You should now be able to run `just build` to completion to make sure everything works.
-
+You should now be able to run `just build` to completion to make sure everything works before pushing to the repo/making a PR.
 
 ## Documentation
 
