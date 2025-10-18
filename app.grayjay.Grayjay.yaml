@@ -88,7 +88,9 @@ modules:
       # Adjustments
       - chmod u=rwx ${FLATPAK_DEST}/grayjay/Grayjay
       - chmod u=rwx ${FLATPAK_DEST}/grayjay/ffmpeg
+      - rm ${FLATPAK_DEST}/grayjay/Portable # https://github.com/futo-org/Grayjay.Desktop/issues/14#issuecomment-2692940623
       # - chmod u=rwx ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client
+      - rm ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client # updates managed by flatpak
       # install metadata, icons and other helper files
       - install -Dm 0644 app.grayjay.Grayjay.desktop ${FLATPAK_DEST}/share/applications/app.grayjay.Grayjay.desktop
       - install -Dm 0644 app.grayjay.Grayjay.metainfo.xml  ${FLATPAK_DEST}/share/metainfo/app.grayjay.Grayjay.metainfo.xml
@@ -100,8 +102,6 @@ modules:
       - ffmpeg -width 512 -i icon.svg -vf scale=512:-1 ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/app.grayjay.Grayjay.png
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps
       - cp icon.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/app.grayjay.Grayjay.svg
-      - rm ${FLATPAK_DEST}/grayjay/Portable # https://github.com/futo-org/Grayjay.Desktop/issues/14#issuecomment-2692940623
-      - rm ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client
       - ln -s "${FLATPAK_DEST}/grayjay/Grayjay" "${FLATPAK_DEST}/bin/Grayjay" 
 
     sources:
