@@ -62,6 +62,8 @@ modules:
         dest: 'native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linux64_minimal'
         only-arches:
           - x86_64
+      - type: patch
+        path: patches/fortify.patch
   - name: grayjay
     buildsystem: simple
     build-options:
