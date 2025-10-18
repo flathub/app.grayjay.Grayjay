@@ -135,6 +135,11 @@ modules:
       # uncomment and adjust the file contents if needed
       # - type: patch
       #   path: patches/version.patch
+    
+      - type: patch
+        path: patches/clearscript-arm.patch
+        only-arches:
+          - aarch64
 
       - type: file
         path: icon.svg
