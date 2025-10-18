@@ -19,6 +19,13 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet8
   - org.freedesktop.Sdk.Extension.node22
   - org.freedesktop.Sdk.Extension.llvm19
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    version: '24.08' # replace by appropriate version
+    directory: lib/ffmpeg
+    add-ld-path: .
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 build-options:
   prepend-path: /usr/lib/sdk/llvm19/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
   prefix: /usr/lib/sdk/llvm19:/usr/lib/sdk/dotnet8
@@ -87,7 +94,7 @@ modules:
       - dotnet nuget locals all --clear
       # Adjustments
       - chmod u=rwx ${FLATPAK_DEST}/grayjay/Grayjay
-      - chmod u=rwx ${FLATPAK_DEST}/grayjay/ffmpeg
+      - rm ${FLATPAK_DEST}/grayjay/ffmpeg # we provide ffmpeg already
       - rm ${FLATPAK_DEST}/grayjay/Portable # https://github.com/futo-org/Grayjay.Desktop/issues/14#issuecomment-2692940623
       # - chmod u=rwx ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client
       - rm ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client ${FLATPAK_DEST}/grayjay/Updater*.json # updates managed by flatpak
