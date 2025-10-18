@@ -49,15 +49,5 @@ OWD=$(pwd)
 cd Grayjay.Desktop.CEF
 DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
 
-cd Grayjay.Desktop.CEF/bin/Release/net$dotnet_version/$runtime/publish	
-
-chmod u=rwx Grayjay
-chmod u=rwx FUTO.Updater.Client
-chmod u=rwx ffmpeg
-
-cd ../
-mv publish/* "${destination}"
-
-cd "${OWD}"
-
+mv bin/Release/net$dotnet_version/$runtime/publish/* "${destination}"
 
