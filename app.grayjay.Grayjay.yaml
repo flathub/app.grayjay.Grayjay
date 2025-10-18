@@ -29,6 +29,8 @@ modules:
     buildsystem: simple
     build-commands:
     - /usr/lib/sdk/dotnet8/bin/install.sh
+  # note: the builder should NOT hang after starting to build this module and printing some "is not a valid attribute name" git LFS errors. If it does this, you need to remove or disable the git LFS config from your ~/.gitconfig file.
+  # see https://github.com/flatpak/flatpak-builder/blob/e2f9ffc4655e1f80e1ef2edf205942d59cc01fb7/doc/flatpak-manifest.xml#L776
   - name: dotcefnative
     buildsystem: simple
     build-commands:
@@ -39,25 +41,27 @@ modules:
       - mv native/build/Release/* "${FLATPAK_DEST}/grayjay/cef"
       - chmod +x "${FLATPAK_DEST}/grayjay/cef/dotcefnative"
     sources:
-      - type: archive
-        url: https://gitlab.futo.org/videostreaming/JustCef/-/archive/7f4271984afdf69826c22bc84ae7a8b5a20081a8/JustCef.zip
-        sha256: ed828785d3b04053edb86664cafe9940a42bf8015a0d2d4dce06ee4ee96819b3
+      - type: git
+        url: https://gitlab.futo.org/videostreaming/JustCef.git
+        commit: 7f4271984afdf69826c22bc84ae7a8b5a20081a8
+        disable-submodules: true
+        disable-lfs: true
       - type: patch
         path: patches/cef-nodownload-clangformat.patch
-      # - type: file
-      #   # https://stackoverflow.com/a/70172000
-      #   url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linuxarm64_minimal.tar.bz2?inline=false
-      #   sha256: 43941c3ef802144add90a0ddb741fa76abbdde52f07f310afc68f1c476d1d609
-      #   dest: 'native/third_party/cef/'
-      #   only-arches:
-      #     - aarch64
-      # - type: file
-      #   # https://stackoverflow.com/a/70172000
-      #   url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linux64_minimal.tar.bz2?inline=false
-      #   sha256: 92137d8aa55755a849b26aad2aa7ebbc5e21e8a3af267665f9ce9c42ff96f8e5
-      #   dest: 'native/third_party/cef/'
-      #   only-arches:
-      #     - x86_64
+      - type: file
+        # https://stackoverflow.com/a/70172000
+        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linuxarm64_minimal.tar.bz2?inline=false
+        sha256: 43941c3ef802144add90a0ddb741fa76abbdde52f07f310afc68f1c476d1d609
+        dest: 'native/third_party/cef/'
+        only-arches:
+          - aarch64
+      - type: file
+        # https://stackoverflow.com/a/70172000
+        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linux64_minimal.tar.bz2?inline=false
+        sha256: 92137d8aa55755a849b26aad2aa7ebbc5e21e8a3af267665f9ce9c42ff96f8e5
+        dest: 'native/third_party/cef/'
+        only-arches:
+          - x86_64
   - name: grayjay
     buildsystem: simple
     build-options:
