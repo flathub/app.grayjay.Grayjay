@@ -1,0 +1,63 @@
+diff --git a/native/CMakeLists.txt b/native/CMakeLists.txt
+index e9964ba..24989ae 100644
+--- a/native/CMakeLists.txt
++++ b/native/CMakeLists.txt
+@@ -109,6 +109,58 @@ elseif(OS_LINUX)
+ endif()
+ 
+ 
++#
++# Fortify duplicate definition patch
++#
++
++# Capture the current CXX_FLAGS_RELEASE (which might contain the problematic -Wp,-D_FORTIFY_SOURCE=3)
++set(_current_cxx_release_flags "${CMAKE_CXX_FLAGS_RELEASE}")
++
++# 1. Clean out all _FORTIFY_SOURCE definitions from the base flags
++# We need to replace ALL forms, including -Wp,-D and -D, and potentially other levels.
++string(REPLACE "-Wp,-D_FORTIFY_SOURCE=3" "" _current_cxx_release_flags "${_current_cxx_release_flags}")
++string(REPLACE "-D_FORTIFY_SOURCE=3" "" _current_cxx_release_flags "${_current_cxx_release_flags}")
++string(REPLACE "-Wp,-D_FORTIFY_SOURCE=2" "" _current_cxx_release_flags "${_current_cxx_release_flags}")
++string(REPLACE "-D_FORTIFY_SOURCE=2" "" _current_cxx_release_flags "${_current_cxx_release_flags}")
++string(REPLACE "-Wp,-D_FORTIFY_SOURCE=1" "" _current_cxx_release_flags "${_current_cxx_release_flags}")
++string(REPLACE "-D_FORTIFY_SOURCE=1" "" _current_cxx_release_flags "${_current_cxx_release_flags}")
++
++# Also remove any explicit -U_FORTIFY_SOURCE if it's there from a previous iteration
++string(REPLACE "-U_FORTIFY_SOURCE" "" _current_cxx_release_flags "${_current_cxx_release_flags}")
++
++# Now, set CMAKE_CXX_FLAGS_RELEASE to the cleaned flags, AND append your desired definition
++# Use -U then -D to be absolutely sure no previous definition in the build environment causes issues.
++set(CMAKE_CXX_FLAGS_RELEASE
++  "${_current_cxx_release_flags}" # -O2;-fdata-sections;-ffunction-sections;-fno-ident;
++  CACHE STRING "C++ compile flags for Release builds" FORCE
++)
++
++# IMPORTANT: You also need to do this for CMAKE_CXX_FLAGS itself,
++# because CMAKE_CXX_FLAGS_RELEASE often appends to or inherits from CMAKE_CXX_FLAGS
++set(_current_cxx_flags "${CMAKE_CXX_FLAGS}")
++string(REPLACE "-Wp,-D_FORTIFY_SOURCE=3" "" _current_cxx_flags "${_current_cxx_flags}")
++string(REPLACE "-D_FORTIFY_SOURCE=3" "" _current_cxx_flags "${_current_cxx_flags}")
++string(REPLACE "-Wp,-D_FORTIFY_SOURCE=2" "" _current_cxx_flags "${_current_cxx_flags}")
++string(REPLACE "-D_FORTIFY_SOURCE=2" "" _current_cxx_flags "${_current_cxx_flags}")
++string(REPLACE "-Wp,-D_FORTIFY_SOURCE=1" "" _current_cxx_flags "${_current_cxx_flags}")
++string(REPLACE "-D_FORTIFY_SOURCE=1" "" _current_cxx_flags "${_current_cxx_flags}")
++string(REPLACE "-U_FORTIFY_SOURCE" "" _current_cxx_flags "${_current_cxx_flags}")
++
++set(CMAKE_CXX_FLAGS "${_current_cxx_flags}"
++  CACHE STRING "C++ compiler flags" FORCE
++)
++
++# Repeat for CMAKE_C_FLAGS_RELEASE and CMAKE_C_FLAGS if your C code also needs this.
++# (Your error was specific to CXX, but it's good practice)
++
++# ... (Executable target and other commands) ...
++
++# Ensure your target specific compile options are set AFTER the global CMAKE_CXX_FLAGS have been cleaned
++# If you have specific compile options for libcef_dll_wrapper, ensure they are handled correctly.
++# For example, if you explicitly add them using target_compile_options:
++# target_compile_options(${DOTCEF_TARGET} PRIVATE $<$<CONFIG:Release>:-O2;-fdata-sections;-ffunction-sections;-fno-ident;-U_FORTIFY_SOURCE;-D_FORTIFY_SOURCE=2>)
++
++
+ 
+ #
+ # Target configuration.

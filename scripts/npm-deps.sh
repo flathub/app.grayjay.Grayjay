@@ -2,17 +2,23 @@
 
 # SPDX-License-Identifier: MIT
 
-# pip install 
-# This is a temporary workaround for https://github.com/flatpak/flatpak-builder-tools/issues/445
-# once https://github.com/flatpak/flatpak-builder-tools/pull/446 is merged, replace the below line with
-# git clone https://github.com/flatpak/flatpak-builder-tools
-git clone https://github.com/MoralCode/flatpak-builder-tools --single-branch --branch handle-spaces
-cd flatpak-builder-tools/node
-pip install .
-cd ../../
+export PYTHONPATH="$(pwd)/flatpak-builder-tools/node:$PYTHONPATH"
 
-python3 -m flatpak_node_generator -o "$1" npm "$2"
+input_path=$1
 
-pip uninstall flatpak_node_generator -y
+#TODO: maybe do all this in a temporary directory?
+if [[ $1 == http* ]]; then # is the input a URL?
+	curl -o ./package-lock.json "${input_path}/package-lock.json"
+	curl -o ./package.json "${input_path}/package.json"
+	input_path=./package-lock.json
+	sleep 2;
+else
+	input_path="${input_path}/package-lock.json"
+fi
 
-rm -rf flatpak-builder-tools
+python3 -m flatpak_node_generator -o "$(pwd)/npm-sources.json" npm "$input_path"
+
+if [[ $1 == http* ]]; then # was the input a URL?
+	rm ./package-lock.json
+	rm ./package.json
+fi

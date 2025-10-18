@@ -1,0 +1,12 @@
+diff --git a/Grayjay.Desktop.CEF/Grayjay.Desktop.CEF.csproj b/Grayjay.Desktop.CEF/Grayjay.Desktop.CEF.csproj
+index c6cd834..223f8e7 100644
+--- a/Grayjay.Desktop.CEF/Grayjay.Desktop.CEF.csproj
++++ b/Grayjay.Desktop.CEF/Grayjay.Desktop.CEF.csproj
+@@ -43,6 +43,7 @@
+     <PackageReference Include="Microsoft.ClearScript.V8.Native.osx-arm64" Version="7.4.5" />
+     <PackageReference Include="Microsoft.ClearScript.V8.Native.win-x64" Version="7.4.5" />
+     <PackageReference Include="Microsoft.ClearScript.V8.Native.linux-x64" Version="7.4.5" />
++    <PackageReference Include="Microsoft.ClearScript.V8.Native.linux-arm64" Version="7.4.5" />
+     <PackageReference Include="Microsoft.ClearScript.V8.Native.osx-x64" Version="7.4.5" />
+   </ItemGroup>
+ 

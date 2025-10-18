@@ -1,8 +1,8 @@
 build:
-	flatpak-builder --user --install --force-clean build-dir app.grayjay.Grayjay.yaml
+	flatpak run org.flatpak.Builder --user --install --force-clean build-dir app.grayjay.Grayjay.yaml
 
 build-offline:
-	flatpak-builder --user --install --disable-download --force-clean build-dir app.grayjay.Grayjay.yaml
+	flatpak run org.flatpak.Builder --user --install --disable-download --force-clean build-dir app.grayjay.Grayjay.yaml
 
 
 build-sandbox:
@@ -19,7 +19,7 @@ bundle:
 	flatpak build-bundle ~/.local/share/flatpak/repo GrayjayDesktop.flatpak app.grayjay.Grayjay
 
 prep-npm:
-	flatpak-builder --run build-dir ./app.grayjay.Grayjay.yaml ./scripts/npm-deps.sh npm-sources.json /run/build/grayjay/Grayjay.Desktop.Web/package-lock.json
+	./scripts/npm-deps.sh https://raw.githubusercontent.com/futo-org/Grayjay.Desktop/refs/heads/master/Grayjay.Desktop.Web
 
 # this expects to be run in a full clone of the grayjay desktop repo tree checked out on the host machine at ../Grayjay.Desktop
 # also, do not set the runtimes here. It creates missing dependencies that need to be looked into (something weird with macos and windows dependencies probably being mislabeled for linux or something)
