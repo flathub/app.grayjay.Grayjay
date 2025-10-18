@@ -46,13 +46,8 @@ echo "Building for $runtime"
 OWD=$(pwd)
 
 # Publish CEF
-if [[ -z "$packagecache" ]]; then
-  cd Grayjay.Desktop.CEF
-  DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --no-restore -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
-else 
-  cd Grayjay.Desktop.CEF
-  DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
-fi
+cd Grayjay.Desktop.CEF
+DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
 
 cd Grayjay.Desktop.CEF/bin/Release/net$dotnet_version/$runtime/publish	
 
