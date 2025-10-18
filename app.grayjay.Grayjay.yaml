@@ -35,7 +35,7 @@ modules:
     buildsystem: simple
     build-commands:
       - mkdir -p native/build
-      - cd native/build; cmake ..
+      - cd native/build; cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ ..
       - cd native/build; cmake --build .
       - mkdir -p "${FLATPAK_DEST}/grayjay/cef"
       - mv native/build/Release/* "${FLATPAK_DEST}/grayjay/cef"
