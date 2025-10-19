@@ -141,5 +141,10 @@ modules:
         only-arches:
           - aarch64
 
+      - type: patch
+        path: patches/removeAot.patch
+        options:
+          - -dSyncServer
+
       - type: file
         path: icon.svg
