@@ -136,5 +136,10 @@ modules:
       # - type: patch
       #   path: patches/version.patch
 
+      - type: patch
+        path: patches/removeAot.patch
+        options:
+          - -dSyncServer
+
       - type: file
         path: icon.svg
