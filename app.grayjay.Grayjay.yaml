@@ -148,6 +148,9 @@ modules:
 
       - type: patch
         path: patches/remove-zstdnet.patch
+      
+      - type: patch
+        path: patches/dotcef.patch
 
       - type: file
         path: icon.svg

@@ -1,0 +1,96 @@
+diff --git a/DotCef.csproj b/DotCef.csproj
+index 31bc224..a151aaf 100644
+--- a/DotCef.csproj
++++ b/DotCef.csproj
+@@ -1,91 +1,18 @@
+ ﻿<Project Sdk="Microsoft.NET.Sdk">
+ 
+   <PropertyGroup>
+     <OutputType>library</OutputType>
+     <TargetFramework>net8.0</TargetFramework>
+     <ImplicitUsings>enable</ImplicitUsings>
+     <Nullable>enable</Nullable>
+     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+     <RuntimeIdentifiers>win-x86;win-x64;win-arm64;linux-x64;linux-arm;linux-arm64;osx-x64;osx-arm64</RuntimeIdentifiers>
+-    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">$(NETCoreSdkRuntimeIdentifier)</RuntimeIdentifier>
+   </PropertyGroup>
+ 
+   <Target Name="PrintRuntimeInfo" BeforeTargets="Build">
+     <Message Importance="high" Text="Building for RuntimeIdentifier: '$(RuntimeIdentifier)'" />
+   </Target>
+ 
+-  <!-- Windows x86 -->
+-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-x86'">
+-    <None Include="prebuilt/win-x86/**">
+-      <Link>cef/%(RecursiveDir)%(Filename)%(Extension)</Link>
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+-    </None>
+-  </ItemGroup>
+-
+-  <!-- Windows x64 -->
+-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-x64'">
+-    <None Include="prebuilt/win-x64/**">
+-      <Link>cef/%(RecursiveDir)%(Filename)%(Extension)</Link>
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+-    </None>
+-  </ItemGroup>
+-
+-  <!-- Windows ARM64 -->
+-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'win-arm64'">
+-    <None Include="prebuilt/win-arm64/**">
+-      <Link>cef/%(RecursiveDir)%(Filename)%(Extension)</Link>
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+-    </None>
+-  </ItemGroup>
+-
+-  <!-- Linux x64 -->
+-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'linux-x64'">
+-    <None Include="prebuilt/linux-x64/**">
+-      <Link>cef/%(RecursiveDir)%(Filename)%(Extension)</Link>
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+-    </None>
+-  </ItemGroup>
+-
+-  <!-- Linux ARM -->
+-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'linux-arm'">
+-    <None Include="prebuilt/linux-arm/**">
+-      <Link>cef/%(RecursiveDir)%(Filename)%(Extension)</Link>
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+-    </None>
+-  </ItemGroup>
+-
+-  <!-- Linux ARM64 -->
+-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'linux-arm64'">
+-    <None Include="prebuilt/linux-arm64/**">
+-      <Link>cef/%(RecursiveDir)%(Filename)%(Extension)</Link>
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+-    </None>
+-  </ItemGroup>
+-
+-  <!-- macOS (OSX) x64 -->
+-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'osx-x64'">
+-    <None Include="prebuilt/osx-x64/**">
+-      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+-    </None>
+-  </ItemGroup>
+-
+-  <!-- macOS (OSX) ARM64 -->
+-  <ItemGroup Condition="'$(RuntimeIdentifier)' == 'osx-arm64'">
+-    <None Include="prebuilt/osx-arm64/**">
+-      <Link>%(RecursiveDir)%(Filename)%(Extension)</Link>
+-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+-    </None>
+-  </ItemGroup>
+-
+   <PropertyGroup Condition="'$(Configuration)'=='Release'">
+     <DebugSymbols>False</DebugSymbols>
+     <DebugType>None</DebugType>
