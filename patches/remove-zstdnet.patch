@@ -1,0 +1,75 @@
+diff --git a/Grayjay.ClientServer/Grayjay.ClientServer.csproj b/Grayjay.ClientServer/Grayjay.ClientServer.csproj
+index db8682e..220183e 100644
+--- a/Grayjay.ClientServer/Grayjay.ClientServer.csproj
++++ b/Grayjay.ClientServer/Grayjay.ClientServer.csproj
+@@ -96,7 +96,6 @@
+     <PackageReference Include="Dapper" Version="2.1.28" />
+     <PackageReference Include="Google.Protobuf" Version="3.25.3" />
+     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.1" />
+-    <PackageReference Include="ZstdNet" Version="1.4.5" />
+     <PackageReference Include="FCastSenderSDKDotnet" Version="0.0.3" />
+   </ItemGroup>
+ 
+diff --git a/Grayjay.ClientServer/Proxy/HttpProxySession.cs b/Grayjay.ClientServer/Proxy/HttpProxySession.cs
+index 178d097..aba9ce1 100644
+--- a/Grayjay.ClientServer/Proxy/HttpProxySession.cs
++++ b/Grayjay.ClientServer/Proxy/HttpProxySession.cs
+@@ -254,9 +254,9 @@ namespace Grayjay.ClientServer.Proxy
+                                                 case "br":
+                                                     bodyBytes = DecompressBrotli(bodyBytes);
+                                                     break;
+-                                                case "zstd":
+-                                                    bodyBytes = DecompressZstd(bodyBytes);
+-                                                    break;
++                                                // case "zstd":
++                                                //     bodyBytes = DecompressZstd(bodyBytes);
++                                                //     break;
+                                                 default:
+                                                     throw new Exception("Unsupported content encoding.");                                            
+                                             }
+diff --git a/Grayjay.ClientServer/Proxy/HttpProxySession.cs b/Grayjay.ClientServer/Proxy/HttpProxySession.cs
+index 178d097..ae0f86c 100644
+--- a/Grayjay.ClientServer/Proxy/HttpProxySession.cs
++++ b/Grayjay.ClientServer/Proxy/HttpProxySession.cs
+@@ -408,12 +408,12 @@ namespace Grayjay.ClientServer.Proxy
+             return outputStream.ToArray();
+         }
+ 
+-        public byte[] DecompressZstd(byte[] data)
+-        {
+-            using var inputStream = new MemoryStream(data);
+-            using var decompressor = new ZstdNet.Decompressor();
+-            byte[] decompressedData = decompressor.Unwrap(data);
+-            return decompressedData;
+-        }
++        // public byte[] DecompressZstd(byte[] data)
++        // {
++        //     using var inputStream = new MemoryStream(data);
++        //     using var decompressor = new ZstdNet.Decompressor();
++        //     byte[] decompressedData = decompressor.Unwrap(data);
++        //     return decompressedData;
++        // }
+     }
+ }
+\ No newline at end of file
+diff --git a/Grayjay.Desktop.Tests/ProxyTests.cs b/Grayjay.Desktop.Tests/ProxyTests.cs
+index 363bb25..fda0b77 100644
+--- a/Grayjay.Desktop.Tests/ProxyTests.cs
++++ b/Grayjay.Desktop.Tests/ProxyTests.cs
+@@ -1645,10 +1645,10 @@ public class ProxyTests
+         return outputStream.ToArray();
+     }
+ 
+-    public byte[] CompressZstd(string data)
+-    {
+-        var bytes = Encoding.UTF8.GetBytes(data);
+-        using var compressor = new ZstdNet.Compressor();
+-        return compressor.Wrap(bytes);
+-    }
++    // public byte[] CompressZstd(string data)
++    // {
++    //     var bytes = Encoding.UTF8.GetBytes(data);
++    //     using var compressor = new ZstdNet.Compressor();
++    //     return compressor.Wrap(bytes);
++    // }
+ }

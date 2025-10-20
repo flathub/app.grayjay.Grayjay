@@ -146,5 +146,8 @@ modules:
         options:
           - -dSyncServer
 
+      - type: patch
+        path: patches/remove-zstdnet.patch
+
       - type: file
         path: icon.svg
