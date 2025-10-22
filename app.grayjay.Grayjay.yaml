@@ -130,7 +130,6 @@ modules:
       - npm-sources.json
 
       - nuget-sources.json
-      - nuget-sources-syncsever.json
 
       # uncomment and adjust the file contents if needed
       # - type: patch
