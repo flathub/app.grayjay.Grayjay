@@ -50,23 +50,24 @@ modules:
     sources:
       - type: git
         url: https://gitlab.futo.org/videostreaming/JustCef.git
-        commit: 7f4271984afdf69826c22bc84ae7a8b5a20081a8
+        commit: 6f57f785de518901c25c73ecfbccc15e77fb5e3f
         disable-submodules: true
         disable-lfs: true
       - type: patch
         path: patches/cef-nodownload-clangformat.patch
       - type: archive
         # https://stackoverflow.com/a/70172000
-        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linuxarm64_minimal.tar.bz2?inline=false
-        sha256: 43941c3ef802144add90a0ddb741fa76abbdde52f07f310afc68f1c476d1d609
-        dest: 'native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linuxarm64_minimal'
+        
+        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal.tar.bz2?inline=false
+        sha256: 533b941af98b85971b0a21f3626ad97e611c55cad2783a1f2185593de6843b3a
+        dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal'
         only-arches:
           - aarch64
       - type: archive
         # https://stackoverflow.com/a/70172000
-        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linux64_minimal.tar.bz2?inline=false
-        sha256: 92137d8aa55755a849b26aad2aa7ebbc5e21e8a3af267665f9ce9c42ff96f8e5
-        dest: 'native/third_party/cef/cef_binary_140.1.20+g49f5d09+chromium-140.0.7339.214_linux64_minimal'
+        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal.tar.bz2?inline=false
+        sha256: b7df842e2f3d08c635d9dc230fb7f95a7ce3cafd45ae4da3e0c40638cc51bee8
+        dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal'
         only-arches:
           - x86_64
       - type: patch
@@ -116,7 +117,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: bf547a9ff9198f5c55d27ae8a25ef690ce97fd61
+        commit: 10d9a99fa4b25e1757e1446a716e6dcd8208f253
         disable-lfs: true
         # x-checker-data:
         #   type: git
