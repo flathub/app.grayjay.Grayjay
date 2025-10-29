@@ -4,31 +4,38 @@ This is a flatpak for Grayjay Desktop. Please help test and report any issues yo
 
 ## Building Locally
 
-1. install `flatpak-builder` (required) and `just` (optional)
-2. run `just build` or `flatpak-builder --user --install build-dir app.grayjay.Grayjay.yaml` to build the flatpak
+### Prerequisites
+1. at least version 1.4.6 of Flatpak Builder (either from your system package repo or flatpak) 
+2. `just` (optional)
+
+### Building
+1. run `just build` or `<your flatpak-builder> --user --install build-dir app.grayjay.Grayjay.yaml` to build the flatpak
    1. there is also the `clean-build` shortcut which adds the `--force-clean` arg
-3. run `just run` or `flatpak run app.grayjay.Grayjay` or open it from your system menu to run the flatpak.
+2. run `just run` or `flatpak run app.grayjay.Grayjay` or open it from your system menu to run the flatpak.
 
 
 ## Updating for future Grayjay versions
 
 When new grayjay tags come out, here are, at a minimum, the things that should happen to create a new flatpak release:
 
-Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recommended to set `GIT_LFS_SKIP_SMUDGE=1` in your environment variables or otherwise disable git LFS when doing git operations if you dont want to download 6 GB of prebuilt libcef stuff. Cloning the submodules (or running `git submodule update --init` after cloning) will likely be helpful.
+Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recommended to set `GIT_LFS_SKIP_SMUDGE=1` in your environment variables or otherwise disable git LFS when doing git operations if you don't want to download 6 GB of prebuilt libcef stuff. Cloning the submodules (or running `git submodule update --init` after cloning) will likely be helpful.
 
 
 1. Verify the metadata has been updated in the main grayjay repo. This includes:
    - release version numbers/dates/changelogs have been added for the current version, and any store descriptions or screenshots that need updating for this release have been done
    - verifying that the `Grayjay.ClientServer/AppVersion.json` file reflects the correct version as this is used for the builds and will show up in the app interface.
-2. Ensure that the `commit` value of the first source under the `grayjay` module in `./app.grayjay.Grayjay.yaml` has been updated to the commit hash corresponding to the git tag (or hotfix commit) you want to release.
-3. Run `python3 ./scripts/flatpak-submodules-generator.py <path to your checked out grayjay source repo> <tag name to build, i.e. 7>` to update `submodule-sources.json`
-4. Start a build, and then stop it about 15-20 seconds after the grayjay module starts building. Then run `flatpak-builder --run build-dir ./app.grayjay.Grayjay.yaml ./scripts/npm-deps.sh npm-sources.json /run/build/grayjay/Grayjay.Desktop.Web/package-lock.json` to update the `npm-sources.json`
+2. Ensure that the `commit` values of the `git` module sources underneath each module in `./app.grayjay.Grayjay.yaml` has been updated to the commit hash corresponding to the git tag (or hotfix commit) you want to release. This includes:
+  - the `Grayjay.Desktop` commit for the `grayjay` module
+  - the `JustCef` commit for the `dotcefnative` module
+3. Ensure that all relevant binary files have been updated. This includes:
+  - the CEF sources (which are custom-built by FUTO) within the `dotcefnative` module
+4. Run `just npm-deps` or `./scripts/npm-deps.sh https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/raw/master/Grayjay.Desktop.Web/` to generate an updated `npm-sources.json`.
+   - you can also pass in a local on-disk path to the `Grayjay.Desktop.Web` directory (no trailing slash)
 5. Run `python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json <path to your checked out grayjay source repo>/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 8` to update `nuget-sources.json`
-6. Check the `patches` folder and ensure any patches that are currently being applied are still necessary (or add some if needed). Make sure to also update the manifest to include or remove any [patch sources](https://docs.flatpak.org/en/latest/module-sources.html#patch-sources) as necessary if you add or remove any patch files.
+6. Check the `patches` folder and the [patch sources](https://docs.flatpak.org/en/latest/module-sources.html#patch-sources) of all the modules (mostly `grayjay` and `dotcefnative`) and enable/disable patches as necessary
    - These patches allow for things to be hotfixed (such as version numbers) before things make it to prod. Ideally they are a last resort that are meant for cases where Grayjay has already shipped or the patch cannot be upstreamed in time.
 
-You should now be able to run `just build` to completion to make sure everything works.
-
+You should now be able to run `just build` to completion to make sure everything works before pushing to the repo/making a PR.
 
 ## Documentation
 

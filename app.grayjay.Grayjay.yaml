@@ -18,16 +18,60 @@ finish-args:
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet8
   - org.freedesktop.Sdk.Extension.node22
+  - org.freedesktop.Sdk.Extension.llvm19
+add-extensions:
+  org.freedesktop.Platform.ffmpeg-full:
+    version: '24.08' # replace by appropriate version
+    directory: lib/ffmpeg
+    add-ld-path: .
+cleanup-commands:
+  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 build-options:
-  prepend-path: /usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
-  prefix: /usr/lib/sdk/dotnet8
-  append-ld-library-path: /usr/lib/sdk/dotnet8/lib
-  prepend-pkg-config-path: /usr/lib/sdk/dotnet8/lib/pkgconfig
+  prepend-path: /usr/lib/sdk/llvm19/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
+  prefix: /usr/lib/sdk/llvm19:/usr/lib/sdk/dotnet8
+  append-ld-library-path: /usr/lib/sdk/llvm19/lib:/usr/lib/sdk/dotnet8/lib
+  prepend-pkg-config-path: /usr/lib/sdk/llvm19/pkgconfig/usr/lib/sdk/dotnet8/lib/pkgconfig
 modules:
   - name: dotnet
     buildsystem: simple
     build-commands:
     - /usr/lib/sdk/dotnet8/bin/install.sh
+  # note: the builder should NOT hang after starting to build this module and printing some "is not a valid attribute name" git LFS errors. If it does this, you need to remove or disable the git LFS config from your ~/.gitconfig file.
+  # see https://github.com/flatpak/flatpak-builder/blob/e2f9ffc4655e1f80e1ef2edf205942d59cc01fb7/doc/flatpak-manifest.xml#L776
+  - name: dotcefnative
+    buildsystem: simple
+    build-commands:
+      - mkdir -p native/build
+      - cd native/build; cmake -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ ..
+      - cd native/build; cmake --build .
+      - mkdir -p "${FLATPAK_DEST}/grayjay/cef"
+      - mv native/build/Release/* "${FLATPAK_DEST}/grayjay/cef"
+      - chmod +x "${FLATPAK_DEST}/grayjay/cef/dotcefnative"
+    sources:
+      - type: git
+        url: https://gitlab.futo.org/videostreaming/JustCef.git
+        commit: 6f57f785de518901c25c73ecfbccc15e77fb5e3f
+        disable-submodules: true
+        disable-lfs: true
+      - type: patch
+        path: patches/cef-nodownload-clangformat.patch
+      - type: archive
+        # https://stackoverflow.com/a/70172000
+        
+        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal.tar.bz2?inline=false
+        sha256: 533b941af98b85971b0a21f3626ad97e611c55cad2783a1f2185593de6843b3a
+        dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal'
+        only-arches:
+          - aarch64
+      - type: archive
+        # https://stackoverflow.com/a/70172000
+        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal.tar.bz2?inline=false
+        sha256: b7df842e2f3d08c635d9dc230fb7f95a7ce3cafd45ae4da3e0c40638cc51bee8
+        dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal'
+        only-arches:
+          - x86_64
+      - type: patch
+        path: patches/fortify.patch
   - name: grayjay
     buildsystem: simple
     build-options:
@@ -40,8 +84,22 @@ modules:
         npm_config_cache: ${FLATPAK_BUILDER_BUILDDIR}/flatpak-node/npm-cache
     build-commands:
       - mkdir -p ${FLATPAK_DEST}/grayjay
+      # build frontend
+      - cd Grayjay.Desktop.Web; npm install --offline
+      - cd Grayjay.Desktop.Web; npm run build
+      - mkdir -p "${FLATPAK_DEST}/grayjay/wwwroot/web"
+      - mv Grayjay.Desktop.Web/dist/* "${FLATPAK_DEST}/grayjay/wwwroot/web"
+      # build core app
       - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
+      # cleanup
       - dotnet nuget locals all --clear
+      # Adjustments
+      - chmod u=rwx ${FLATPAK_DEST}/grayjay/Grayjay
+      - rm ${FLATPAK_DEST}/grayjay/ffmpeg # we provide ffmpeg already
+      - rm ${FLATPAK_DEST}/grayjay/Portable # https://github.com/futo-org/Grayjay.Desktop/issues/14#issuecomment-2692940623
+      # - chmod u=rwx ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client
+      - rm ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client ${FLATPAK_DEST}/grayjay/Updater*.json # updates managed by flatpak
+      # install metadata, icons and other helper files
       - install -Dm 0644 app.grayjay.Grayjay.desktop ${FLATPAK_DEST}/share/applications/app.grayjay.Grayjay.desktop
       - install -Dm 0644 app.grayjay.Grayjay.metainfo.xml  ${FLATPAK_DEST}/share/metainfo/app.grayjay.Grayjay.metainfo.xml
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/128x128/apps
@@ -52,8 +110,6 @@ modules:
       - ffmpeg -width 512 -i icon.svg -vf scale=512:-1 ${FLATPAK_DEST}/share/icons/hicolor/512x512/apps/app.grayjay.Grayjay.png
       - mkdir -p ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps
       - cp icon.svg ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/app.grayjay.Grayjay.svg
-      - rm ${FLATPAK_DEST}/grayjay/Portable # https://github.com/futo-org/Grayjay.Desktop/issues/14#issuecomment-2692940623
-      - rm ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client
       - ln -s "${FLATPAK_DEST}/grayjay/Grayjay" "${FLATPAK_DEST}/bin/Grayjay" 
 
     sources:
@@ -61,14 +117,13 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: bf547a9ff9198f5c55d27ae8a25ef690ce97fd61
-        disable-submodules: true
+        commit: c5e691755ef71ea778353ddde77becec3fa71579
+        disable-lfs: true
         # x-checker-data:
         #   type: git
         #   url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/tags
         #   tag-pattern: ^([\d]+)$
         #   is-main-source: true
-      - submodule-sources.json
 
       - type: file
         path: deploy_flatpak.sh
@@ -76,7 +131,15 @@ modules:
       - npm-sources.json
 
       - nuget-sources.json
-      - nuget-sources-syncsever.json
+
+      # uncomment and adjust the file contents if needed
+      # - type: patch
+      #   path: patches/version.patch
+
+      - type: patch
+        path: patches/removeAot.patch
+        options:
+          - -dSyncServer
 
       - type: file
         path: icon.svg

@@ -31,12 +31,6 @@ echo "$packagecache"
 
 printf "Version to deploy: $version\n"
 
-# Build front-end
-cd Grayjay.Desktop.Web
-npm install --offline
-npm run build
-cd ..
-
 dotnet_version="8.0"
 
 if [ "${FLATPAK_ARCH}" == "x86_64" ]; then
@@ -52,29 +46,9 @@ echo "Building for $runtime"
 OWD=$(pwd)
 
 # Publish CEF
-if [[ -z "$packagecache" ]]; then
-  cd Grayjay.Desktop.CEF
-  DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --no-restore -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
-else 
-  cd Grayjay.Desktop.CEF
-  DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
-fi
-cd "${OWD}"
+cd Grayjay.Desktop.CEF
+DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
 
-# Copy wwwroot
-mkdir -p Grayjay.Desktop.CEF/bin/Release/net$dotnet_version/$runtime/publish/wwwroot
-cp -r Grayjay.Desktop.Web/dist Grayjay.Desktop.CEF/bin/Release/net$dotnet_version/$runtime/publish/wwwroot/web
-
-cd Grayjay.Desktop.CEF/bin/Release/net$dotnet_version/$runtime/publish	
-
-chmod u=rwx Grayjay
-chmod u=rwx cef/dotcefnative
-chmod u=rwx FUTO.Updater.Client
-chmod u=rwx ffmpeg
-
-cd ../
-mv publish/* "${destination}"
-
-cd "${OWD}"
-
+rm -rf bin/Release/net$dotnet_version/$runtime/publish/cef # we already built this in a previous step
+mv bin/Release/net$dotnet_version/$runtime/publish/* "${destination}"
 
