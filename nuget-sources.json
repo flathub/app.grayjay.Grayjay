@@ -141,6 +141,13 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.clearscript.v8.native.linux-arm64/7.4.5/microsoft.clearscript.v8.native.linux-arm64.7.4.5.nupkg",
+        "sha512": "84e0b2554ae68d8745177a549cd013f34708a5d8997d6687e19ca54b3e220eb37d19bcfdd8a1eac8a40766901df98a2305300f8262f29a3a2340c7ed380e9ae5",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.clearscript.v8.native.linux-arm64.7.4.5.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/microsoft.clearscript.v8.native.linux-x64/7.4.5/microsoft.clearscript.v8.native.linux-x64.7.4.5.nupkg",
         "sha512": "d019bb8d12b17ef41e3e1c84cc1414f9fce00bb67f19312c9d6c0a62d038fe9802e41bafe78c85d25791c0c299970ffb26c19faef392a69d15a3d5ee4062b3fe",
         "dest": "nuget-sources",
@@ -215,13 +222,6 @@
         "sha512": "01470a6b47de2cf77654e31718bb0339a675c880ceb7cd7422acc722a7e85cda5cd5ed9ce625b636c803654e487b356835558ba050a5e7990c588587c6885266",
         "dest": "nuget-sources",
         "dest-filename": "microsoft.data.sqlite.core.8.0.1.nupkg"
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.ilcompiler/8.0.20/microsoft.dotnet.ilcompiler.8.0.20.nupkg",
-        "sha512": "313cae485653216cdfd5b43d5365bfa51efe9376bca4d9bed94fb913faf4a5fabab405fa56084e5024803e984e51ec250a4e4c3c7b2055af48f6155323b23df9",
-        "dest": "nuget-sources",
-        "dest-filename": "microsoft.dotnet.ilcompiler.8.0.20.nupkg"
     },
     {
         "type": "file",
@@ -537,13 +537,6 @@
         "sha512": "4afac5cc1734330a6103880e790d639e825bfb1b34dbd42083762c47db5e5dab6c03efd16049ac03861d7d87746caed09c7534241d51b7341d47ba6af7e8dd31",
         "dest": "nuget-sources",
         "dest-filename": "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg"
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-x64.microsoft.dotnet.ilcompiler/8.0.20/runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.20.nupkg",
-        "sha512": "b90dfea9578c50599cc654bcaf8d1936edd8144cf599547aac624dbf7268261b4c53bf9d67bb6c1b8def5200f831d7c02290051cabfd61b9bb75b14ae9957665",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.20.nupkg"
     },
     {
         "type": "file",
