@@ -18,7 +18,7 @@ finish-args:
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet8
   - org.freedesktop.Sdk.Extension.node22
-  - org.freedesktop.Sdk.Extension.llvm19
+  - org.freedesktop.Sdk.Extension.llvm20
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
     version: '25.08' # replace by appropriate version
@@ -27,10 +27,10 @@ add-extensions:
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
 build-options:
-  prepend-path: /usr/lib/sdk/llvm19/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
-  prefix: /usr/lib/sdk/llvm19:/usr/lib/sdk/dotnet8
-  append-ld-library-path: /usr/lib/sdk/llvm19/lib:/usr/lib/sdk/dotnet8/lib
-  prepend-pkg-config-path: /usr/lib/sdk/llvm19/pkgconfig/usr/lib/sdk/dotnet8/lib/pkgconfig
+  prepend-path: /usr/lib/sdk/llvm20/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
+  prefix: /usr/lib/sdk/llvm20:/usr/lib/sdk/dotnet8
+  append-ld-library-path: /usr/lib/sdk/llvm20/lib:/usr/lib/sdk/dotnet8/lib
+  prepend-pkg-config-path: /usr/lib/sdk/llvm20/pkgconfig/usr/lib/sdk/dotnet8/lib/pkgconfig
 modules:
   - name: dotnet
     buildsystem: simple
