@@ -1,6 +1,6 @@
 app-id: app.grayjay.Grayjay
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 
 command: Grayjay
@@ -21,7 +21,7 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.llvm19
 add-extensions:
   org.freedesktop.Platform.ffmpeg-full:
-    version: '24.08' # replace by appropriate version
+    version: '25.08' # replace by appropriate version
     directory: lib/ffmpeg
     add-ld-path: .
 cleanup-commands:
