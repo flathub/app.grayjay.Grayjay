@@ -22,10 +22,10 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/fcastsendersdkdotnet/0.0.3/fcastsendersdkdotnet.0.0.3.nupkg",
-        "sha512": "0cb0e33e4364e578d9ba2abecc17326666497e1d8796cad8540e9e951c9f4dd8f745cfa9cb2f7fad278f86d403143c9993a37a3ca936172d66664f65577bf45c",
+        "url": "https://api.nuget.org/v3-flatcontainer/fcastsendersdkdotnet/0.0.5/fcastsendersdkdotnet.0.0.5.nupkg",
+        "sha512": "5b0a846dbc81485a305d1b7e0aecf9aa9a2238163c8a5ad89cab6d4b436629907bd426931368b37668c4b06741c0c617f11bcf26fa119a82b4282c381f407415",
         "dest": "nuget-sources",
-        "dest-filename": "fcastsendersdkdotnet.0.0.3.nupkg"
+        "dest-filename": "fcastsendersdkdotnet.0.0.5.nupkg"
     },
     {
         "type": "file",
@@ -152,6 +152,13 @@
         "sha512": "74ae917031124100b6fe5854d99a45c40969181211bf22f9609584d22f3ae904d0b8b9254f21bb020aaefe1ee447fe46f9ccf3d8e1c2e7c5b6ff2c02f18c9900",
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.v8.icudata.7.4.5.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.clearscript.v8.native.linux-arm64/7.4.5/microsoft.clearscript.v8.native.linux-arm64.7.4.5.nupkg",
+        "sha512": "84e0b2554ae68d8745177a549cd013f34708a5d8997d6687e19ca54b3e220eb37d19bcfdd8a1eac8a40766901df98a2305300f8262f29a3a2340c7ed380e9ae5",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.clearscript.v8.native.linux-arm64.7.4.5.nupkg"
     },
     {
         "type": "file",
