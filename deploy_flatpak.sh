@@ -47,7 +47,7 @@ OWD=$(pwd)
 
 # Publish CEF
 cd Grayjay.Desktop.CEF
-DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
+DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -p:RestoreRuntimeIdentifier=$runtime -p:RuntimeIdentifiers=$runtime -c Release -p:AssemblyVersion=1.$version.0.0
 
 rm -rf bin/Release/net$dotnet_version/$runtime/publish/cef # we already built this in a previous step
 mv bin/Release/net$dotnet_version/$runtime/publish/* "${destination}"
