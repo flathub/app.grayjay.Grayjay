@@ -32,8 +32,8 @@ Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recom
 4. Run `just npm-deps` or `./scripts/npm-deps.sh https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/raw/master/Grayjay.Desktop.Web/` to generate an updated `npm-sources.json`.
    - you can also pass in a local on-disk path to the `Grayjay.Desktop.Web` directory (no trailing slash)
 5. Regenerate the two nuget sources files:
-   1. From an x86 machine, run `python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json <path to your checked out grayjay source repo>/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 8 --only-arches x86_64` to update `nuget-sources.json`
-   2. From an arm64 machine, run `python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-arm.json <path to your checked out grayjay source repo>/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 8 --only-arches aarch64` to update `nuget-sources-arm.json`
+   1. From an x86 machine, run `python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json <path to your checked out grayjay source repo>/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 8 --runtime linux-x86 --only-arches x86_64` to update `nuget-sources.json`
+   2. From an arm64 machine, run `python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-arm.json <path to your checked out grayjay source repo>/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 8 --runtime linux-arm --runtime linux-arm64 --only-arches aarch64` to update `nuget-sources-arm.json`
 6. Check the `patches` folder and the [patch sources](https://docs.flatpak.org/en/latest/module-sources.html#patch-sources) of all the modules (mostly `grayjay` and `dotcefnative`) and enable/disable patches as necessary
    - These patches allow for things to be hotfixed (such as version numbers) before things make it to prod. Ideally they are a last resort that are meant for cases where Grayjay has already shipped or the patch cannot be upstreamed in time.
 
