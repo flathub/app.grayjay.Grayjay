@@ -117,7 +117,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: c5e691755ef71ea778353ddde77becec3fa71579
+        commit: ec351a4e363c52eac473896daed1b5ffe7247add
         disable-lfs: true
         # x-checker-data:
         #   type: git
