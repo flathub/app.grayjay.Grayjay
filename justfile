@@ -19,7 +19,7 @@ bundle:
 	flatpak build-bundle ~/.local/share/flatpak/repo GrayjayDesktop.flatpak app.grayjay.Grayjay
 
 prep-npm:
-	./scripts/npm-deps.sh https://raw.githubusercontent.com/futo-org/Grayjay.Desktop/refs/heads/master/Grayjay.Desktop.Web
+	./scripts/npm-deps.sh https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/raw/master/Grayjay.Desktop.Web
 
 # this expects to be run in a full clone of the grayjay desktop repo tree checked out on the host machine at ../Grayjay.Desktop
 # also, do not set the runtimes here. It creates missing dependencies that need to be looked into (something weird with macos and windows dependencies probably being mislabeled for linux or something)
