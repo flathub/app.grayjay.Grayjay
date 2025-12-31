@@ -22,10 +22,10 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/fcastsendersdkdotnet/0.0.3/fcastsendersdkdotnet.0.0.3.nupkg",
-        "sha512": "0cb0e33e4364e578d9ba2abecc17326666497e1d8796cad8540e9e951c9f4dd8f745cfa9cb2f7fad278f86d403143c9993a37a3ca936172d66664f65577bf45c",
+        "url": "https://api.nuget.org/v3-flatcontainer/fcastsendersdkdotnet/0.0.5/fcastsendersdkdotnet.0.0.5.nupkg",
+        "sha512": "5b0a846dbc81485a305d1b7e0aecf9aa9a2238163c8a5ad89cab6d4b436629907bd426931368b37668c4b06741c0c617f11bcf26fa119a82b4282c381f407415",
         "dest": "nuget-sources",
-        "dest-filename": "fcastsendersdkdotnet.0.0.3.nupkg"
+        "dest-filename": "fcastsendersdkdotnet.0.0.5.nupkg"
     },
     {
         "type": "file",
@@ -222,6 +222,13 @@
         "sha512": "01470a6b47de2cf77654e31718bb0339a675c880ceb7cd7422acc722a7e85cda5cd5ed9ce625b636c803654e487b356835558ba050a5e7990c588587c6885266",
         "dest": "nuget-sources",
         "dest-filename": "microsoft.data.sqlite.core.8.0.1.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.ilcompiler/8.0.20/microsoft.dotnet.ilcompiler.8.0.20.nupkg",
+        "sha512": "313cae485653216cdfd5b43d5365bfa51efe9376bca4d9bed94fb913faf4a5fabab405fa56084e5024803e984e51ec250a4e4c3c7b2055af48f6155323b23df9",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.dotnet.ilcompiler.8.0.20.nupkg"
     },
     {
         "type": "file",
@@ -540,6 +547,20 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-arm64.microsoft.dotnet.ilcompiler/8.0.20/runtime.linux-arm64.microsoft.dotnet.ilcompiler.8.0.20.nupkg",
+        "sha512": "f95a9a3ba5f646920f6eac1dd326a8529c5ee209b33b07c38e22f11acbfc7f75751f9da214b92840060faad122cda512b21bd15259bff6a4df687cd12cff6356",
+        "dest": "nuget-sources",
+        "dest-filename": "runtime.linux-arm64.microsoft.dotnet.ilcompiler.8.0.20.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-x64.microsoft.dotnet.ilcompiler/8.0.20/runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.20.nupkg",
+        "sha512": "b90dfea9578c50599cc654bcaf8d1936edd8144cf599547aac624dbf7268261b4c53bf9d67bb6c1b8def5200f831d7c02290051cabfd61b9bb75b14ae9957665",
+        "dest": "nuget-sources",
+        "dest-filename": "runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.20.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/runtime.native.system/4.3.0/runtime.native.system.4.3.0.nupkg",
         "sha512": "299c5a96fffdcaf1972e3e3d1c727837d18ac9e88cb79c09914f12ff1de7280dff10c9232a49a1c1d3ba7785a5cf76f28c9dce414f0a2a567688de7fd5331dc8",
         "dest": "nuget-sources",
@@ -589,6 +610,20 @@
     },
     {
         "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.osx-arm64.microsoft.dotnet.ilcompiler/8.0.20/runtime.osx-arm64.microsoft.dotnet.ilcompiler.8.0.20.nupkg",
+        "sha512": "04cf710f6a87500cfa1536616878dd62358bdccf923431126e82914dbbe599c21e36ef3addfa0256e71e0e093b7c43e9a0c721169f769ee8c9d3a2d9f025a450",
+        "dest": "nuget-sources",
+        "dest-filename": "runtime.osx-arm64.microsoft.dotnet.ilcompiler.8.0.20.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.osx-x64.microsoft.dotnet.ilcompiler/8.0.20/runtime.osx-x64.microsoft.dotnet.ilcompiler.8.0.20.nupkg",
+        "sha512": "797330c2a9d8e1c3ecbac786a04b6e1aec5d28faea0c58f2f386b81ed6e761344b9cc603cb177a3d96aecf76312a00af474b56728bac38ca03c52616963a3723",
+        "dest": "nuget-sources",
+        "dest-filename": "runtime.osx-x64.microsoft.dotnet.ilcompiler.8.0.20.nupkg"
+    },
+    {
+        "type": "file",
         "url": "https://api.nuget.org/v3-flatcontainer/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple/4.3.0/runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg",
         "sha512": "9929942914071e0ea0944a952ff9ad3c296be39e719a2f4bb3eac298d41829b4468b332fba880ebe242871a02145e1c26dc7660021375d12c7efcae4d200278a",
         "dest": "nuget-sources",
@@ -628,6 +663,20 @@
         "sha512": "5dbe6bc007a9b46491e5299602291f5dbf8cc8d51e6c1b08db2fa0efd365990b41b6e181ed6bf82e873a659396427bc0e33e85b47d645d273fef8bf8ec643631",
         "dest": "nuget-sources",
         "dest-filename": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.win-arm64.microsoft.dotnet.ilcompiler/8.0.20/runtime.win-arm64.microsoft.dotnet.ilcompiler.8.0.20.nupkg",
+        "sha512": "874164d1c8e097f5130ff253a40cd5c329c276ebff7f92d4830d8ab670c10d3ced1f28f6c70ff30cc343bdee6917bfa2cd5a9faa0d8d9b552fb93b904791e885",
+        "dest": "nuget-sources",
+        "dest-filename": "runtime.win-arm64.microsoft.dotnet.ilcompiler.8.0.20.nupkg"
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.win-x64.microsoft.dotnet.ilcompiler/8.0.20/runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.20.nupkg",
+        "sha512": "be5d49beb60eec8e87b5c0ec2514707d794d9df8b407460883db49f249241a9124e7525b3f3c0a5147f952018c609601c02c7954bccd0751f969d614bf9d43fb",
+        "dest": "nuget-sources",
+        "dest-filename": "runtime.win-x64.microsoft.dotnet.ilcompiler.8.0.20.nupkg"
     },
     {
         "type": "file",
