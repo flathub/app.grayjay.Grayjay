@@ -72,6 +72,24 @@ modules:
           - x86_64
       - type: patch
         path: patches/fortify.patch
+  - name: curlshim
+    buildsystem: simple
+    build-commands:
+      - 
+    sources:
+      - type: archive
+        url: https://github.com/lexiforest/curl-impersonate/releases/download/v1.2.3/libcurl-impersonate-v1.2.3.x86_64-linux-gnu.tar.gz
+        sha256: 56fd8d898ec5db120963ab6fa28683771e51204dc346d6f8bc53beebacb1cd4b
+        dest: libcurl-impersonate-linux-gnu
+        only-arches:
+          - x86_64
+      - type: archive
+        url: https://github.com/lexiforest/curl-impersonate/releases/download/v1.2.3/libcurl-impersonate-v1.2.3.aarch64-linux-gnu.tar.gz
+        sha256: 4fa79a3f0948904e32e69f62f5e1755f467101498718a8bb4c63480be8bfeddb
+        dest: libcurl-impersonate-linux-gnu
+        only-arches:
+          - aarch64
+
   - name: grayjay
     buildsystem: simple
     build-options:
