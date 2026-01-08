@@ -6,13 +6,13 @@ command -v patchelf >/dev/null 2>&1 || {
   exit 1
 }
 
+START_DIR="$(pwd)"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 NATIVE_DIR="${ROOT_DIR}/native/desktop"
 
-OUT_DIR_X64="${ROOT_DIR}/out/linux-x64"
-OUT_DIR_ARM64="${ROOT_DIR}/out/linux-arm64"
-mkdir -p "${OUT_DIR_X64}" "${OUT_DIR_ARM64}"
+OUT_DIR="${ROOT_DIR}/out"
+mkdir -p "${OUT_DIR}"
 
 WORK_DIR="$(mktemp -d "${TMPDIR:-/tmp}/curlshim.XXXXXX")"
 trap 'rm -rf "${WORK_DIR}"' EXIT
@@ -50,11 +50,10 @@ build_shim() {
 # will already be extracted to
 # libcurl-impersonate-linux-gnu
 
-LIB="$(find_first "${WORK_DIR}/libcurl-impersonate-linux-gnu" 'libcurl-impersonate*.so*')"
 
-[[ -n "${LIB}" ]]  || { echo "Could not find libcurl-impersonate .so in archive." >&2; exit 1; }
 
-cp -f "${LIB}"  "${OUT_DIR}/libcurl-impersonate.so"
+tar --extract --file="$START_DIR/libcurl-impersonate-linux-gnu.tar.gz" --wildcards libcurl-impersonate*.so*
+mv ./libcurl-impersonate*.so* "${OUT_DIR}/"
 
 patchelf --set-soname libcurl-impersonate.so "${OUT_DIR}/libcurl-impersonate.so"
 
@@ -72,7 +71,7 @@ fi
 
 echo "== Building shim for ${FLATPAK_ARCH} =="
 
-build_shim "${OUT_DIR_X64}" "${CC}" "${STRIP}"
+build_shim "${OUT_DIR}" "${CC}" "${STRIP}"
 
 if ! command -v "${CC}" >/dev/null 2>&1; then
   echo "Missing cross-compiler ${CC}. Set AARCH64_CC or install it." >&2
