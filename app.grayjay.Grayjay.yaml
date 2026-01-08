@@ -83,20 +83,29 @@ modules:
   - name: curlshim
     buildsystem: simple
     build-commands:
-      - 
+      - ./curlbind/scripts/linux/build-imp-shim.sh
+      - mkdir -p /app/build/curlshim
+      - cp -r ./curlbind/out /app/build/curlshim
     sources:
-      - type: archive
+      - type: file
         url: https://github.com/lexiforest/curl-impersonate/releases/download/v1.2.3/libcurl-impersonate-v1.2.3.x86_64-linux-gnu.tar.gz
         sha256: 56fd8d898ec5db120963ab6fa28683771e51204dc346d6f8bc53beebacb1cd4b
-        dest: libcurl-impersonate-linux-gnu
+        dest-filename: libcurl-impersonate-linux-gnu.tar.gz
         only-arches:
           - x86_64
-      - type: archive
+      - type: file
         url: https://github.com/lexiforest/curl-impersonate/releases/download/v1.2.3/libcurl-impersonate-v1.2.3.aarch64-linux-gnu.tar.gz
         sha256: 4fa79a3f0948904e32e69f62f5e1755f467101498718a8bb4c63480be8bfeddb
-        dest: libcurl-impersonate-linux-gnu
+        dest-filename: libcurl-impersonate-linux-gnu.tar.gz
         only-arches:
           - aarch64
+      - type: file
+        path: build-imp-shim.sh
+        dest: curlbind/scripts/linux
+      - type: file
+        path: curlshim.c
+        dest: curlbind/native/desktop
+
 
   - name: grayjay
     buildsystem: simple
@@ -122,6 +131,7 @@ modules:
       # Adjustments
       - chmod u=rwx ${FLATPAK_DEST}/grayjay/Grayjay
       - rm ${FLATPAK_DEST}/grayjay/ffmpeg # we provide ffmpeg already
+      - cp -r /app/build/curlshim ${FLATPAK_DEST}/grayjay
       - rm ${FLATPAK_DEST}/grayjay/Portable # https://github.com/futo-org/Grayjay.Desktop/issues/14#issuecomment-2692940623
       # - chmod u=rwx ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client
       - rm ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client ${FLATPAK_DEST}/grayjay/Updater*.json # updates managed by flatpak
