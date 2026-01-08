@@ -26,6 +26,8 @@ add-extensions:
     add-ld-path: .
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
+  - rm /app/bin/patchelf
+  - rm -rf /app/build/curlshim
 build-options:
   prepend-path: /usr/lib/sdk/llvm20/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
   prefix: /usr/lib/sdk/llvm20:/usr/lib/sdk/dotnet8
@@ -72,6 +74,40 @@ modules:
           - x86_64
       - type: patch
         path: patches/fortify.patch
+  - name: patchelf
+    build-commands:
+     - cp /run/build/patchelf/src/patchelf /app/bin/patchelf
+    sources:
+      - type: git
+        url: https://github.com/NixOS/patchelf.git
+        commit: a949ff23315bbb5863627c4655fe216ecbf341a2
+  - name: curlshim
+    buildsystem: simple
+    build-commands:
+      - ./curlbind/scripts/linux/build-imp-shim.sh
+      - mkdir -p /app/build/curlshim
+      - cp -r ./curlbind/out /app/build/curlshim
+    sources:
+      - type: file
+        url: https://github.com/lexiforest/curl-impersonate/releases/download/v1.2.3/libcurl-impersonate-v1.2.3.x86_64-linux-gnu.tar.gz
+        sha256: 56fd8d898ec5db120963ab6fa28683771e51204dc346d6f8bc53beebacb1cd4b
+        dest-filename: libcurl-impersonate-linux-gnu.tar.gz
+        only-arches:
+          - x86_64
+      - type: file
+        url: https://github.com/lexiforest/curl-impersonate/releases/download/v1.2.3/libcurl-impersonate-v1.2.3.aarch64-linux-gnu.tar.gz
+        sha256: 4fa79a3f0948904e32e69f62f5e1755f467101498718a8bb4c63480be8bfeddb
+        dest-filename: libcurl-impersonate-linux-gnu.tar.gz
+        only-arches:
+          - aarch64
+      - type: file
+        path: build-imp-shim.sh
+        dest: curlbind/scripts/linux
+      - type: file
+        path: curlshim.c
+        dest: curlbind/native/desktop
+
+
   - name: grayjay
     buildsystem: simple
     build-options:
@@ -96,6 +132,7 @@ modules:
       # Adjustments
       - chmod u=rwx ${FLATPAK_DEST}/grayjay/Grayjay
       - rm ${FLATPAK_DEST}/grayjay/ffmpeg # we provide ffmpeg already
+      - cp -r /app/build/curlshim ${FLATPAK_DEST}/grayjay
       - rm ${FLATPAK_DEST}/grayjay/Portable # https://github.com/futo-org/Grayjay.Desktop/issues/14#issuecomment-2692940623
       # - chmod u=rwx ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client
       - rm ${FLATPAK_DEST}/grayjay/FUTO.Updater.Client ${FLATPAK_DEST}/grayjay/Updater*.json # updates managed by flatpak
