@@ -26,6 +26,7 @@ add-extensions:
     add-ld-path: .
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
+  - rm /app/bin/patchelf
 build-options:
   prepend-path: /usr/lib/sdk/llvm20/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
   prefix: /usr/lib/sdk/llvm20:/usr/lib/sdk/dotnet8
@@ -72,6 +73,13 @@ modules:
           - x86_64
       - type: patch
         path: patches/fortify.patch
+  - name: patchelf
+    build-commands:
+     - cp /run/build/patchelf/src/patchelf /app/bin/patchelf
+    sources:
+      - type: git
+        url: https://github.com/NixOS/patchelf.git
+        commit: a949ff23315bbb5863627c4655fe216ecbf341a2
   - name: curlshim
     buildsystem: simple
     build-commands:
