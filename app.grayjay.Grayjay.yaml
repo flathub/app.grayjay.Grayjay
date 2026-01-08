@@ -27,6 +27,7 @@ add-extensions:
 cleanup-commands:
   - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
   - rm /app/bin/patchelf
+  - rm -rf /app/build/curlshim
 build-options:
   prepend-path: /usr/lib/sdk/llvm20/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
   prefix: /usr/lib/sdk/llvm20:/usr/lib/sdk/dotnet8
