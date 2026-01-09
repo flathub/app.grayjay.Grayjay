@@ -19,13 +19,13 @@ bundle:
 	flatpak build-bundle ~/.local/share/flatpak/repo GrayjayDesktop.flatpak app.grayjay.Grayjay
 
 prep-npm:
-	./scripts/npm-deps.sh https://raw.githubusercontent.com/futo-org/Grayjay.Desktop/refs/heads/master/Grayjay.Desktop.Web
+	./scripts/npm-deps.sh https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/raw/master/Grayjay.Desktop.Web
 
 # this expects to be run in a full clone of the grayjay desktop repo tree checked out on the host machine at ../Grayjay.Desktop
 # also, do not set the runtimes here. It creates missing dependencies that need to be looked into (something weird with macos and windows dependencies probably being mislabeled for linux or something)
 prep-nuget:
 	# git -C ../Grayjay.Desktop checkout  $(yq -r .modules[1].sources[0].commit app.grayjay.Grayjay.yaml)  && git -C ../Grayjay.Desktop submodule  update
-	python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop 24.08 --dotnet 9
+	python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop $(yq -r '."runtime-version"' app.grayjay.Grayjay.yaml) --dotnet 8
 
 lint:
 	flatpak run --command=flatpak-builder-lint org.flatpak.Builder manifest ./app.grayjay.Grayjay.yaml
