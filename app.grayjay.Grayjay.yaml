@@ -167,6 +167,8 @@ modules:
 
       - type: file
         path: deploy_flatpak.sh
+      - type: file
+        path: path.sh
 
       - npm-sources.json
 
