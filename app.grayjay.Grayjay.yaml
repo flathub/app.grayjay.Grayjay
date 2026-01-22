@@ -19,13 +19,7 @@ sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet8
   - org.freedesktop.Sdk.Extension.node22
   - org.freedesktop.Sdk.Extension.llvm20
-add-extensions:
-  org.freedesktop.Platform.ffmpeg-full:
-    version: '25.08' # replace by appropriate version
-    directory: lib/ffmpeg
-    add-ld-path: .
 cleanup-commands:
-  - mkdir -p ${FLATPAK_DEST}/lib/ffmpeg
   - rm /app/bin/patchelf
   - rm -rf /app/build/curlshim
 build-options:
