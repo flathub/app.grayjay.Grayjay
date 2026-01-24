@@ -124,7 +124,7 @@ modules:
       - dotnet nuget locals all --clear
       # Adjustments
       - chmod u=rwx ${FLATPAK_DEST}/grayjay/Grayjay
-      - rm ${FLATPAK_DEST}/grayjay/ffmpeg # we provide ffmpeg already
+      - rm ${FLATPAK_DEST}/grayjay/ffmpeg # we provide ffmpeg in PATH already
       - rm ${FLATPAK_DEST}/grayjay/libcurl-impersonate.so ${FLATPAK_DEST}/grayjay/libcurlshim.so
       # these cp operations will copy the file, not the symlinks
       - cp /app/build/curlshim/libcurl-impersonate.so ${FLATPAK_DEST}/grayjay
