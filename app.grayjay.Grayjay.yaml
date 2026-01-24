@@ -78,7 +78,7 @@ modules:
   - name: curlshim
     buildsystem: simple
     build-commands:
-      - ./curlbind/scripts/linux/build-imp-shim.sh
+      - ./curlbind/scripts/linux/build-imp-shim-flatpak.sh
       - mkdir -p /app/build/curlshim
       - cp -r ./curlbind/out/* /app/build/curlshim
     sources:
@@ -95,7 +95,7 @@ modules:
         only-arches:
           - aarch64
       - type: file
-        path: build-imp-shim.sh
+        path: build-imp-shim-flatpak.sh
         dest: curlbind/scripts/linux
       - type: file
         path: curlshim.c
