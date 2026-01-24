@@ -82,6 +82,9 @@ modules:
       - mkdir -p /app/build/curlshim
       - cp -r ./curlbind/out/* /app/build/curlshim
     sources:
+      - type: git
+        url: https://gitlab.futo.org/videostreaming/curl-impersonate-builder.git
+        commit: 1cc90a5be47ac9d25f879f863811801e6a73e74b
       - type: file
         url: https://github.com/lexiforest/curl-impersonate/releases/download/v1.2.3/libcurl-impersonate-v1.2.3.x86_64-linux-gnu.tar.gz
         sha256: 56fd8d898ec5db120963ab6fa28683771e51204dc346d6f8bc53beebacb1cd4b
@@ -97,10 +100,6 @@ modules:
       - type: file
         path: build-imp-shim-flatpak.sh
         dest: curlbind/scripts/linux
-      - type: file
-        path: curlshim.c
-        dest: curlbind/native/desktop
-
 
   - name: grayjay
     buildsystem: simple
