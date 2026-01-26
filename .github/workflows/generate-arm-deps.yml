@@ -1,0 +1,72 @@
+name: Generate Vendored Arm Dependencies Artifact from Submodule Script
+
+on:
+  workflow_dispatch:
+    # Allows manual triggering of the workflow
+    # You can add inputs here if your script needs dynamic parameters
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build_and_generate:
+    runs-on: ubuntu-24.04-arm # Or your preferred runner
+
+    steps:
+      - name: Checkout Current Repository with Submodules
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }} # Checkout the current repo
+          ref: ${{ github.ref }} # Use the current branch/tag
+          path: 'flathub'
+          submodules: true # Checkout submodules of the current repo
+          # token: ${{ secrets.GITHUB_TOKEN }}
+
+      # - name: Get current hash of Source Repo
+      #   run: echo `GRAYJAY_DESKTOP_VERSION=$(yq -r '.modules[] | select(.name == "grayjay").sources[] | select(.url == "https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git").commit' ../flathub/app.grayjay.Grayjay.yaml 2> /dev/null)` >> "$GITHUB_ENV"
+
+      - name: Create dir
+        run: mkdir Grayjay.Desktop
+
+      - name: Clone Target Repository (and SKIP SMUDGE)
+        run:  GIT_LFS_SKIP_SMUDGE=1 git clone --single-branch --depth 50 https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git/ Grayjay.Desktop
+
+      - name: checkout commit
+        run:  |
+          cd Grayjay.Desktop
+          git config lfs.smudge.skip true
+          git checkout $(yq -r '.modules[] | select(.name == "grayjay").sources[] | select(.url == "https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git").commit' ../flathub/app.grayjay.Grayjay.yaml 2> /dev/null)
+      - name: update submodules
+        run:  |
+          cd Grayjay.Desktop
+          GIT_LFS_SKIP_SMUDGE=1 git submodule update --init --recursive --jobs 4
+
+      - name: Setup Flatpak Environment
+        # This is a placeholder. The actual setup depends on what your script needs.
+        # You might use actions like:
+        # - https://github.com/flatpak/flatpak-actions
+        # - or simply install via apt-get if your script's needs are simple
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak
+          # Additional Flatpak setup commands, e.g., adding remotes, installing runtimes/SDKs
+          flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
+          flatpak install -y --user org.freedesktop.Sdk/aarch64/25.08
+          flatpak install -y --user org.freedesktop.Sdk.Extension.dotnet8/aarch64/25.08
+
+      - name: Run Submodule Script
+        # Make sure your script has execute permissions (+x) in the repository
+        run: |
+          # Navigate to the target repository directory
+          cd flathub
+
+          python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-arm.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop 25.08 --dotnet 8 --only-arches aarch64
+
+          cd .. # Go back to the workflow root
+
+      - name: Upload Generated Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: nuget-sources-arm.json
+          path: ./flathub/nuget-sources-arm.json
+          # Optional: You can specify a retention period in days (max 90, min 1)
+          # retention-days: 5
