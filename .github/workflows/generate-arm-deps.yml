@@ -4,6 +4,8 @@ on:
   workflow_dispatch:
     # Allows manual triggering of the workflow
     # You can add inputs here if your script needs dynamic parameters
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   build_and_generate:
@@ -32,7 +34,7 @@ jobs:
         run:  |
           cd Grayjay.Desktop
           git config lfs.smudge.skip true
-          git checkout c5e691755ef71ea778353ddde77becec3fa71579
+          git checkout $(yq -r '.modules[] | select(.name == "grayjay").sources[] | select(.url == "https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git").commit' ../flathub/app.grayjay.Grayjay.yaml 2> /dev/null)
       - name: update submodules
         run:  |
           cd Grayjay.Desktop
