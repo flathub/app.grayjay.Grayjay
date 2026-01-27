@@ -10,6 +10,7 @@ START_DIR="$(pwd)"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/../.." && pwd)"
 NATIVE_DIR="${ROOT_DIR}/native/desktop"
+CROSS_COMPILE="False"
 
 OUT_DIR="${ROOT_DIR}/out"
 mkdir -p "${OUT_DIR}"
@@ -57,17 +58,14 @@ mv ./libcurl-impersonate*.so* "${OUT_DIR}/"
 
 patchelf --set-soname libcurl-impersonate.so "${OUT_DIR}/libcurl-impersonate.so"
 
-
-if [ "${FLATPAK_ARCH}" == "x86_64" ]; then
-  CC="${CC:-gcc}"
-  STRIP="${STRIP:-strip}"
-elif [ "${FLATPAK_ARCH}" == "aarch64" ]; then
+if [ "${CROSS_COMPILE}" == "True" ]; then
   CC="${AARCH64_CC:-aarch64-linux-gnu-gcc}"
   STRIP="${AARCH64_STRIP:-aarch64-linux-gnu-strip}"
 else
-  echo "Unsupported Arch present $FLATPAK_ARCH"
-  exit 1
+  CC="${CC:-gcc}"
+  STRIP="${STRIP:-strip}"
 fi
+
 
 echo "== Building shim for ${FLATPAK_ARCH} =="
 
