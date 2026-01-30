@@ -78,10 +78,13 @@ modules:
   - name: curlshim
     buildsystem: simple
     build-commands:
-      - ./curlbind/scripts/linux/build-imp-shim.sh
+      - ./curlbind/scripts/linux/build-imp-shim-flatpak.sh
       - mkdir -p /app/build/curlshim
       - cp -r ./curlbind/out/* /app/build/curlshim
     sources:
+      - type: git
+        url: https://gitlab.futo.org/videostreaming/curl-impersonate-builder.git
+        commit: 1cc90a5be47ac9d25f879f863811801e6a73e74b
       - type: file
         url: https://github.com/lexiforest/curl-impersonate/releases/download/v1.2.3/libcurl-impersonate-v1.2.3.x86_64-linux-gnu.tar.gz
         sha256: 56fd8d898ec5db120963ab6fa28683771e51204dc346d6f8bc53beebacb1cd4b
@@ -95,12 +98,8 @@ modules:
         only-arches:
           - aarch64
       - type: file
-        path: build-imp-shim.sh
+        path: build-imp-shim-flatpak.sh
         dest: curlbind/scripts/linux
-      - type: file
-        path: curlshim.c
-        dest: curlbind/native/desktop
-
 
   - name: grayjay
     buildsystem: simple
@@ -125,7 +124,7 @@ modules:
       - dotnet nuget locals all --clear
       # Adjustments
       - chmod u=rwx ${FLATPAK_DEST}/grayjay/Grayjay
-      - rm ${FLATPAK_DEST}/grayjay/ffmpeg # we provide ffmpeg already
+      - rm ${FLATPAK_DEST}/grayjay/ffmpeg # we provide ffmpeg in PATH already
       - rm ${FLATPAK_DEST}/grayjay/libcurl-impersonate.so ${FLATPAK_DEST}/grayjay/libcurlshim.so
       # these cp operations will copy the file, not the symlinks
       - cp /app/build/curlshim/libcurl-impersonate.so ${FLATPAK_DEST}/grayjay
@@ -151,7 +150,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: 546b2dd3e8ce80db9b8ebf067322541ec9c41e45
+        commit: 8edc0dc63ff0394f850c498079320bd7b9915f6f
         disable-lfs: true
         # x-checker-data:
         #   type: git
