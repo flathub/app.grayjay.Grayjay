@@ -60,6 +60,15 @@ body:
     validations:
       required: true
 
+  - type: textarea
+    id: flatpak-only
+    attributes:
+      label: Why Flatpak?
+      description: This repo is for the flatpak build/config only. If this issue is happening on other platforms (Android, non-flatpak linux, etc) it likely belongs in another repo.
+      placeholder: How do you know this issue is unique to the Flatpak build of Grayjay Desktop?
+    validations:
+      required: false
+
   - type: dropdown
     id: plugin
     attributes:
