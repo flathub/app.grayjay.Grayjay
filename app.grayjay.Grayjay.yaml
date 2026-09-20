@@ -46,7 +46,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.futo.org/videostreaming/JustCef.git
-        commit: 6f57f785de518901c25c73ecfbccc15e77fb5e3f
+        commit: 7ba59ca5d718717daf69e07b91b7ea8753c60d00
         disable-submodules: true
         disable-lfs: true
       - type: patch
