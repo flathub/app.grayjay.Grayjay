@@ -54,14 +54,14 @@ modules:
       - type: archive
         # https://stackoverflow.com/a/70172000
         
-        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal.tar.bz2?inline=false
+        url: http://static.grayjay.app/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal.tar.bz2
         sha256: 533b941af98b85971b0a21f3626ad97e611c55cad2783a1f2185593de6843b3a
         dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal'
         only-arches:
           - aarch64
       - type: archive
         # https://stackoverflow.com/a/70172000
-        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal.tar.bz2?inline=false
+        url: http://static.grayjay.app/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal.tar.bz2
         sha256: b7df842e2f3d08c635d9dc230fb7f95a7ce3cafd45ae4da3e0c40638cc51bee8
         dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal'
         only-arches:
