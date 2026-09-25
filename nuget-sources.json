@@ -31,10 +31,10 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/fcastsendersdkdotnet/0.0.7/fcastsendersdkdotnet.0.0.7.nupkg",
-        "sha512": "f9508e4916f9abf30ff7fbccbdf045de3f94e94c8bd3cc27c512b6d636708192cc603246acb0e6f52fac53f4d7bd2b0438ea2a7a9844aa4cbc19ba18d907188a",
+        "url": "https://api.nuget.org/v3-flatcontainer/fcastsendersdkdotnet/0.0.5/fcastsendersdkdotnet.0.0.5.nupkg",
+        "sha512": "5b0a846dbc81485a305d1b7e0aecf9aa9a2238163c8a5ad89cab6d4b436629907bd426931368b37668c4b06741c0c617f11bcf26fa119a82b4282c381f407415",
         "dest": "nuget-sources",
-        "dest-filename": "fcastsendersdkdotnet.0.0.7.nupkg",
+        "dest-filename": "fcastsendersdkdotnet.0.0.5.nupkg",
         "only-arches": [
             "x86_64"
         ]
@@ -91,10 +91,10 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/8.0.21/microsoft.aspnetcore.app.runtime.linux-x64.8.0.21.nupkg",
-        "sha512": "4027573dd98cdaccb3496d24ffa46b74ddac1e0b6e810421d0b453355f35148906646eb270407ba25a2a374f9078b674b73eb60b1cbb5a08fdfcca7a0e6ed268",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-x64/8.0.30/microsoft.aspnetcore.app.runtime.linux-x64.8.0.30.nupkg",
+        "sha512": "1066c1a67e6c229612efc97115d5495baf5f85617c5513dccc00b64301e01bc75491860abdd4508776772e56d6dd81f92e5fc44f11c28e6a2bf01bd5ecb60620",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-x64.8.0.21.nupkg",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-x64.8.0.30.nupkg",
         "only-arches": [
             "x86_64"
         ]
@@ -251,27 +251,20 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.ilcompiler/8.0.21/microsoft.dotnet.ilcompiler.8.0.21.nupkg",
-        "sha512": "b1fb1b886e504676aec57b2c273b1eacdc2ca1d2812b5fd161d1077bd8a6fd52e08848e0c62e5ffe7f617f4c2ca567decdfff9b2e4172aa0e41bcb34d9da96e5",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.ilcompiler/8.0.30/microsoft.dotnet.ilcompiler.8.0.30.nupkg",
+        "sha512": "4e997000a4d5cd2c57182faafbb5af4e13bab740c407f3a1a1aa2735f4f8c0dbbac7a1ac96049f68464af9830de73f981a23e62440e0b573991cbda6a3a71234",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.dotnet.ilcompiler.8.0.21.nupkg",
+        "dest-filename": "microsoft.dotnet.ilcompiler.8.0.30.nupkg",
         "only-arches": [
             "x86_64"
         ]
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.dotnet.ilcompiler/8.0.21/microsoft.dotnet.ilcompiler.8.0.21.nupkg",
-        "sha512": "b1fb1b886e504676aec57b2c273b1eacdc2ca1d2812b5fd161d1077bd8a6fd52e08848e0c62e5ffe7f617f4c2ca567decdfff9b2e4172aa0e41bcb34d9da96e5",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.illink.tasks/8.0.30/microsoft.net.illink.tasks.8.0.30.nupkg",
+        "sha512": "abc7300f9d8934c1b3617193dca2c44ba0288bbed033c0df806a037877890219ac5dc5b1c8c6f49b8ba5b46794d10786ee93b899e0fda6bfccee279417b225fb",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.dotnet.ilcompiler.8.0.21.nupkg"
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.net.illink.tasks/8.0.21/microsoft.net.illink.tasks.8.0.21.nupkg",
-        "sha512": "7779fe712cac24681e8d3bd17d1de64b4107364fbeea2d9304cf82d2547b74ec0d73b265f5d9336a4fd0ddcd0c40821a9a772991313d607edd3ff253cb84b2d9",
-        "dest": "nuget-sources",
-        "dest-filename": "microsoft.net.illink.tasks.8.0.21.nupkg",
+        "dest-filename": "microsoft.net.illink.tasks.8.0.30.nupkg",
         "only-arches": [
             "x86_64"
         ]
@@ -308,10 +301,10 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/8.0.21/microsoft.netcore.app.runtime.linux-x64.8.0.21.nupkg",
-        "sha512": "08c7f0cd0f6b657c294a71aa0768a02411afe9448948c226c10c78505a0442f0641a34381bab86daccd5ba21062cb9d9f223e652e042c72b461a400f0bf03ee1",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-x64/8.0.30/microsoft.netcore.app.runtime.linux-x64.8.0.30.nupkg",
+        "sha512": "3c99a46f90b1ddfaeaf37547a27dbbcaa8d9f22ce4403dbaa5db751115376588debd4d2a837f823851573c40ea917ec58f8c770ba026e4da518dce01d97a6354",
         "dest": "nuget-sources",
-        "dest-filename": "microsoft.netcore.app.runtime.linux-x64.8.0.21.nupkg",
+        "dest-filename": "microsoft.netcore.app.runtime.linux-x64.8.0.30.nupkg",
         "only-arches": [
             "x86_64"
         ]
@@ -748,20 +741,13 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-x64.microsoft.dotnet.ilcompiler/8.0.21/runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.21.nupkg",
-        "sha512": "def1c83bdd7963aca329cbb1d321b88af68678a59a0908dc021b99debf9175db651f2471f43e064fbbf00982ef16d9461b31a58c31c117536368467ee74d129f",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-x64.microsoft.dotnet.ilcompiler/8.0.30/runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.30.nupkg",
+        "sha512": "40554233f2832e1406fb90f5fe9eaba53ad01463574f50d90c7be6546c8ca2be951dd30595b3c9205ea8d00b23190b8237e9d39b8f05001e71a279111fef3043",
         "dest": "nuget-sources",
-        "dest-filename": "runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.21.nupkg",
+        "dest-filename": "runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.30.nupkg",
         "only-arches": [
             "x86_64"
         ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-x64.microsoft.dotnet.ilcompiler/8.0.21/runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.21.nupkg",
-        "sha512": "def1c83bdd7963aca329cbb1d321b88af68678a59a0908dc021b99debf9175db651f2471f43e064fbbf00982ef16d9461b31a58c31c117536368467ee74d129f",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.21.nupkg"
     },
     {
         "type": "file",
