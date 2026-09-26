@@ -29,7 +29,7 @@ Prerequisite: Have a local clone of the Grayjay.Desktop source code. It is recom
   - the `JustCef` commit for the `dotcefnative` module
 3. Ensure that all relevant binary files have been updated. This includes:
   - the CEF sources (which are custom-built by FUTO) within the `dotcefnative` module
-4. Run `just npm-deps` or `./scripts/npm-deps.sh https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/raw/master/Grayjay.Desktop.Web/` to generate an updated `npm-sources.json`.
+4. Run `just prep-npm` or `./scripts/npm-deps.sh https://gitlab.futo.org/videostreaming/Grayjay.Desktop/-/raw/master/Grayjay.Desktop.Web/` to generate an updated `npm-sources.json`.
    - you can also pass in a local on-disk path to the `Grayjay.Desktop.Web` directory (no trailing slash)
 5. Regenerate the two nuget sources files:
    1. From an x86 machine, run `python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources.json <path to your checked out grayjay source repo>/Grayjay.Desktop.sln --freedesktop 25.08 --dotnet 8 --runtime linux-x86 --only-arches x86_64` to update `nuget-sources.json`
