@@ -42,7 +42,7 @@ modules:
       - cd native/build; cmake --build .
       - mkdir -p "${FLATPAK_DEST}/grayjay/cef"
       - mv native/build/Release/* "${FLATPAK_DEST}/grayjay/cef"
-      - chmod +x "${FLATPAK_DEST}/grayjay/cef/dotcefnative"
+      - chmod +x "${FLATPAK_DEST}/grayjay/cef/justcefnative"
     sources:
       - type: git
         url: https://gitlab.futo.org/videostreaming/JustCef.git
