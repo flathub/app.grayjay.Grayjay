@@ -31,10 +31,10 @@
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/fcastsendersdkdotnet/0.0.7/fcastsendersdkdotnet.0.0.7.nupkg",
-        "sha512": "f9508e4916f9abf30ff7fbccbdf045de3f94e94c8bd3cc27c512b6d636708192cc603246acb0e6f52fac53f4d7bd2b0438ea2a7a9844aa4cbc19ba18d907188a",
+        "url": "https://api.nuget.org/v3-flatcontainer/fcastsendersdkdotnet/0.1.0/fcastsendersdkdotnet.0.1.0.nupkg",
+        "sha512": "38c2576b47751067c79aefb67ec31d4900d57224e241b779e40d556cc17d66bfe30237544511b2ce6659d64f7906c0fd3d18fe7718674494374707218232a0d6",
         "dest": "nuget-sources",
-        "dest-filename": "fcastsendersdkdotnet.0.0.7.nupkg",
+        "dest-filename": "fcastsendersdkdotnet.0.1.0.nupkg",
         "only-arches": [
             "aarch64"
         ]
