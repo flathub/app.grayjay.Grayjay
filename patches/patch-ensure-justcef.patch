@@ -1,0 +1,33 @@
+diff --git a/cs/ensure-justcef-linux.sh b/cs/ensure-justcef-linux.sh
+index 0c4a31a..085609e 100755
+--- a/cs/ensure-justcef-linux.sh
++++ b/cs/ensure-justcef-linux.sh
+@@ -39,18 +39,18 @@ if [[ ! -f "$ZIP_PATH" ]]; then
+   tmp="$(mktemp "${ZIP_PATH}.tmp.XXXXXX")"
+   curl -L --fail --retry 3 --retry-delay 2 -o "$tmp" "$URL"
+   mv -f "$tmp" "$ZIP_PATH"
+-fi
+ 
+-rm -rf "$EXTRACT_DIR"
+-mkdir -p "$EXTRACT_DIR"
++  rm -rf "$EXTRACT_DIR"
++  mkdir -p "$EXTRACT_DIR"
+ 
+-if command -v unzip >/dev/null 2>&1; then
+-  unzip -q "$ZIP_PATH" -d "$EXTRACT_DIR"
+-elif command -v python3 >/dev/null 2>&1; then
+-  python3 -m zipfile -e "$ZIP_PATH" "$EXTRACT_DIR"
+-else
+-  echo "JustCef: need 'unzip' or 'python3' to extract zip" >&2
+-  exit 1
++  if command -v unzip >/dev/null 2>&1; then
++    unzip -q "$ZIP_PATH" -d "$EXTRACT_DIR"
++  elif command -v python3 >/dev/null 2>&1; then
++    python3 -m zipfile -e "$ZIP_PATH" "$EXTRACT_DIR"
++  else
++    echo "JustCef: need 'unzip' or 'python3' to extract zip" >&2
++    exit 1
++  fi
+ fi
+ 
+ top_level_count="$(find "$EXTRACT_DIR" -mindepth 1 -maxdepth 1 | wc -l | tr -d ' ')"

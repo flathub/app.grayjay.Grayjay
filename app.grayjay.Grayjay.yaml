@@ -116,7 +116,7 @@ modules:
       - mkdir -p "${FLATPAK_DEST}/grayjay/wwwroot/web"
       - mv Grayjay.Desktop.Web/dist/* "${FLATPAK_DEST}/grayjay/wwwroot/web"
       # build core app
-      - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
+      - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources" 11
       # cleanup
       - dotnet nuget locals all --clear
       # Adjustments
@@ -174,5 +174,10 @@ modules:
         options:
           - -dSyncServer
 
+      - type: patch
+        path: patches/patch-ensure-justcef.patch
+        options:
+          - -dJustCef
+      
       - type: file
         path: icon.svg

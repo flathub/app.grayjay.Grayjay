@@ -29,6 +29,11 @@ fi
 
 echo "$packagecache"
 
+justcef_version=""
+if [[ "$3" != "" ]]; then
+  justcef_version="$3"
+fi
+
 printf "Version to deploy: $version\n"
 
 dotnet_version="8.0"
@@ -41,6 +46,13 @@ else
   echo "Unsupported Arch present $FLATPAK_ARCH"
   exit 1
 fi
+
+mkdir -p "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}/extracted"
+touch "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}/JustCefNative-${runtime}.zip"
+
+ln -s "${FLATPAK_DEST}/grayjay/cef" "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}/extracted" 
+
+
 echo "Building for $runtime"
 
 OWD=$(pwd)
