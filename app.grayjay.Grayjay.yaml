@@ -60,10 +60,22 @@ modules:
         only-arches:
           - aarch64
       - type: archive
+        url: http://static.grayjay.app/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linuxarm64_minimal.tar.bz2
+        sha256: 4810d777aa5d95caf61ff42f8302bfb6e34501a84605c79bb7e0f6626c17d15e
+        dest: 'native/third_party/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linuxarm64_minimal'
+        only-arches:
+          - aarch64
+      - type: archive
         # https://stackoverflow.com/a/70172000
         url: https://static.grayjay.app/justcef/11/JustCefNative-linux-x64.zip
         sha256: 65ec9edfd69fa6a24e36ae0db3acd008d9bda9d46e077aa0ff5b2d98d7be193f
         dest: 'JustCef/cs/obj/justcef/net8.0/11/linux-x64/JustCefNative-linux-x64.zip'
+        only-arches:
+          - x86_64
+      - type: archive
+        url: https://static.grayjay.app/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linux64_minimal.tar.bz2
+        sha256: 5b02437815b045bcb95df2356a96d79e6ea767373bc3f98ad50530622546db42
+        dest: 'native/third_party/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linux64_minimal'
         only-arches:
           - x86_64
       - type: patch
