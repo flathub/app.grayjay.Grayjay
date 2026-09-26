@@ -46,7 +46,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.futo.org/videostreaming/JustCef.git
-        commit: 7ba59ca5d718717daf69e07b91b7ea8753c60d00
+        commit: e3bd5a8ea2d9a50cf55e5196479df66b18734bbf
         disable-submodules: true
         disable-lfs: true
       - type: patch
@@ -54,16 +54,16 @@ modules:
       - type: archive
         # https://stackoverflow.com/a/70172000
         
-        url: http://static.grayjay.app/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal.tar.bz2
-        sha256: 533b941af98b85971b0a21f3626ad97e611c55cad2783a1f2185593de6843b3a
-        dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal'
+        url: https://static.grayjay.app/justcef/11/JustCefNative-linux-arm64.zip
+        sha256: 56f7c240bb2cd66a06ea225e1eec5d35f2ef6f3c52dba406ae676fceec9c3b59
+        dest: 'JustCef/cs/obj/justcef/net8.0/11/linux-arm64/JustCefNative-linux-arm64.zip'
         only-arches:
           - aarch64
       - type: archive
         # https://stackoverflow.com/a/70172000
-        url: http://static.grayjay.app/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal.tar.bz2
-        sha256: b7df842e2f3d08c635d9dc230fb7f95a7ce3cafd45ae4da3e0c40638cc51bee8
-        dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal'
+        url: https://static.grayjay.app/justcef/11/JustCefNative-linux-x64.zip
+        sha256: 65ec9edfd69fa6a24e36ae0db3acd008d9bda9d46e077aa0ff5b2d98d7be193f
+        dest: 'JustCef/cs/obj/justcef/net8.0/11/linux-x64/JustCefNative-linux-x64.zip'
         only-arches:
           - x86_64
       - type: patch
@@ -150,7 +150,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: a8e59a4308e43549dfdd7f88e57119d69d01dd7d
+        commit: 50e35f37c022f88b04880d3a5962b81988adfe6a
         disable-lfs: true
         # x-checker-data:
         #   type: git
