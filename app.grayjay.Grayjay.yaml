@@ -97,7 +97,12 @@ modules:
       - type: file
         path: build-imp-shim-flatpak.sh
         dest: curlbind/scripts/linux
-
+  - name: zypak
+    sources:
+      - type: git
+        url: https://github.com/refi64/zypak
+        tag: v2025.09
+        commit: 693a71c5ffa80ec9c9ce2ae03b1ccc493c698e53
   - name: grayjay
     buildsystem: simple
     build-options:
@@ -106,6 +111,8 @@ modules:
         # tools.
         # (The directory format is: /run/build/MODULE_NAME/flatpak-node/cache)
         XDG_CACHE_HOME: ${FLATPAK_BUILDER_BUILDDIR}/flatpak-node/cache
+        # If the application uses CEF, set `ZYPAK_CEF_LIBRARY_PATH` to the absolute path to the `libcef.so` https://github.com/refi64/zypak/blob/693a71c5ffa80ec9c9ce2ae03b1ccc493c698e53/README.md?plain=1#L87
+        # ZYPAK_CEF_LIBRARY_PATH: 
         # Set the npm cache directory, used by npm to find its package metadata.
         npm_config_cache: ${FLATPAK_BUILDER_BUILDDIR}/flatpak-node/npm-cache
     build-commands:
