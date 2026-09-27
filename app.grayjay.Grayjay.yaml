@@ -180,11 +180,6 @@ modules:
         path: patches/removeAot.patch
         options:
           - -dSyncServer
-
-      - type: patch
-        path: patches/patch-ensure-justcef.patch
-        options:
-          - -dJustCef
       
       - type: file
         path: icon.svg
