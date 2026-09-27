@@ -123,7 +123,7 @@ modules:
       - mkdir -p "${FLATPAK_DEST}/grayjay/wwwroot/web"
       - mv Grayjay.Desktop.Web/dist/* "${FLATPAK_DEST}/grayjay/wwwroot/web"
       # build core app
-      - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources" 12
+      - ./deploy_flatpak.sh "${FLATPAK_DEST}/grayjay" "${FLATPAK_BUILDER_BUILDDIR}/nuget-sources"
       # cleanup
       - dotnet nuget locals all --clear
       # Adjustments

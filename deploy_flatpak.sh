@@ -32,6 +32,8 @@ echo "$packagecache"
 justcef_version=""
 if [[ "$3" != "" ]]; then
   justcef_version="$3"
+else
+  justcef_version=$(cat "JustCef/native/src/CMakeLists.txt" | sed -n 's/.*JUSTCEF_NATIVE_VERSION=\([0-9]*\).*/\1/p')
 fi
 
 printf "Version to deploy: $version\n"
