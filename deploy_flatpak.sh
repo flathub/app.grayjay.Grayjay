@@ -47,7 +47,7 @@ else
   exit 1
 fi
 
-mkdir -p "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}/extracted"
+mkdir -p "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}"
 touch "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}/JustCefNative-${runtime}.zip"
 
 ln -s "${FLATPAK_DEST}/grayjay/cef" "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}/extracted" 
