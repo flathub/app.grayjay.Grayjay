@@ -6,7 +6,7 @@
         "dest": "nuget-sources",
         "dest-filename": "coverlet.collector.3.1.2.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -16,7 +16,7 @@
         "dest": "nuget-sources",
         "dest-filename": "coverlet.collector.6.0.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -26,7 +26,7 @@
         "dest": "nuget-sources",
         "dest-filename": "dapper.2.1.28.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -36,7 +36,7 @@
         "dest": "nuget-sources",
         "dest-filename": "fcastsendersdkdotnet.0.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -46,7 +46,7 @@
         "dest": "nuget-sources",
         "dest-filename": "fizzler.1.2.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -56,7 +56,7 @@
         "dest": "nuget-sources",
         "dest-filename": "fizzler.systems.htmlagilitypack.1.2.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -66,7 +66,7 @@
         "dest": "nuget-sources",
         "dest-filename": "google.protobuf.3.25.3.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -76,7 +76,7 @@
         "dest": "nuget-sources",
         "dest-filename": "htmlagilitypack.1.11.58.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -86,7 +86,27 @@
         "dest": "nuget-sources",
         "dest-filename": "libsodium.1.0.20.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm/8.0.30/microsoft.aspnetcore.app.runtime.linux-arm.8.0.30.nupkg",
+        "sha512": "f8e8eee05e38c38e7fb1f9a50c4114939f030abfc255aaa4e5714a7d7e5a6624210cbde2f5161f64c6f16bec22304efffc02147fef048227664dd7933e19b72e",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-arm.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.linux-arm64/8.0.30/microsoft.aspnetcore.app.runtime.linux-arm64.8.0.30.nupkg",
+        "sha512": "fb5abcffb90ec64014ea8aa3ab33408330ec6733653f1d3e663c95c5f034ec2d3247092ab0511f898d088fd48edb8c33c297662f96b19c83dc60ac34a459ad16",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.linux-arm64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
         ]
     },
     {
@@ -96,7 +116,57 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.aspnetcore.app.runtime.linux-x64.8.0.30.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.osx-arm64/8.0.30/microsoft.aspnetcore.app.runtime.osx-arm64.8.0.30.nupkg",
+        "sha512": "a4ceac5e1ed8672466702320dc45beab8088068c17e8a47dbbf1a0cc5e4c7761e0860bff10ab9ebfb085bb090b6f5d2d3fd3b4b210f81d3fbbbc2c89e9a85d78",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.osx-arm64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.osx-x64/8.0.30/microsoft.aspnetcore.app.runtime.osx-x64.8.0.30.nupkg",
+        "sha512": "36aff1172cc472d73005c4531659650591f74b0367fc7026405a20f9ec998cb2422a3f7e3eed77bfdc2bcec85bf088f2e27fcbf1acc5a2372df8514a1d65ea38",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.osx-x64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-arm64/8.0.30/microsoft.aspnetcore.app.runtime.win-arm64.8.0.30.nupkg",
+        "sha512": "24654f51d9f39d8f195df7e37bc5d8ee9a29ae98bad999ae967d463b7848c2936da265faae5d2c1e3ebd6e13be3e83926211ecc37e1da7056d6ab016ff14662b",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.win-arm64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-x64/8.0.30/microsoft.aspnetcore.app.runtime.win-x64.8.0.30.nupkg",
+        "sha512": "942d1794e5ac6de14b44f618210ca6f394d1fa9bf9af71816c636dafcb6efda7f40841adf83ef951025da0d8f2a9d64d2c0214867a05dd35b8c5bb59ee0eed3d",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.win-x64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.aspnetcore.app.runtime.win-x86/8.0.30/microsoft.aspnetcore.app.runtime.win-x86.8.0.30.nupkg",
+        "sha512": "825428d2c3c1ac589b661f56a0a625fba0ed6e475f21e47deaf221878e06b40fced6dff97535bbb03ed61c659dc419dcbf3611884667c83404a11bbea7862aab",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.aspnetcore.app.runtime.win-x86.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
         ]
     },
     {
@@ -106,7 +176,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.core.7.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -116,7 +186,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.v8.7.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -126,7 +196,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.v8.icudata.7.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -136,7 +206,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.v8.native.linux-arm64.7.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -146,7 +216,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.v8.native.linux-x64.7.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -156,7 +226,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.v8.native.osx-arm64.7.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -166,7 +236,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.v8.native.osx-x64.7.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -176,7 +246,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.clearscript.v8.native.win-x64.7.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -186,7 +256,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.codecoverage.17.3.2.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -196,7 +266,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.codecoverage.17.6.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -206,7 +276,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.codecoverage.17.8.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -216,7 +286,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.csharp.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -226,7 +296,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.csharp.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -236,7 +306,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.data.sqlite.8.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -246,7 +316,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.data.sqlite.core.8.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -256,7 +326,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.dotnet.ilcompiler.8.0.30.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -266,7 +336,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.net.illink.tasks.8.0.30.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -276,7 +346,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.net.test.sdk.17.3.2.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -286,7 +356,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.net.test.sdk.17.6.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -296,7 +366,97 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.net.test.sdk.17.8.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.linux-arm/8.0.30/microsoft.netcore.app.host.linux-arm.8.0.30.nupkg",
+        "sha512": "08477fb83194bf8639ed1b3955e34f86579d5ff095a3e728652bb0c297870e6df03ef1a00019e6ae0f5e0356c58e734ada56c96949c3fd34a9cdf08f61a4535f",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.host.linux-arm.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.linux-x64/8.0.30/microsoft.netcore.app.host.linux-x64.8.0.30.nupkg",
+        "sha512": "d3cb93dfbee7fc21ba92dfa6a481bda43b0fe30c162bfb156e1d40a92fa26f9f1505406dd40f8d05af7c772ed4c7f0b21f968f00e516cb7a96e0c297e4acf0a7",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.host.linux-x64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.osx-arm64/8.0.30/microsoft.netcore.app.host.osx-arm64.8.0.30.nupkg",
+        "sha512": "dc8a4096d6f9c0b023cff8eee9c0cbe0c6d7ecd7ad9ce52558405d0a577b159cd921cb435a692c732ecbdfc21db16ef20d87e36ebb9a1124c19d78918965c1a1",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.host.osx-arm64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.osx-x64/8.0.30/microsoft.netcore.app.host.osx-x64.8.0.30.nupkg",
+        "sha512": "82ff3a7cd005dedf034a48c479e8d1fa8d42e0c34423ee001fca0f902e006cee4728fcc65d9593005077ea1edfef33c9c61865c024ea3b921b6e277159e8accf",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.host.osx-x64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.win-arm64/8.0.30/microsoft.netcore.app.host.win-arm64.8.0.30.nupkg",
+        "sha512": "250f00afcc284194bfc9b97b0bf7b57bdc200cdd8062fe81ef737caad88ccf2c23f2aebf8c4fa5cc6c3f03e5f14a11085fc059d75fbccca59a46837907b02e6b",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.host.win-arm64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.win-x64/8.0.30/microsoft.netcore.app.host.win-x64.8.0.30.nupkg",
+        "sha512": "316d6a4f47beb04da5510dbe13053e717fa7ec91a5149a4ff22f2f9ebfa3fec92f51c7ea9134fc82067a4730734972d48d65eae53aec604cc211ddbf620426c4",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.host.win-x64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.win-x86/8.0.30/microsoft.netcore.app.host.win-x86.8.0.30.nupkg",
+        "sha512": "f2aa17f0556b9da589ddd25ebd6c660867d8c28d2503a7dd6f0d8637b0612bc9c46d35d559019556f2d7f8be44b5fc8fc42a44ff9ab182f97c2390a35d41a303",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.host.win-x86.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm/8.0.30/microsoft.netcore.app.runtime.linux-arm.8.0.30.nupkg",
+        "sha512": "5c69fa077fbcd0ea470b880cb08e11e8dd1c5bbf91a4aea0a3eac5e50d79b5e307d94398a26b64fd6d5957e4ff75291cfc61804cd817dd105f2c92bba6d1bc2b",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.linux-arm.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.linux-arm64/8.0.30/microsoft.netcore.app.runtime.linux-arm64.8.0.30.nupkg",
+        "sha512": "538480adf56bdafa5a2e912e8daf720f523e5d2fc4613d9497ed65b071ec4b7162c8f64186be9b98f72e2fe22aec1db3f2544bf7e1136ecdd2bfe8555a77f6a4",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.linux-arm64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
         ]
     },
     {
@@ -306,7 +466,57 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.netcore.app.runtime.linux-x64.8.0.30.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-arm64/8.0.30/microsoft.netcore.app.runtime.osx-arm64.8.0.30.nupkg",
+        "sha512": "a4827ebbaecce75126a971d335030db913ca9a9d5e0b061e6e3fa0dfa4e1a3b5965d8ca5bf3c3102f4c83a1e2461cb848fcefb0ee82ca4c109598f8ff6325ee2",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.osx-arm64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.osx-x64/8.0.30/microsoft.netcore.app.runtime.osx-x64.8.0.30.nupkg",
+        "sha512": "889d36328ab8af602c35e3be0dfecb8324e9516e1965d291f8975aaa16a01bd11725dc6063ec9b8eb95bc588ded37304ddd334e3bfe9883bf20ac5aa845fbbd1",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.osx-x64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-arm64/8.0.30/microsoft.netcore.app.runtime.win-arm64.8.0.30.nupkg",
+        "sha512": "95158c2427a70b8f621b77ee051a57924692676a09aa5e02ece113c35b5b5bfcdaaac4d6dffc2a60f4285c6283d3542c9fc869018acbc553308ff8115179e022",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.win-arm64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-x64/8.0.30/microsoft.netcore.app.runtime.win-x64.8.0.30.nupkg",
+        "sha512": "ee88811c1207a04147900d231c6ae183d089d047a0006e5124c6b3625dc411837b8346f477b04bcc634256ab4d97eb2d0024318d0b87b18926b12f1214004956",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.win-x64.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
+        ]
+    },
+    {
+        "type": "file",
+        "url": "https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.runtime.win-x86/8.0.30/microsoft.netcore.app.runtime.win-x86.8.0.30.nupkg",
+        "sha512": "6af4cc2c45c6cc1e3bb2723a598c5e3c6e7c12a3fb97d8656eb76ac3512409f35553337b2f78c57ace642285cb2aea5c105748c64d52ac33a8fc0949cde86e40",
+        "dest": "nuget-sources",
+        "dest-filename": "microsoft.netcore.app.runtime.win-x86.8.0.30.nupkg",
+        "only-arches": [
+            "aarch64"
         ]
     },
     {
@@ -316,7 +526,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.netcore.platforms.1.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -326,7 +536,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.netcore.platforms.1.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -336,7 +546,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.netcore.targets.1.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -346,7 +556,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.netcore.targets.1.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -356,7 +566,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.testplatform.objectmodel.17.3.2.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -366,7 +576,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.testplatform.objectmodel.17.6.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -376,7 +586,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.testplatform.objectmodel.17.8.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -386,7 +596,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.testplatform.testhost.17.3.2.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -396,7 +606,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.testplatform.testhost.17.6.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -406,7 +616,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.testplatform.testhost.17.8.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -416,7 +626,7 @@
         "dest": "nuget-sources",
         "dest-filename": "microsoft.win32.primitives.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -426,7 +636,7 @@
         "dest": "nuget-sources",
         "dest-filename": "mstest.testadapter.2.2.10.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -436,7 +646,7 @@
         "dest": "nuget-sources",
         "dest-filename": "mstest.testadapter.3.0.4.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -446,7 +656,7 @@
         "dest": "nuget-sources",
         "dest-filename": "mstest.testadapter.3.1.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -456,7 +666,7 @@
         "dest": "nuget-sources",
         "dest-filename": "mstest.testframework.2.2.10.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -466,7 +676,7 @@
         "dest": "nuget-sources",
         "dest-filename": "mstest.testframework.3.0.4.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -476,7 +686,7 @@
         "dest": "nuget-sources",
         "dest-filename": "mstest.testframework.3.1.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -486,7 +696,7 @@
         "dest": "nuget-sources",
         "dest-filename": "netstandard.library.1.6.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -496,7 +706,7 @@
         "dest": "nuget-sources",
         "dest-filename": "newtonsoft.json.10.0.3.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -506,7 +716,7 @@
         "dest": "nuget-sources",
         "dest-filename": "newtonsoft.json.13.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -516,7 +726,7 @@
         "dest": "nuget-sources",
         "dest-filename": "newtonsoft.json.9.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -526,7 +736,7 @@
         "dest": "nuget-sources",
         "dest-filename": "nuget.frameworks.5.11.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -536,177 +746,7 @@
         "dest": "nuget-sources",
         "dest-filename": "nuget.frameworks.6.5.0.nupkg",
         "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.collections/4.3.0/runtime.any.system.collections.4.3.0.nupkg",
-        "sha512": "9f8833176c139b71a58694ae401c5aec209a63227be07c7ab559bef772082bd1f6cc38ba2949cb1c8e5c5514ad9f4ff51859838dc2f28191f8bb7ae611a50239",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.collections.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.diagnostics.tools/4.3.0/runtime.any.system.diagnostics.tools.4.3.0.nupkg",
-        "sha512": "bd257401e179d4b836a4a2f7236a0e303ae997d2453c946bf272036620a0b14e85e5f42c229332930a954655ab4cae359d191a3e3d9746df09535a651367764c",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.diagnostics.tools.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.diagnostics.tracing/4.3.0/runtime.any.system.diagnostics.tracing.4.3.0.nupkg",
-        "sha512": "0b480d21e23c38965222be7fa1e1a0c7e444cebdf400d1db8d3ac609f893b82d78c5d8b271da61808b7b179dd6466a0090bd807fc2d35020f93a00f0213bb436",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.diagnostics.tracing.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.globalization/4.3.0/runtime.any.system.globalization.4.3.0.nupkg",
-        "sha512": "3aac1a076212fae7d0ac81d2b5fdf216b064a1d890577307f89c9a4984c239838c3bdfac4dea052027de090704839319231eef49ce542f3e8bb2f85ba23d28dc",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.globalization.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.globalization.calendars/4.3.0/runtime.any.system.globalization.calendars.4.3.0.nupkg",
-        "sha512": "19053b502b7160af6f6b0bc5b334a8d124f77f6b4418993294fb485d0bb318cd6e97cdbda9bf8c9927366288413cad7209c9d8156a5425a6320c453a8804fb3d",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.globalization.calendars.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.io/4.3.0/runtime.any.system.io.4.3.0.nupkg",
-        "sha512": "7e0d4a238322d434a19afc79ea988d3727c1687fdd5bcd1c4c39cb6201073caabb924cc201c70545d60acf8b94cde8b783d0c268743e040c357d100677e4c5ed",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.io.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.reflection/4.3.0/runtime.any.system.reflection.4.3.0.nupkg",
-        "sha512": "293d3dd8be87e1c5cd76ece4ed64ebb5ae6b50be95a39bee401eeed64355e34641905f8c14392fbc3acf8609f5d6fca731f39ce7607962eb5951f09516480015",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.reflection.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.reflection.extensions/4.3.0/runtime.any.system.reflection.extensions.4.3.0.nupkg",
-        "sha512": "8de7a4c53fc0324e766bfec360342ee4a4b99a5975a9d61faab0a715ef71ff97aa83383a5a8affb354c02a4e2fbbb91e1b4ae6b282d2880108cb489f06aba500",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.reflection.extensions.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.reflection.primitives/4.3.0/runtime.any.system.reflection.primitives.4.3.0.nupkg",
-        "sha512": "a2f374276290ad9b799d3e49cd8fe7839c07b52f22894bcd77b9470841564319fb2ebbd7503e76feef42db4e8a362af8648cf0842a1cb0b5d9a60a58ef8b205e",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.reflection.primitives.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.resources.resourcemanager/4.3.0/runtime.any.system.resources.resourcemanager.4.3.0.nupkg",
-        "sha512": "39fab03cbade2b3848d62e137313530c06b37216e24cd58c70ed6ae54bdaf9d9613a3b410375ee167c87ff935a558b1f8766ee016b8b244fde99c38fcf42a49b",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.resources.resourcemanager.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.runtime/4.3.0/runtime.any.system.runtime.4.3.0.nupkg",
-        "sha512": "bfee3c68312296860e5459af5e770c2e9fcd4ac134361fd569a9ce1e6574b9ae3978aad403f89639a4b5bac8ee5bb0ee1b8edb819e9a60f13ca5bd1812889bbd",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.runtime.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.runtime.handles/4.3.0/runtime.any.system.runtime.handles.4.3.0.nupkg",
-        "sha512": "95cdae2867a2182535bd0f4d01dc3eff70319dff044b070ab7791fa2bf8688a69b00a279ed569b7f0c5f3e26bf705303dc344ecf7d1ea014c579436d8e7b7389",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.runtime.handles.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.runtime.interopservices/4.3.0/runtime.any.system.runtime.interopservices.4.3.0.nupkg",
-        "sha512": "70eeb2469726d092bb95568e51ba5cfdd1cc07a9e65077e2b6dd5b7c8b164d4b45c749ef4a52f45928f63a27e8accdb83b861ea73c9ad3d42dc38e6afdbd0e8c",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.runtime.interopservices.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.text.encoding/4.3.0/runtime.any.system.text.encoding.4.3.0.nupkg",
-        "sha512": "cbe6df98acd50e2251d3343620c408af56cfe7c1979277a8ec65b5eef093e93ed93c05980902a7152ed83302d5a625d7058921baa7f446c5e67194fa4c06f20a",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.text.encoding.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.text.encoding.extensions/4.3.0/runtime.any.system.text.encoding.extensions.4.3.0.nupkg",
-        "sha512": "656aa8bd9d7e19534964ac7b8405615f00359779e322d4cfe1f18c132fec4a4f52c5588bfe61cec9966a9142a73315f5d2b9e5a7c524b418364f0322b20961c3",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.text.encoding.extensions.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.threading.tasks/4.3.0/runtime.any.system.threading.tasks.4.3.0.nupkg",
-        "sha512": "5f37a56f5d6c7fc198c7ef76b822b85284f9d7d1c06583c26a698793ade65da1b273d5fb03c20be1eb91a9c835f7122ad2775f4e51dffb2758fabac2a30f8c23",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.threading.tasks.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.any.system.threading.timer/4.3.0/runtime.any.system.threading.timer.4.3.0.nupkg",
-        "sha512": "c0a1fc3661b4e21f329f88a8d2cbf7152698427778add9f850476fc9abe7cdf9b86df79362d6df025f7e15d53f5eb7937d8ac49bdef13fd9eca973a284929fcf",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.any.system.threading.timer.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -716,7 +756,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -726,7 +766,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -736,17 +776,17 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.fedora.24-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
         "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-x64.microsoft.dotnet.ilcompiler/8.0.30/runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.30.nupkg",
-        "sha512": "40554233f2832e1406fb90f5fe9eaba53ad01463574f50d90c7be6546c8ca2be951dd30595b3c9205ea8d00b23190b8237e9d39b8f05001e71a279111fef3043",
+        "url": "https://api.nuget.org/v3-flatcontainer/runtime.linux-arm64.microsoft.dotnet.ilcompiler/8.0.30/runtime.linux-arm64.microsoft.dotnet.ilcompiler.8.0.30.nupkg",
+        "sha512": "5038db029ade68161ea462790c2f160876bf720805a1955e5913c3a9a42f5f5af52db026b33eccd2f2a8b1f764bbca198d29b25607c9e9ee4f78e69534311555",
         "dest": "nuget-sources",
-        "dest-filename": "runtime.linux-x64.microsoft.dotnet.ilcompiler.8.0.30.nupkg",
+        "dest-filename": "runtime.linux-arm64.microsoft.dotnet.ilcompiler.8.0.30.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -756,7 +796,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.native.system.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -766,7 +806,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.native.system.io.compression.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -776,7 +816,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.native.system.net.http.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -786,7 +826,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.native.system.security.cryptography.apple.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -796,7 +836,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -806,7 +846,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.opensuse.13.2-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -816,7 +856,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.opensuse.42.1-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -826,7 +866,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.apple.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -836,7 +876,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.osx.10.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -846,7 +886,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.rhel.7-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -856,7 +896,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -866,7 +906,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -876,87 +916,7 @@
         "dest": "nuget-sources",
         "dest-filename": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.unix.microsoft.win32.primitives/4.3.0/runtime.unix.microsoft.win32.primitives.4.3.0.nupkg",
-        "sha512": "93e6d3db61f9c2ca2048f25990dda92acd5ec74561e0c776d2c6dd8d1d55128f2c953f33d6832fb6a72bd9edca304a2551085bdeafe6e18af87619c9ba943c32",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.unix.microsoft.win32.primitives.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.unix.system.console/4.3.0/runtime.unix.system.console.4.3.0.nupkg",
-        "sha512": "7c5cbda7d12315fff6b1e036d55ea27140de8b849f1a9705fd2710a00a2b70f06f534eb0d3e3c8ffb019e1a47d96c559ac61d5fc9d840e48f6e56542fdaccb83",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.unix.system.console.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.unix.system.diagnostics.debug/4.3.0/runtime.unix.system.diagnostics.debug.4.3.0.nupkg",
-        "sha512": "a8ce331953b1f4424aa7f4b6dfedfce9ad138940bc92f332de2bc6d05185830ec6eb832e752f62eaf425f749caadd4ea1789121cb7ed79740fa5868eba55c838",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.unix.system.diagnostics.debug.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.unix.system.io.filesystem/4.3.0/runtime.unix.system.io.filesystem.4.3.0.nupkg",
-        "sha512": "6d4c80aceffac60e1560fda34c5984bbfa2e1bd106bde2c6d3540905cc30c58e6f5f2eaf5703cef5e68e3d25a4b97982193b2db8130a50c622a498e43eb9bdca",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.unix.system.io.filesystem.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.unix.system.net.primitives/4.3.0/runtime.unix.system.net.primitives.4.3.0.nupkg",
-        "sha512": "c2a0ecf5c72b226b4776eb6281f00267827d6086a0ad758ebf6e6c64a1c148d2056fe99c87ab4207add5fa67f1db73dd1ed3dca81141fc896be6b6e98795c97e",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.unix.system.net.primitives.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.unix.system.net.sockets/4.3.0/runtime.unix.system.net.sockets.4.3.0.nupkg",
-        "sha512": "31b62be088315ead04d89f452a6c49a656b88f0668f7dadb2790511675d48705e01c9df24dbed3a0095157875c208ab6e6b5b6afc82bac13e4d6cdd3026f8424",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.unix.system.net.sockets.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.unix.system.private.uri/4.3.0/runtime.unix.system.private.uri.4.3.0.nupkg",
-        "sha512": "203ebe272791d79ab0c40afe9d0543852ee91b9fb4ae5bc15524d97728bc8bc9d7e0cbcf65d1fab8cfb0aa7a4ae37e7938933eef127aa5ea46f60e57b6ad2d91",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.unix.system.private.uri.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/runtime.unix.system.runtime.extensions/4.3.0/runtime.unix.system.runtime.extensions.4.3.0.nupkg",
-        "sha512": "54b81784c08e934389c59e6e155af6b1855e4bbc41678b01a702c94e6daba87c6ddfd16fe9e2cb61f3097bfa4950dbc37781454d027ce5ba6c50a393cc91b888",
-        "dest": "nuget-sources",
-        "dest-filename": "runtime.unix.system.runtime.extensions.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -966,7 +926,7 @@
         "dest": "nuget-sources",
         "dest-filename": "sqlitepclraw.bundle_e_sqlite3.2.1.6.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -976,7 +936,7 @@
         "dest": "nuget-sources",
         "dest-filename": "sqlitepclraw.core.2.1.6.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -986,7 +946,7 @@
         "dest": "nuget-sources",
         "dest-filename": "sqlitepclraw.lib.e_sqlite3.2.1.6.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -996,7 +956,7 @@
         "dest": "nuget-sources",
         "dest-filename": "sqlitepclraw.provider.e_sqlite3.2.1.6.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1006,7 +966,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.appcontext.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1016,7 +976,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.buffers.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1026,7 +986,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.collections.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1036,7 +996,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.collections.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1046,7 +1006,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.collections.concurrent.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1056,7 +1016,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.collections.nongeneric.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1066,7 +1026,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.collections.specialized.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1076,7 +1036,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.componentmodel.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1086,7 +1046,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.componentmodel.primitives.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1096,7 +1056,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.componentmodel.typeconverter.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1106,7 +1066,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.console.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1116,7 +1076,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.diagnostics.debug.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1126,7 +1086,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.diagnostics.debug.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1136,7 +1096,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.diagnostics.diagnosticsource.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1146,7 +1106,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.diagnostics.textwritertracelistener.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1156,7 +1116,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.diagnostics.tools.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1166,7 +1126,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.diagnostics.tools.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1176,7 +1136,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.diagnostics.tracesource.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1186,7 +1146,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.diagnostics.tracing.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1196,7 +1156,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.dynamic.runtime.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1206,7 +1166,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.dynamic.runtime.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1216,7 +1176,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.globalization.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1226,7 +1186,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.globalization.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1236,7 +1196,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.globalization.calendars.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1246,7 +1206,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.globalization.extensions.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1256,7 +1216,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1266,7 +1226,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1276,7 +1236,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.compression.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1286,7 +1246,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.compression.zipfile.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1296,7 +1256,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.filesystem.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1306,7 +1266,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.filesystem.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1316,7 +1276,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.filesystem.primitives.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1326,7 +1286,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.filesystem.primitives.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1336,7 +1296,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.io.pipelines.9.0.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1346,7 +1306,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.linq.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1356,7 +1316,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.linq.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1366,7 +1326,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.linq.expressions.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1376,7 +1336,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.linq.expressions.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1386,7 +1346,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.memory.4.5.3.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1396,17 +1356,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.net.http.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/system.net.nameresolution/4.3.0/system.net.nameresolution.4.3.0.nupkg",
-        "sha512": "40d39e131fe7a392e58e9f58b516b5db88383de91c05b771f5e509acf46cc874271e90623d327ab039003ab8f2714144694390261278de324e1aee228a828ab4",
-        "dest": "nuget-sources",
-        "dest-filename": "system.net.nameresolution.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1416,7 +1366,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.net.primitives.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1426,7 +1376,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.net.sockets.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1436,7 +1386,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.objectmodel.4.0.12.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1446,17 +1396,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.objectmodel.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/system.private.uri/4.3.0/system.private.uri.4.3.0.nupkg",
-        "sha512": "5989a57ef273b689a663e961a0fe09d9b1d88438e5478358efc4b165de3b2674fa9579c301ce12d2d2fa5f33295f2acb42eceea2ebebf70c733da6364ceaf94d",
-        "dest": "nuget-sources",
-        "dest-filename": "system.private.uri.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1466,7 +1406,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1476,7 +1416,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1486,7 +1426,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.emit.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1496,7 +1436,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.emit.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1506,7 +1446,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.emit.ilgeneration.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1516,7 +1456,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.emit.ilgeneration.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1526,7 +1466,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.emit.lightweight.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1536,7 +1476,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.emit.lightweight.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1546,7 +1486,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.extensions.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1556,7 +1496,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.extensions.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1566,7 +1506,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.metadata.1.6.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1576,7 +1516,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.primitives.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1586,7 +1526,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.primitives.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1596,7 +1536,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.typeextensions.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1606,7 +1546,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.reflection.typeextensions.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1616,7 +1556,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.resources.resourcemanager.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1626,7 +1566,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.resources.resourcemanager.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1636,7 +1576,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1646,7 +1586,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1656,7 +1596,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.extensions.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1666,7 +1606,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.extensions.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1676,7 +1616,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.handles.4.0.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1686,7 +1626,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.handles.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1696,7 +1636,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.interopservices.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1706,7 +1646,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.interopservices.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1716,7 +1656,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.interopservices.runtimeinformation.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1726,7 +1666,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.numerics.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1736,7 +1676,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.serialization.formatters.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1746,7 +1686,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.serialization.primitives.4.1.1.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1756,17 +1696,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.runtime.serialization.primitives.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/system.security.claims/4.3.0/system.security.claims.4.3.0.nupkg",
-        "sha512": "ab72b90801f6c051a2b31645448eebfca74642b3cfa1d51f80e21a0d0d7ad44d3366dea139347e2852781b7f3bae820df16c3eb188a2c96244df05394ed72c86",
-        "dest": "nuget-sources",
-        "dest-filename": "system.security.claims.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1776,7 +1706,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.security.cryptography.algorithms.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1786,7 +1716,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.security.cryptography.cng.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1796,7 +1726,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.security.cryptography.csp.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1806,7 +1736,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.security.cryptography.encoding.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1816,7 +1746,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.security.cryptography.openssl.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1826,7 +1756,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.security.cryptography.primitives.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1836,27 +1766,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.security.cryptography.x509certificates.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/system.security.principal/4.3.0/system.security.principal.4.3.0.nupkg",
-        "sha512": "db8a1ed0d189637d9ef83147550ce5da890cf6ec189a7d006ba9de86ab55679e7f025e18bdaed2dc137ddf82a7e6a0131fb4d54d4264831862b1d7c5ee62837e",
-        "dest": "nuget-sources",
-        "dest-filename": "system.security.principal.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/system.security.principal.windows/4.3.0/system.security.principal.windows.4.3.0.nupkg",
-        "sha512": "66c1d5a9d649b964e1653fa2cd41d8f80515b7cd727fcd7f0890552070da1099ecd1032560f259a108e0d1d6a6da23fa07bc5c922f426a91f33b667f7c004019",
-        "dest": "nuget-sources",
-        "dest-filename": "system.security.principal.windows.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1866,7 +1776,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.text.encoding.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1876,7 +1786,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.text.encoding.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1886,7 +1796,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.text.encoding.extensions.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1896,7 +1806,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.text.encoding.extensions.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1906,7 +1816,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.text.encodings.web.9.0.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1916,7 +1826,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.text.json.9.0.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1926,7 +1836,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.text.regularexpressions.4.1.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1936,7 +1846,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.text.regularexpressions.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1946,7 +1856,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.threading.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1956,7 +1866,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.threading.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1966,7 +1876,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.threading.tasks.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1976,7 +1886,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.threading.tasks.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1986,7 +1896,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.threading.tasks.extensions.4.0.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -1996,17 +1906,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.threading.tasks.extensions.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
-        ]
-    },
-    {
-        "type": "file",
-        "url": "https://api.nuget.org/v3-flatcontainer/system.threading.threadpool/4.3.0/system.threading.threadpool.4.3.0.nupkg",
-        "sha512": "450a40f94a48e9396979e764e494ad624d8333f3378b91ea69b23fc836df8f5c43bbd6c8cfd91da2ab95a476e1ff042338968e09b720447f2241c014bfc75159",
-        "dest": "nuget-sources",
-        "dest-filename": "system.threading.threadpool.4.3.0.nupkg",
-        "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -2016,7 +1916,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.threading.timer.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -2026,7 +1926,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.xml.readerwriter.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -2036,7 +1936,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.xml.readerwriter.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -2046,7 +1946,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.xml.xdocument.4.0.11.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -2056,7 +1956,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.xml.xdocument.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -2066,7 +1966,7 @@
         "dest": "nuget-sources",
         "dest-filename": "system.xml.xmldocument.4.3.0.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     },
     {
@@ -2076,7 +1976,7 @@
         "dest": "nuget-sources",
         "dest-filename": "zstdnet.1.4.5.nupkg",
         "only-arches": [
-            "x86_64"
+            "aarch64"
         ]
     }
 ]

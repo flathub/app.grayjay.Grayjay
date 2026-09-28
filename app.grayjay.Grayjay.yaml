@@ -42,28 +42,25 @@ modules:
       - cd native/build; cmake --build .
       - mkdir -p "${FLATPAK_DEST}/grayjay/cef"
       - mv native/build/Release/* "${FLATPAK_DEST}/grayjay/cef"
-      - chmod +x "${FLATPAK_DEST}/grayjay/cef/dotcefnative"
+      - chmod +x "${FLATPAK_DEST}/grayjay/cef/justcefnative"
     sources:
       - type: git
         url: https://gitlab.futo.org/videostreaming/JustCef.git
-        commit: 6f57f785de518901c25c73ecfbccc15e77fb5e3f
+        commit: 694e07e9830d27f16e93838a9aba61d8c0a6c736
         disable-submodules: true
         disable-lfs: true
       - type: patch
         path: patches/cef-nodownload-clangformat.patch
       - type: archive
-        # https://stackoverflow.com/a/70172000
-        
-        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal.tar.bz2?inline=false
-        sha256: 533b941af98b85971b0a21f3626ad97e611c55cad2783a1f2185593de6843b3a
-        dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linuxarm64_minimal'
+        url: http://static.grayjay.app/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linuxarm64_minimal.tar.bz2
+        sha256: 4810d777aa5d95caf61ff42f8302bfb6e34501a84605c79bb7e0f6626c17d15e
+        dest: 'native/third_party/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linuxarm64_minimal'
         only-arches:
           - aarch64
       - type: archive
-        # https://stackoverflow.com/a/70172000
-        url: https://gitlab.futo.org/videostreaming/JustCef/-/raw/master/native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal.tar.bz2?inline=false
-        sha256: b7df842e2f3d08c635d9dc230fb7f95a7ce3cafd45ae4da3e0c40638cc51bee8
-        dest: 'native/third_party/cef/cef_binary_141.0.10+g1d65b0d+chromium-141.0.7390.123_linux64_minimal'
+        url: https://static.grayjay.app/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linux64_minimal.tar.bz2
+        sha256: 5b02437815b045bcb95df2356a96d79e6ea767373bc3f98ad50530622546db42
+        dest: 'native/third_party/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linux64_minimal'
         only-arches:
           - x86_64
       - type: patch
@@ -100,7 +97,12 @@ modules:
       - type: file
         path: build-imp-shim-flatpak.sh
         dest: curlbind/scripts/linux
-
+  - name: zypak
+    sources:
+      - type: git
+        url: https://github.com/refi64/zypak
+        tag: v2025.09
+        commit: 693a71c5ffa80ec9c9ce2ae03b1ccc493c698e53
   - name: grayjay
     buildsystem: simple
     build-options:
@@ -109,6 +111,8 @@ modules:
         # tools.
         # (The directory format is: /run/build/MODULE_NAME/flatpak-node/cache)
         XDG_CACHE_HOME: ${FLATPAK_BUILDER_BUILDDIR}/flatpak-node/cache
+        # If the application uses CEF, set `ZYPAK_CEF_LIBRARY_PATH` to the absolute path to the `libcef.so` https://github.com/refi64/zypak/blob/693a71c5ffa80ec9c9ce2ae03b1ccc493c698e53/README.md?plain=1#L87
+        # ZYPAK_CEF_LIBRARY_PATH: 
         # Set the npm cache directory, used by npm to find its package metadata.
         npm_config_cache: ${FLATPAK_BUILDER_BUILDDIR}/flatpak-node/npm-cache
     build-commands:
@@ -150,7 +154,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: a8e59a4308e43549dfdd7f88e57119d69d01dd7d
+        commit: f61fca16af766639ad2527cc80d112e7b94ef1c7
         disable-lfs: true
         # x-checker-data:
         #   type: git
@@ -166,6 +170,7 @@ modules:
       - npm-sources.json
 
       - nuget-sources.json
+      - nuget-sources-arm.json
 
       # uncomment and adjust the file contents if needed
       # - type: patch
@@ -175,6 +180,6 @@ modules:
         path: patches/removeAot.patch
         options:
           - -dSyncServer
-
+      
       - type: file
         path: icon.svg

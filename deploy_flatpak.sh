@@ -29,6 +29,13 @@ fi
 
 echo "$packagecache"
 
+justcef_version=""
+if [[ "$3" != "" ]]; then
+  justcef_version="$3"
+else
+  justcef_version=$(cat "JustCef/native/src/CMakeLists.txt" | sed -n 's/.*JUSTCEF_NATIVE_VERSION=\([0-9]*\).*/\1/p')
+fi
+
 printf "Version to deploy: $version\n"
 
 dotnet_version="8.0"
@@ -41,13 +48,20 @@ else
   echo "Unsupported Arch present $FLATPAK_ARCH"
   exit 1
 fi
+
+mkdir -p "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}"
+touch "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}/JustCefNative-${runtime}.zip"
+
+ln -s "${FLATPAK_DEST}/grayjay/cef" "JustCef/cs/obj/justcef/net${dotnet_version}/${justcef_version}/${runtime}/extracted" 
+
+
 echo "Building for $runtime"
 
 OWD=$(pwd)
 
 # Publish CEF
 cd Grayjay.Desktop.CEF
-DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -c Release -p:AssemblyVersion=1.$version.0.0
+DOTNET_CLI_TELEMETRY_OPTOUT=true DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true dotnet publish --source "$packagecache" -r $runtime -p:RestoreRuntimeIdentifier=$runtime -p:RuntimeIdentifiers=$runtime -c Release -p:AssemblyVersion=1.$version.0.0
 
 rm -rf bin/Release/net$dotnet_version/$runtime/publish/cef # we already built this in a previous step
 mv bin/Release/net$dotnet_version/$runtime/publish/* "${destination}"
