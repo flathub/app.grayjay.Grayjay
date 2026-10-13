@@ -46,7 +46,7 @@ modules:
     sources:
       - type: git
         url: https://gitlab.futo.org/videostreaming/JustCef.git
-        commit: 4ee8d3a46921b0697bb1ba9878145ecf22e533f6
+        commit: 2a7f4f919c56aa29023e9df7e55d14b3df0f2843
         disable-submodules: true
         disable-lfs: true
       - type: patch
@@ -154,7 +154,7 @@ modules:
         # use if developing locally, and adjust/remove branch/tag/commit below accordingly
         # url: file:///path/to/Grayjay.Desktop 
         url: https://gitlab.futo.org/videostreaming/Grayjay.Desktop.git
-        commit: e13f4fe05ab57cfbb321b2c2787f6c0532dbe3b2
+        commit: 5cd07f79a7c9f64cd5eca174bdae36b04d1064c9
         disable-lfs: true
         # x-checker-data:
         #   type: git
