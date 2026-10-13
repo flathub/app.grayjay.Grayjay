@@ -52,15 +52,15 @@ modules:
       - type: patch
         path: patches/cef-nodownload-clangformat.patch
       - type: archive
-        url: http://static.grayjay.app/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linuxarm64_minimal.tar.bz2
+        url: https://static.grayjay.app/cef/cef_binary_154.0.32+g682c378+chromium-154.0.8037.58_linuxarm64_minimal.tar.bz2
         sha256: 4810d777aa5d95caf61ff42f8302bfb6e34501a84605c79bb7e0f6626c17d15e
-        dest: 'native/third_party/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linuxarm64_minimal'
+        dest: 'native/third_party/cef/cef_binary_154.0.32+g682c378+chromium-154.0.8037.58_linuxarm64_minimal'
         only-arches:
           - aarch64
       - type: archive
-        url: https://static.grayjay.app/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linux64_minimal.tar.bz2
-        sha256: 5b02437815b045bcb95df2356a96d79e6ea767373bc3f98ad50530622546db42
-        dest: 'native/third_party/cef/cef_binary_146.0.10+g8219561+chromium-146.0.7680.179_linux64_minimal'
+        url: https://static.grayjay.app/cef/cef_binary_154.0.32+g682c378+chromium-154.0.8037.58_linux64_minimal.tar.bz2
+        sha256: b195072781954e3dcaabefb175997143a9c852ccd4a845fb8315439308bf628d
+        dest: 'native/third_party/cef/cef_binary_154.0.32+g682c378+chromium-154.0.8037.58_linux64_minimal'
         only-arches:
           - x86_64
       - type: patch
