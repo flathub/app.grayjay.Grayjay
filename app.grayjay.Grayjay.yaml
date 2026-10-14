@@ -53,7 +53,7 @@ modules:
         path: patches/cef-nodownload-clangformat.patch
       - type: archive
         url: https://static.grayjay.app/cef/cef_binary_154.0.32+g682c378+chromium-154.0.8037.58_linuxarm64_minimal.tar.bz2
-        sha256: 4810d777aa5d95caf61ff42f8302bfb6e34501a84605c79bb7e0f6626c17d15e
+        sha256: 7007445ba9e5ce20dcb043e6e5234e161ad0dec6b40628acd1f24d62909a2e5e
         dest: 'native/third_party/cef/cef_binary_154.0.32+g682c378+chromium-154.0.8037.58_linuxarm64_minimal'
         only-arches:
           - aarch64
