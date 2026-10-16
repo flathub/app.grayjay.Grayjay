@@ -22,7 +22,7 @@ cleanup-commands:
   - rm /app/bin/patchelf
   - rm -rf /app/build/curlshim
 build-options:
-  prepend-path: /usr/lib/sdk/llvm20/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
+  prepend-path: /usr/lib/sdk/llvm22/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
   prefix: /usr/lib/sdk/llvm22:/usr/lib/sdk/dotnet8
   append-ld-library-path: /usr/lib/sdk/llvm22/lib:/usr/lib/sdk/dotnet8/lib
   prepend-pkg-config-path: /usr/lib/sdk/llvm22/pkgconfig/usr/lib/sdk/dotnet8/lib/pkgconfig
