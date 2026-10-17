@@ -1,8 +1,7 @@
 app-id: app.grayjay.Grayjay
 runtime: org.freedesktop.Platform
-runtime-version: '25.08'
+runtime-version: '26.08'
 sdk: org.freedesktop.Sdk
-
 command: Grayjay
 finish-args:
   - --share=network
@@ -18,15 +17,15 @@ finish-args:
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.dotnet8
   - org.freedesktop.Sdk.Extension.node22
-  - org.freedesktop.Sdk.Extension.llvm20
+  - org.freedesktop.Sdk.Extension.llvm22
 cleanup-commands:
   - rm /app/bin/patchelf
   - rm -rf /app/build/curlshim
 build-options:
-  prepend-path: /usr/lib/sdk/llvm20/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
-  prefix: /usr/lib/sdk/llvm20:/usr/lib/sdk/dotnet8
-  append-ld-library-path: /usr/lib/sdk/llvm20/lib:/usr/lib/sdk/dotnet8/lib
-  prepend-pkg-config-path: /usr/lib/sdk/llvm20/pkgconfig/usr/lib/sdk/dotnet8/lib/pkgconfig
+  prepend-path: /usr/lib/sdk/llvm22/bin:/usr/lib/sdk/dotnet8/bin:/usr/lib/sdk/node22/bin
+  prefix: /usr/lib/sdk/llvm22:/usr/lib/sdk/dotnet8
+  append-ld-library-path: /usr/lib/sdk/llvm22/lib:/usr/lib/sdk/dotnet8/lib
+  prepend-pkg-config-path: /usr/lib/sdk/llvm22/pkgconfig/usr/lib/sdk/dotnet8/lib/pkgconfig
 modules:
   - name: dotnet
     buildsystem: simple
