@@ -50,8 +50,8 @@ jobs:
           sudo apt-get install -y flatpak
           # Additional Flatpak setup commands, e.g., adding remotes, installing runtimes/SDKs
           flatpak remote-add --if-not-exists --user flathub https://flathub.org/repo/flathub.flatpakrepo
-          flatpak install -y --user org.freedesktop.Sdk/aarch64/25.08
-          flatpak install -y --user org.freedesktop.Sdk.Extension.dotnet8/aarch64/25.08
+          flatpak install -y --user org.freedesktop.Sdk/aarch64/26.08
+          flatpak install -y --user org.freedesktop.Sdk.Extension.dotnet8/aarch64/26.08
 
       - name: Run Submodule Script
         # Make sure your script has execute permissions (+x) in the repository
@@ -59,7 +59,7 @@ jobs:
           # Navigate to the target repository directory
           cd flathub
 
-          python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-arm.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop 25.08 --dotnet 8 --only-arches aarch64
+          python3 ./flatpak-builder-tools/dotnet/flatpak-dotnet-generator.py nuget-sources-arm.json ../Grayjay.Desktop/Grayjay.Desktop.sln --freedesktop 26.08 --dotnet 8 --only-arches aarch64
 
           cd .. # Go back to the workflow root
 
